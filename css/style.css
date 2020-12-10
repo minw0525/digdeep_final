@@ -3,8 +3,8 @@
     font-style: normal;
     font-weight: 500;
     src: local('아리따-돋움(OTF)'),
-        url('./webfont/AritaDotumMedium.woff2') format('woff2'),
-        url('./webfont/AritaDotumMedium.eot') format('embedded-opentype');
+        url('webfont/AritaDotumMedium.woff2') format('woff2'),
+        url('webfont/AritaDotumMedium.eot') format('embedded-opentype');
 }
 
 @font-face {
