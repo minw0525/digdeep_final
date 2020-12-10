@@ -96,7 +96,7 @@ const renderMain = {
 		outline : 'none', 
 		borderLeft: 'none'
 	},
-	about : $('<div>').attr('class', 'item about').css('background',`url(\'../image/shovels.jpeg\') center center / contain no-repeat white`),
+	about : $('<div>').attr('class', 'item about'),
 	info : $('<div>').attr('class', 'info hidden'),
 	title : $('<p>').attr('class','title').text('Dig deep'),
 	keynote : $('<p>'),

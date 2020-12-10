@@ -278,7 +278,8 @@ video {
     grid-column: 8/10;
     grid-row: 1/5;
     min-width: 320px;
-    background-color: url('../image/shovels.jpeg'centercenter/containno-repeatwhite);
+    background: url('../image/shovels.jpeg') center center / contain no-repeat
+        white;
 }
 .info {
     padding: 4rem 2rem 0 2.5rem;
