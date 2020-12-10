@@ -3,8 +3,8 @@
     font-style: normal;
     font-weight: 500;
     src: local('아리따-돋움(OTF)'),
-        url('../webfont/AritaDotumMedium.woff2') format('woff2'),
-        url('../webfont/AritaDotumMedium.eot') format('embedded-opentype');
+        url('/webfont/AritaDotumMedium.woff2') format('woff2'),
+        url('/webfont/AritaDotumMedium.eot') format('embedded-opentype');
 }
 
 @font-face {
@@ -12,8 +12,8 @@
     font-style: normal;
     font-weight: 600;
     src: local('아리따-돋움(OTF)'),
-        url('../webfont/AritaDotumSemiBold.woff2') format('woff2'),
-        url('../webfont/AritaDotumSemiBold.eot') format('embedded-opentype');
+        url('/webfont/AritaDotumSemiBold.woff2') format('woff2'),
+        url('/webfont/AritaDotumSemiBold.eot') format('embedded-opentype');
 }
 
 @font-face {
@@ -21,33 +21,33 @@
     font-style: normal;
     font-weight: 700;
     src: local('아리따-돋움(OTF)'),
-        url('../webfont/AritaDotumBold.woff2') format('woff2'),
-        url('../webfont/AritaDotumBold.eot') format('embedded-opentype');
+        url('/webfont/AritaDotumBold.woff2') format('woff2'),
+        url('/webfont/AritaDotumBold.eot') format('embedded-opentype');
 }
 
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 500;
-    src: url('../webfont/CovikSansMono-Medium.woff2') format('woff2');
+    src: url('/webfont/CovikSansMono-Medium.woff2') format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: italic;
     font-weight: 500;
-    src: url('../webfont/CovikSansMono-MediumItalic.woff2') format('woff2');
+    src: url('/webfont/CovikSansMono-MediumItalic.woff2') format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 600;
-    src: url('../webfont/CovikSansMono-Semibold.woff2') format('woff2');
+    src: url('/webfont/CovikSansMono-Semibold.woff2') format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 700;
-    src: url('../webfont/CovikSansMono-Bold.woff2') format('woff2');
+    src: url('/webfont/CovikSansMono-Bold.woff2') format('woff2');
 }
 
 :root {
@@ -66,7 +66,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: content-box;
+    box-sizing: border-box;
     font-family: var(--font_family);
 }
 html {
@@ -81,6 +81,8 @@ body {
 }
 .item {
     background-color: white;
+    outline: 1px solid black;
+    border: 1px solid black;
     overflow: auto;
     -ms-overflow-style: none; // IE and Edge
     scrollbar-width: none; // Firefox
@@ -102,11 +104,11 @@ div {
     hyphens: auto;
 }
 a {
-    cursor: url('../image/cur_hover.png'), pointer;
+    cursor: url('/image/cur_hover.png'), pointer;
     text-decoration: none;
 }
 a:active {
-    cursor: url('../image/cur_pointer.png'), pointer;
+    cursor: url('/image/cur_pointer.png'), pointer;
 }
 a:link,
 a:visited {
@@ -115,17 +117,17 @@ a:visited {
 
 /*global*/
 .all-wrapper {
-    background-color: black;
+    background-color: white// black;
     height: 100vh;
     display: grid;
     grid-template-rows: 60px 1fr;
     grid-template-columns:
         repeat(3, minmax(100px, 1fr)) repeat(5, minmax(0, 1fr))
         170px 170px;
-    gap: 2px;
+    //gap: 2px;
     overflow: hidden;
     min-width: 768px;
-    cursor: url('../image/cur_default.png'), auto;
+    cursor: url('/image/cur_default.png'), auto;
 }
 .header {
     width: 100%;
@@ -136,7 +138,7 @@ a:visited {
             minmax(0, 1fr)
         );
     align-items: center;
-    gap: 2px;
+    //gap: 2px;
     overflow-x: hidden;
 }
 .header > div {
@@ -169,11 +171,11 @@ a:visited {
     font-size: calc(var(--font_big) * 0.9);
 }
 .altLangOn {
-    cursor: url('../image/cur_hover.png'), pointer;
+    cursor: url('/image/cur_hover.png'), pointer;
     opacity: 0.2;
 }
 .altLangOn:active {
-    cursor: url('../image/cur_pointer.png'), pointer;
+    cursor: url('/image/cur_pointer.png'), pointer;
 }
 .altLangOn:hover {
     color: var(--blue);
@@ -197,7 +199,7 @@ a:visited {
         repeat(3, minmax(100px, 1fr)) repeat(5, minmax(0, 1fr))
         170px 170px;
     grid-template-rows: 1fr;
-    gap: 2px;
+    //gap: 2px;
 }
 
 /* main page style*/
@@ -206,7 +208,7 @@ a:visited {
     grid-column: 1/8;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(4, minmax(120px, 25%));
-    gap: 2px;
+    //gap: 2px;
     background-color: black;
     overflow-x: scroll;
 }
@@ -307,7 +309,7 @@ video {
     grid-column: 1/4;
     display: grid;
     grid-template-rows: 2fr 1fr;
-    gap: 2px;
+    //gap: 2px;
     min-width: 300px;
 }
 .personal {
@@ -317,7 +319,7 @@ video {
     flex-direction: column;
 }
 .personal > div {
-    flex: 1 1 auto;
+    flex: 1 1 calc(100% - 80px);
     position: relative;
     display: flex;
     align-items: center;
@@ -413,7 +415,7 @@ video {
     grid-row: 1/2;
     display: grid;
     grid-template-columns: repeat(4, minmax(200px, 1fr));
-    gap: 2px;
+    //gap: 2px;
     overflow-x: auto;
 }
 .team {
@@ -450,7 +452,7 @@ video {
     min-width: 320px;
     display: grid;
     grid-template-rows: 1fr 1fr;
-    gap: 2px;
+    //gap: 2px;
 }
 .personalInfo {
     grid-row: 1/2;
@@ -495,7 +497,7 @@ video {
     position: relative;
 }
 .shovel {
-    background: url('../image/singleshovel.png') center center / contain no-repeat;
+    background: url('/image/singleshovel.png') center center / contain no-repeat;
     transform: rotate(50deg);
     position: absolute;
     width: 66%;
