@@ -93,7 +93,7 @@ function renderMain(data){
 	//$('.logo h1').css('grid-column','1/3');
 	//$('.nameTag').remove();
 	
-	const about = $('<div>').attr('class', 'item about').css('background',`url(\'../image/shovels.jpeg\') center center / contain no-repeat white`).appendTo(gC);
+	const about = $('<div>').attr('class', 'item about').css('background',`url(\'image/shovels.jpeg\') center center / contain no-repeat white`).appendTo(gC);
 	const info = $('<div>').attr('class', 'info hidden').appendTo(about);
 	about.hover(function(){
 		info.toggleClass('hidden');
@@ -102,7 +102,7 @@ function renderMain(data){
 	},function(){
 		info.toggleClass('hidden');
 		info.toggleClass('showed');
-		about.css('background', `url(\'../image/shovels.jpeg\') center center / contain no-repeat white`);
+		about.css('background', `url(\'image/shovels.jpeg\') center center / contain no-repeat white`);
 	})
 	const title = $('<p>').attr('class','title').text('Dig deep');
 	const keynote = $('<p>');
@@ -123,7 +123,7 @@ function renderMain(data){
 		const video = $('<video>').attr({src: `video/${data[i][currLang].query}_300px.mp4`, type: 'video/mp4'}).prop({ autoplay: true, muted: true, loop: true,})
 		video.appendTo(item);//샘플
 
-		const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'../image/thumbnail_${data[i]['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item)
+		const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'image/thumbnail_${data[i]['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item)
 		console.log(currLang);
 		// work link
 		const workLink = $('<a>').attr('class','personalLink spa').appendTo(wrappingBlock);
@@ -237,7 +237,7 @@ function renderProject(data){
 
 		for(let j = 0; j<6; j++){
 			const stickImg = $('<div>');
-			stickImg.attr('class', 'stick stick-img').css('background-image', `url(/image/sticky_${targetData[currLang].query}_${j+1}.png)`).appendTo(stickyBox);
+			stickImg.attr('class', 'stick stick-img').css('background-image', `url(image/sticky_${targetData[currLang].query}_${j+1}.png)`).appendTo(stickyBox);
 		}
 	}
 
