@@ -189,31 +189,34 @@ const renderProject = {
 	descrText : $('<p>').attr('data-detect','description'),
 	stickyWrapper : $('<div>').attr('class','stickyWrapper item'),
 	stickyBox : $('<div>'),
-	stickyImg : (data)=>{
+	stickyImg : function(data){
+		const targetData = this.findTargetData(data);
 		for(let i=0; i<2; i++){
 			const spacer = $('<div>');
-			spacer.attr('class','stick spacer').appendTo(stickyBox);
+			spacer.attr('class','stick spacer').appendTo(this.stickyBox);
 
 			if(i===1) break;
 
 			for(let j = 0; j<6; j++){
 				const stickImg = $('<div>');
-				stickImg.attr('class', 'stick stick-img').css('background-image', `url(./image/sticky_${targetData[currLang].query}_${j+1}.png)`).appendTo(stickyBox);
+				stickImg.attr('class', 'stick stick-img').css('background-image', `url(./image/sticky_${targetData[currLang].query}_${j+1}.png)`).appendTo(this.stickyBox);
 			}
 		}
 	},
-	sortedData : function(data){Methods.sortData(data)},
 	index : $('<div>').attr('class', 'index item'),
-	indexCreate : function(data){
-		$('.index').empty();
+	indexCreate : function(){
+		$(this.index).empty();
 		//const sortedData = Methods.sortData(data);
 		for(let i = 0; i<28; i++){
-			$('<a>').attr('class', `indexA index${i}`).appendTo($('.index'));
+			console.log(i);
+			$('<a>').attr('class', `indexA index${i}`).appendTo($(this.index));
 		}
 
 	},
 	indexFill : function(data){
-		$.each(this.sortedData(data),(i, item)=>{
+		const sortedData = Methods.sortData(data);
+		console.log(sortedData);
+		$.each(sortedData,(i, item)=>{
 			let indexLink = $('a.indexA')[i];
 			indexLink.classList.remove('clicked')
 			if(currLang === 'en'){
@@ -222,7 +225,7 @@ const renderProject = {
 				indexLink.setAttribute('href','?student='+item['ko'].query);
 			}
 			indexLink.setAttribute('class',`${item['ko'].query} indexSpa`);
-			indexLink.innerhtml(`<p>${item[currLang].name}</p>`);
+			indexLink.innerHTML = `<p>${item[currLang].name}</p>`;
 			if(item[currLang].query === paramsObj.student){
 				console.log(item[currLang].query);
 				Methods.styleClicked(indexLink);
@@ -235,10 +238,12 @@ const renderProject = {
 		gC.css(this.gCstyle).append(this.leftPannel, this.stickyWrapper, this.index);
 		$('.titleName').css(this.tNstyle);
 		this.personal.appendTo(this.leftPannel).append(this.vidWrapper, this.urlBox);
-		this.diggingVid.appendTo(this.vidWrapper)
-		this.urlLink.appendTo(this.urlBox)
+		this.diggingVid.appendTo(this.vidWrapper);
+		this.urlLink.appendTo(this.urlBox);
+		this.description.appendTo(this.leftPannel);
 		this.descrBox.appendTo(this.description).append(this.descrText)
 		this.stickyBox.appendTo(this.stickyWrapper);
+		this.indexCreate();
 	},
 
 	fillDiv : function(data){
@@ -246,7 +251,7 @@ const renderProject = {
 		this.urlAttr.href = `https://${targetData[currLang].url}`;
 		this.urlAttr.title = targetData[currLang].name;
 		this.urlLink.attr(this.urlAttr);
-		Methods.styleClickable(this.urlAttr);
+		Methods.styleClickable(this.urlLink);
 		this.diggingVid.attr('src', `./video/${targetData[currLang].query}_750px.mp4`);
 		let changeList = Array.prototype.slice.call($('[data-detect]'))
 		changeList.map(v=>{
@@ -458,13 +463,13 @@ const Methods = {
 		return sortedData;
 	},
 	styleClickable : (el)=>{
-		el.classList.add('clickable')
+		el.addClass('clickable')
 	},
 	styleClicked : (el)=>{
-		el.classList.add('clicked')
+		el.addClass('clicked')
 	},
 	styleHover : (el)=>{
-		el.classList.add('hover')
+		el.addClass('hover')
 	},
 	makeMultilingual: (el)=>{
 		el.multilingual([
