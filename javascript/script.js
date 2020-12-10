@@ -126,7 +126,7 @@ const renderMain = {
 			}).prop({ 
 				autoplay: true, muted: true, loop: true
 			}).appendTo(item);
-			const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'../image/thumbnail_${target['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item);
+			const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'./image/thumbnail_${target['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item);
 			const workLink = $('<a>').attr('class','personalLink spa').appendTo(wrappingBlock);
 			this.attachHover(item, wrappingBlock);
 		}
@@ -141,7 +141,7 @@ const renderMain = {
 		}
 		for(const target of data){
 			const i = data.indexOf(target);
-			$('video')[i].setAttribute('src', `video/${target[currLang].query}_300px.mp4`);
+			$('video')[i].setAttribute('src', `./video/${target[currLang].query}_300px.mp4`);
 			const workLink = $('a.personalLink')[i];
 			if(currLang === 'en'){
 				workLink.setAttribute('href',`./project?student=${target[currLang].query}&lang=en`);
@@ -200,7 +200,7 @@ const renderProject = {
 
 			for(let j = 0; j<6; j++){
 				const stickImg = $('<div>');
-				stickImg.attr('class', 'stick stick-img').css('background-image', `url(/image/sticky_${targetData[currLang].query}_${j+1}.png)`).appendTo(stickyBox);
+				stickImg.attr('class', 'stick stick-img').css('background-image', `url(./image/sticky_${targetData[currLang].query}_${j+1}.png)`).appendTo(stickyBox);
 			}
 		}
 	},
@@ -249,7 +249,7 @@ const renderProject = {
 		this.urlAttr.title = targetData[currLang].name;
 		this.urlLink.attr(this.urlAttr);
 		Methods.styleClickable(this.urlAttr);
-		this.diggingVid.attr('src', `video/${targetData[currLang].query}_750px.mp4`);
+		this.diggingVid.attr('src', `./video/${targetData[currLang].query}_750px.mp4`);
 		let changeList = Array.prototype.slice.call($('[data-detect]'))
 		changeList.map(v=>{
 			v.innerHTML = targetData[currLang][v.dataset.detect]
@@ -358,8 +358,7 @@ const renderCredit = {
 				Methods.styleClicked(el);
 				//video src 끼워넣기
 				shovel.css('display','none');
-				//diggingman.css('display', 'block').attr('src', `/video/${target.name}.mp4`)
-				diggingman.css('display', 'block').attr('src', `/video/${target.query}_750px.mp4`)//샘플
+				diggingman.css('display', 'block').attr('src', `./video/${target.query}_750px.mp4`)//샘플
 
 				//선택자 하이라이트, 인포창 띄우기
 				$('.infoWrapper').remove();
