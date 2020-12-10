@@ -198,7 +198,7 @@ function renderProject(data){
 	const vidWrapper = $('<div>').appendTo(personal)
 
 	//const diggingVid = $('<video autoplay muted loop>')
-	const diggingVid = $('<video autoplay muted loop>').attr('src', `video/${targetData['ko'].name}_750px.mp4`).appendTo(vidWrapper);
+	const diggingVid = $('<video autoplay muted loop>').attr('src', `video/${targetData['ko'].query}_750px.mp4`).appendTo(vidWrapper);
 	const urlBox = $('<span>').attr('class', 'url').appendTo(personal);
 
 	const urlLink = $('<a>Digging location→</a>');
