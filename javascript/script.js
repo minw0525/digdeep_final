@@ -62,12 +62,12 @@ function checkUrl(url){
 				console.log(pageIdx)
 				return pageIdx;
 
-			case "/digdeep_final/project":
+			case "/digdeep_final/project" :
 				pageIdx = 2;
 				console.log(pageIdx);
 				return pageIdx;
 
-			case "/digdeep_final/credit':
+			case "/digdeep_final/credit" :
 				pageIdx = 3;
 				console.log(pageIdx)
 				return pageIdx;
