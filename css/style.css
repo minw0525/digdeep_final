@@ -312,25 +312,32 @@ video {
 }
 .personal {
     grid-row: 1/2;
-    max-height: calc(200vh / 3);
     padding: 0 25px;
+    display: flex;
+    flex-direction: column;
 }
 .personal > div {
-    height: calc(100% - 70px);
+    flex: 1 1 auto;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: auto;
+    overflow: hidden;
 }
 .personal video {
-    position: absolute;
     height: -webkit-fill-available;
 }
 .personal > .url {
     position: relative;
+    flex: 0 0 80px;
     top: 5px;
-    left: -25px;
+    padding-bottom: 15px;
     font-size: var(--font_big);
     font-weight: 600;
     display: block;
     text-align: center;
+    bottom: 0;
 }
 .description {
     grid-row: 2/3;
