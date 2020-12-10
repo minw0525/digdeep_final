@@ -40,7 +40,7 @@ function checkUrl(url){
 				break;
 			case 'en':
 				currLang = 'en'
-				let href = window.location.search;
+				let href = window.location.href;
 				href = href.replace(langPart,'');
 				$('a[data-altLang=ko]').attr('href', href);
 				$('a[data-altLang=ko] span').addClass('altLangOn');
