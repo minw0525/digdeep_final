@@ -3,8 +3,8 @@
     font-style: normal;
     font-weight: 500;
     src: local('아리따-돋움(OTF)'),
-        url('/webfont/AritaDotumMedium.woff2') format('woff2'),
-        url('/webfont/AritaDotumMedium.eot') format('embedded-opentype');
+        url('../webfont/AritaDotumMedium.woff2') format('woff2'),
+        url('../webfont/AritaDotumMedium.eot') format('embedded-opentype');
 }
 
 @font-face {
@@ -12,8 +12,8 @@
     font-style: normal;
     font-weight: 600;
     src: local('아리따-돋움(OTF)'),
-        url('/webfont/AritaDotumSemiBold.woff2') format('woff2'),
-        url('/webfont/AritaDotumSemiBold.eot') format('embedded-opentype');
+        url('../webfont/AritaDotumSemiBold.woff2') format('woff2'),
+        url('../webfont/AritaDotumSemiBold.eot') format('embedded-opentype');
 }
 
 @font-face {
@@ -21,33 +21,33 @@
     font-style: normal;
     font-weight: 700;
     src: local('아리따-돋움(OTF)'),
-        url('/webfont/AritaDotumBold.woff2') format('woff2'),
-        url('/webfont/AritaDotumBold.eot') format('embedded-opentype');
+        url('../webfont/AritaDotumBold.woff2') format('woff2'),
+        url('../webfont/AritaDotumBold.eot') format('embedded-opentype');
 }
 
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 500;
-    src: url('/webfont/CovikSansMono-Medium.woff2') format('woff2');
+    src: url('../webfont/CovikSansMono-Medium.woff2') format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: italic;
     font-weight: 500;
-    src: url('/webfont/CovikSansMono-MediumItalic.woff2') format('woff2');
+    src: url('../webfont/CovikSansMono-MediumItalic.woff2') format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 600;
-    src: url('/webfont/CovikSansMono-Semibold.woff2') format('woff2');
+    src: url('../webfont/CovikSansMono-Semibold.woff2') format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 700;
-    src: url('/webfont/CovikSansMono-Bold.woff2') format('woff2');
+    src: url('../webfont/CovikSansMono-Bold.woff2') format('woff2');
 }
 
 :root {
