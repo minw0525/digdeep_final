@@ -241,7 +241,7 @@ const renderProject = {
 		const targetData = this.findTargetData(data);
 		console.log(targetData)
 		this.urlAttr.href = `https://${targetData[currLang].url}`;
-		this.urlAttr.title = targetData[currLang].name;
+		this.urlAttr.title = `https://${targetData[currLang].url}`;
 		this.urlLink.attr(this.urlAttr);
 		Methods.styleClickable(this.urlLink[0]);
 		this.diggingVid.attr('src', `./video/${targetData[currLang].query}_750px.mp4`);
