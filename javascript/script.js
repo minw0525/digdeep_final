@@ -269,6 +269,7 @@ const renderProject = {
 		}else if(currLang === 'en'){
 			ko[0].href = `?student=${paramsObj.student}`
 		}
+		Methods.makeMultilingual(gC);
 	}
 }
 
@@ -401,11 +402,6 @@ const renderCredit = {
 				Methods.styleClickable($('.whichUrl a')[0]);
 				$('.insta>span:last-child').text(target.personalUrl);
 				$('.contact>span:last-child').text(target.email);
-				(()=>{
-					$(".infoWrapper").multilingual([
-						'en', 'num'
-					]);
-				})();
 				Methods.makeMultilingual($(".infoWrapper"));
 			}
 		})
@@ -467,6 +463,7 @@ function load(url){
 			}
 		})
 	})()
+	Methods.makeMultilingual(gC);
 }
 /*
 const projectRefill = (data, paramStr)=>{
