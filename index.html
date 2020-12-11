@@ -95,5 +95,15 @@
 			<div class="photo" onclick="init"></div>
 		</div>
 		<script src="javascript/jquery.multilingual.min.js"></script>
+		<script>
+		    const init = function(){
+			    document.querySelector('#photoDiv').style.visibility='hidden';
+	            load(url);
+            	setTimeout(loading, 4000);
+             	function loading(){
+        		document.querySelector('#loadingBox').style.visibility='hidden';
+	            }
+            }
+        </script>
 	</body>
 </html>

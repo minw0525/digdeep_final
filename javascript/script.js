@@ -444,7 +444,7 @@ function router(path) {
 	(route[path] || route.otherwise)(path);
 }
 
-const load = (url)=>{
+function load(url){
 	$('.grid-container *').each((i,e)=>{
 		e.remove();
 	});
@@ -561,7 +561,7 @@ $(document).on('click', 'a.spa', function(e){ // pjax라는 클래스를 가진 
     return false;
 });
 */
-
+/*
 const init = function(){
 	document.querySelector('#photoDiv').style.visibility='hidden';
 	load(url);
@@ -569,4 +569,4 @@ const init = function(){
 	function loading(){
 		document.querySelector('#loadingBox').style.visibility='hidden';
 	}
-}
+}*/
