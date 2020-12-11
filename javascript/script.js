@@ -158,12 +158,10 @@ const renderProject = {
 		borderLeft: '1px solid black'
 	},
 	findTargetData : (data)=>{
-		console.log(currLang);
 		const isTarget = function(el){
 			if(el[currLang].query === paramsObj.student) return true;
 		};
 		const targetData = data.find(isTarget);
-		console.log(`data found: ${targetData}`)
 		return targetData;
 	},
 	urlAttr : {
@@ -185,34 +183,33 @@ const renderProject = {
 	stickyBox : $('<div>'),
 
 	index : $('<div>').attr('class', 'index item'),
-	indexCreate : function(){
-		$(this.index).empty();
-		//const sortedData = Methods.sortData(data);
-		for(let i = 0; i<28; i++){
-			$('<a>').attr('class', `index${i} indexSpa`).appendTo($(this.index));
-		}
-
-	},
-	indexFill : function(data){
+	indexCreate : function(data){
 		const sortedData = Methods.sortData(data);
 		console.log(sortedData);
+		$(this.index).empty();
+		//const sortedData = Methods.sortData(data);
 		$.each(sortedData,(i, item)=>{
-			let indexLink = $('a.indexSpa')[i];
-			indexLink.classList.remove('clicked')
+			const indexName = $('<p>').attr({
+				class : 'indexName',
+				id: item['en'].query
+			}).appendTo($(this.index));
+			const indexLink = $('<a>').attr('class','indexSpa').html(item[currLang].name).appendTo(indexName);
 			if(currLang === 'en'){
-				indexLink.setAttribute('href','?student='+item['en'].query+'&lang=en');
+				indexLink.attr('href','?student='+item['en'].query+'&lang=en');
 			}else{
-				indexLink.setAttribute('href','?student='+item['ko'].query);
-			}
-			indexLink.innerHTML = `<p>${item[currLang].name}</p>`;
-			if(item[currLang].query === paramsObj.student){
-				console.log(item[currLang].query);
-				Methods.styleClicked(indexLink);
+				indexLink.attr('href','?student='+item['en'].query);
 			}
 		})
 	},
-
-	createDiv : function(){
+	//z
+	indexHighlight : function(){
+		$('.indexName').each((i, item)=>{
+			item.classList.remove('clicked');
+			if(item.getAttribute('id') === paramsObj.student){
+				Methods.styleClicked(item);
+			}})
+	},
+	createDiv : function(data){
 		gC.css(this.gCstyle).append(this.leftPannel, this.stickyWrapper, this.index);
 		$('.titleName').css(this.tNstyle);
 		this.personal.appendTo(this.leftPannel).append(this.vidWrapper, this.urlBox);
@@ -221,11 +218,12 @@ const renderProject = {
 		this.description.appendTo(this.leftPannel);
 		this.descrBox.appendTo(this.description).append(this.descrText)
 		this.stickyBox.appendTo(this.stickyWrapper);
-		this.indexCreate();
+		this.indexCreate(data);
 	},
 	stickyImg : function(data){
 		console.log(currLang);
 		const targetData = this.findTargetData(data);
+		this.stickyBox.empty();
 		for(let i=0; i<2; i++){
 			const spacer = $('<div>');
 			spacer.attr('class','stick spacer').appendTo(this.stickyBox);
@@ -241,6 +239,7 @@ const renderProject = {
 	fillDiv : function(data){
 		$('.stickyWrapper div').scrollTop(0);
 		const targetData = this.findTargetData(data);
+		console.log(targetData)
 		this.urlAttr.href = `https://${targetData[currLang].url}`;
 		this.urlAttr.title = targetData[currLang].name;
 		this.urlLink.attr(this.urlAttr);
@@ -254,7 +253,7 @@ const renderProject = {
 		$('.stick-img').each(function(i, e){
 			e.style.backgroundImage=`url(./image/sticky_${targetData[currLang].query}_${i+1}.png)`
 		})
-		this.indexFill(data)
+		this.indexHighlight();
 	},
 	onlyProjectFill : function(href, data){
 		href.replace(
@@ -424,7 +423,7 @@ const route = {
 	'2': async () => {
 		await getData('https://minw0525.github.io/digdeep_final/data/json2_project.json')
 			.then((res) => {
-				renderProject.createDiv();
+				renderProject.createDiv(res);
 				renderProject.fillDiv(res);
 			})	
 	},
