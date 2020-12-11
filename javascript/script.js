@@ -261,6 +261,14 @@ const renderProject = {
 		);
 		console.log(paramsObj);
 		this.fillDiv(data);
+
+		const ko = $('a[data-altLang=ko]');
+		const en = $('a[data-altLang=en]');
+		if(currLang === 'ko'){
+			en[0].href = `?student=${paramsObj.student}&lang=en`
+		}else if(currLang === 'en'){
+			ko[0].href = `?student=${paramsObj.student}`
+		}
 	}
 }
 
@@ -384,15 +392,15 @@ const renderCredit = {
 				$('span').not(this).removeClass('clicked');
 				$('.touchMe').css('display', 'none');
 				renderCredit.infoWrapper.appendTo(renderCredit.personalInfo)
-				$('.whichTeam span:first-child').text(`${target.team} ${target.role}`);
-				$('.whichTeam span:last-child').text(target.name);
+				$('.whichTeam>span:first-child').text(`${target.team} ${target.role}`);
+				$('.whichTeam>span:last-child').text(target.name);
 				$('.whichUrl a').text(target.url).attr({
 					'href': `https://${target.url}`, 
 					'target': 'blank'
 				});
 				Methods.styleClickable($('.whichUrl a')[0]);
-				$('.insta span:last-child').text(target.personalUrl);
-				$('.contact span:last-child').text(target.email);
+				$('.insta>span:last-child').text(target.personalUrl);
+				$('.contact>span:last-child').text(target.email);
 				(()=>{
 					$(".infoWrapper").multilingual([
 						'en', 'num'

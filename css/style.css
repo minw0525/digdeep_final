@@ -124,7 +124,6 @@ a:visited {
     grid-template-columns:
         repeat(3, minmax(100px, 1fr)) repeat(5, minmax(0, 1fr))
         170px 170px;
-    //gap: 2px;
     overflow: hidden;
     min-width: 768px;
     cursor: url('../image/cur_default.png'), auto;
@@ -138,7 +137,6 @@ a:visited {
             minmax(0, 1fr)
         );
     align-items: center;
-    //gap: 2px;
     overflow-x: hidden;
 }
 .header > div {
@@ -162,10 +160,10 @@ a:visited {
     font-size: var(--font_big);
     padding: 0 40px;
 }
-.titleName .title{
-    display:-ms-flexbox;
-    display:-moz-box;
-    display:-webkit-box;
+.titleName .title {
+    display: -ms-flexbox;
+    display: -moz-box;
+    display: -webkit-box;
     -ms-flex-direction: row;
     -moz-box-orient: vertical;
     -webkit-box-orient: vertical;
@@ -211,7 +209,6 @@ a:visited {
         repeat(3, minmax(100px, 1fr)) repeat(5, minmax(0, 1fr))
         170px 170px;
     grid-template-rows: 1fr;
-    //gap: 2px;
 }
 
 /* main page style*/
@@ -220,8 +217,8 @@ a:visited {
     grid-column: 1/8;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(4, minmax(120px, 25%));
-    //gap: 2px;
     background-color: black;
+    overflow: auto;
 }
 .booth {
     min-width: 120px;
@@ -322,7 +319,6 @@ video {
     grid-column: 1/4;
     display: grid;
     grid-template-rows: 2fr 1fr;
-    //gap: 2px;
     min-width: 300px;
     height: calc(100vh - 60px);
 }
@@ -404,9 +400,9 @@ video {
     height: calc(100vh - 60px);
     text-align: center;
 }
-.indexName{
-    padding: 5px; 0;
-    outline: 1px solid black;  
+.indexName {
+    padding: 5px 0;
+    outline: 1px solid black;
 }
 .index a {
     font-size: var(--font_mid);
@@ -425,7 +421,6 @@ video {
     grid-row: 1/2;
     display: grid;
     grid-template-columns: repeat(4, minmax(200px, 1fr));
-    //gap: 2px;
     overflow-x: auto;
 }
 .team {
@@ -462,7 +457,6 @@ video {
     min-width: 320px;
     display: grid;
     grid-template-rows: 1fr 1fr;
-    //gap: 2px;
 }
 .personalInfo {
     grid-row: 1/2;
@@ -588,7 +582,8 @@ p.clicked {
 .clickable {
     color: var(--blue) !important;
 }
-.inCharge:hover, .clickable:hover{
+.inCharge:hover,
+.clickable:hover {
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.4rem;
