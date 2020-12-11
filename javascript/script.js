@@ -175,7 +175,7 @@ const renderProject = {
 	personal : $('<div>').attr('class', 'personal item'),
 	vidWrapper : $('<div>'),
 	diggingVid : $('<video autoplay muted loop>').attr('type','video/mp4'),
-	urlBox : $('<span>').attr('class', 'url').appendTo(this.personal),
+	urlBox : $('<span>').attr('class', 'url'),
 	urlLink : $('<a>Digging location→</a>'),
 	description : $('<div>').attr('class','description item'),
 	descrBox : $('<div>').attr('class','descrBox'),
@@ -237,7 +237,7 @@ const renderProject = {
 		}
 	},
 	fillDiv : function(data){
-		$('.stickyWrapper div').scrollTop(0);
+		$('.stickyWrapper').scrollTop(0);
 		const targetData = this.findTargetData(data);
 		console.log(targetData)
 		this.urlAttr.href = `https://${targetData[currLang].url}`;

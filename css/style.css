@@ -210,7 +210,6 @@ a:visited {
     grid-template-rows: repeat(4, minmax(120px, 25%));
     //gap: 2px;
     background-color: black;
-    overflow-x: scroll;
 }
 .booth {
     min-width: 120px;
@@ -313,12 +312,14 @@ video {
     grid-template-rows: 2fr 1fr;
     //gap: 2px;
     min-width: 300px;
+    height: calc(100vh - 60px);
 }
 .personal {
     grid-row: 1/2;
     padding: 0 25px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 .personal > div {
     flex: 1 1 calc(100% - 80px);
@@ -367,9 +368,6 @@ video {
     flex-direction: column;
     top: 0;
     height: calc(100vh - 60px);
-}
-.stickyWrapper div {
-    overflow: scroll;
 }
 .stick {
     max-width: 100%;
