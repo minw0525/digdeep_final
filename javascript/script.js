@@ -481,11 +481,9 @@ $(document).on('click', 'a.indexSpa', function(e) {
 const Methods = {
 	attachHover : function(target, el){
 		target.hover(()=>{
-			console.log(el);
 			el.toggleClass('hidden');
 			el.toggleClass('showed');
 		},()=>{
-			console.log(el);
 			el.toggleClass('hidden');
 			el.toggleClass('showed');
 		});
