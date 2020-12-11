@@ -562,7 +562,7 @@ $(document).on('click', 'a.spa', function(e){ // pjax라는 클래스를 가진 
 });
 */
 
-function init(){
+const init = function(){
 	document.querySelector('#photoDiv').style.visibility='hidden';
 	load(url);
 	setTimeout(loading, 4000);
