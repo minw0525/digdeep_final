@@ -6,7 +6,7 @@ const langPart = /(\?|&)lang=(\D|\d){1,}/;
 let currLang;
 let url = window.location.href;
 let filePath;
-let pageIdx;
+let pageIdx = 1
 
 function checkUrl(url){
 	const currParam = paramReg.exec(url) ? paramReg.exec(url)[0] : null;
@@ -561,12 +561,3 @@ $(document).on('click', 'a.spa', function(e){ // pjax라는 클래스를 가진 
     return false;
 });
 */
-/*
-const init = function(){
-	document.querySelector('#photoDiv').style.visibility='hidden';
-	load(url);
-	setTimeout(loading, 4000);
-	function loading(){
-		document.querySelector('#loadingBox').style.visibility='hidden';
-	}
-}*/

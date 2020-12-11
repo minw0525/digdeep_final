@@ -92,18 +92,18 @@
 			</div>
 		</div>
 		<div id="photoDiv">
-			<div class="photo" onclick="init"></div>
+			<div class="photo"></div>
 		</div>
 		<script src="javascript/jquery.multilingual.min.js"></script>
 		<script>
-		    const init = function(){
+			document.querySelector('.photo').addEventListener('click', function(){
 			    document.querySelector('#photoDiv').style.visibility='hidden';
 	            load(url);
             	setTimeout(loading, 4000);
              	function loading(){
         		document.querySelector('#loadingBox').style.visibility='hidden';
 	            }
-            }
+			})
         </script>
 	</body>
 </html>
