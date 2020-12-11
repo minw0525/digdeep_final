@@ -6,29 +6,23 @@ const langPart = /(\?|&)lang=(\D|\d){1,}/;
 let currLang;
 let url = window.location.href;
 let filePath;
-let pageIdx;
 
-const CheckUrl = {
 
-	setCurrParam : function(url){
-		const currParam = paramReg.exec(url) ? paramReg.exec(url)[0] : null;
-		return currParam;
-	}, 
-	
+
+function checkUrl(url){
+	const currParam = paramReg.exec(url) ? paramReg.exec(url)[0] : null;
+	paramsObj.student = null;
+	paramsObj.lang = null;
+
 	//get querystring
-	getParam : function(url){
-		paramsObj.student = null
-		paramsObj.lang = null;
-		const currParam = this.setCurrParam(url);
+	function getParam(){
 		if(currParam){
 			currParam.replace(
 				/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) { paramsObj[key] = value; }
-			)
-		};
-		return paramsObj;
-	},
+			);
+		}
+		console.log(paramsObj);
 
-	setCurrLang : function(){
 		$('[data-altLang] span').removeClass('altLangOn');
 		$('[data-altLang').each(function(){$(this).removeAttr('href')})
 		switch (paramsObj.lang) {
@@ -56,18 +50,22 @@ const CheckUrl = {
 				break;
 		}
 		console.log(currLang);
-	},
+		return paramsObj;
+	}
+
 	//check pathname
-	getPageIdx: function(path){
+	filePath = window.location.pathname;
+	function getFilePath(path){
 		switch (path) {
 			case "/":
 			case "/digdeep_final/":
-					pageIdx = 1;
-					console.log(pageIdx)
-					return pageIdx;
-		
-			case "/project":
+				pageIdx = 1;
+				console.log(pageIdx)
+				return pageIdx;
+
+			case "/project" :
 			case "/digdeep_final/project":
+
 				pageIdx = 2;
 				console.log(pageIdx);
 				return pageIdx;
@@ -77,21 +75,19 @@ const CheckUrl = {
 				pageIdx = 3;
 				console.log(pageIdx)
 				return pageIdx;
-			default: console.log(`invalid pageIdx : ${pageIdx}`)//window.location.href = "https://digdeep.works"
+			default: //window.location.href = "https://digdeep.works"
 			console.log(pageIdx);
-		}
-	},
-	checkUrl : function(url){
-		this.getParam(url);
-		this.setCurrLang();
-		filePath = window.location.pathname;
-		this.getPageIdx(filePath);
 
-		//pageIdx = 1;
-		console.log(currLang);
-		console.log(pageIdx);
+		}
 	}
-}
+
+	getParam();
+	getFilePath(filePath);
+	//pageIdx = 1;
+
+	console.log(currLang);
+	console.log(pageIdx);
+};
 
 const renderMain = {
 	gCstyle : {
@@ -136,6 +132,7 @@ const renderMain = {
 			const workLink = $('<a>').attr('class','personalLink spa').appendTo(wrappingBlock);
 			this.attachHover(item, wrappingBlock);
 		}
+		console.log('finished drawing main page')
 		this.attachHover(this.about, this.info);
 	},
 
@@ -218,12 +215,7 @@ const renderProject = {
 		$(this.index).empty();
 		//const sortedData = Methods.sortData(data);
 		for(let i = 0; i<28; i++){
-<<<<<<< HEAD
 			$('<a>').attr('class', `index${i} indexSpa`).appendTo($(this.index));
-=======
-			console.log(i);
-			$('<a>').attr('class', `indexA index${i}`).appendTo($(this.index));
->>>>>>> parent of 2ef3ce3... credit fix
 		}
 
 	},
@@ -231,7 +223,7 @@ const renderProject = {
 		const sortedData = Methods.sortData(data);
 		console.log(sortedData);
 		$.each(sortedData,(i, item)=>{
-			let indexLink = $('a.indexA')[i];
+			let indexLink = $('a.indexSpa')[i];
 			indexLink.classList.remove('clicked')
 			if(currLang === 'en'){
 				indexLink.setAttribute('href','?student='+item['en'].query+'&lang=en');
@@ -265,7 +257,7 @@ const renderProject = {
 		this.urlAttr.href = `https://${targetData[currLang].url}`;
 		this.urlAttr.title = targetData[currLang].name;
 		this.urlLink.attr(this.urlAttr);
-		Methods.styleClickable(this.urlLink);
+		Methods.styleClickable(this.urlLink[0]);
 		this.diggingVid.attr('src', `./video/${targetData[currLang].query}_750px.mp4`);
 		let changeList = Array.prototype.slice.call($('[data-detect]'))
 		changeList.map(v=>{
@@ -326,7 +318,7 @@ const renderCredit = {
 		this.creditAbout.append(this.div1, this.div2, this.div3);
 		this.div1.append(this.advisorDiv, this.sponsorDiv);
 		this.advisorDiv.append(this.advisor, this.seok)
-		this.div2.append(tiitle, keynote);
+		this.div2.append(this.title, this.keynote);
 		this.sponsorDiv.append(this.sponsor, this.hivcd);
 
 		$('.insta span:first-child').text('instagram');
@@ -344,7 +336,7 @@ const renderCredit = {
 				const dataOfRole = dataOfTeam.roleList 
 				let indexJ = Object.keys(dataOfRole).indexOf(j);
 				const roleDiv = $('<div>').attr('class','roleBlock').appendTo(team);
-				const role = $('<span>').attr('class', 'duty').text(Object.keys(dataOfRole[indexJ])).appendTo(roleDiv);
+				const role = $('<span>').attr('class', 'duty').text(Object.keys(dataOfRole)[indexJ]).appendTo(roleDiv);
 				console.log(dataOfRole);
 				//역할별 이름 채워넣기
 				for(let k in dataOfRole[j]){
@@ -372,7 +364,7 @@ const renderCredit = {
 			e.stopPropagation();
 
 			if(!el.hasClass('clicked')){
-				Methods.styleClicked(el);
+				Methods.styleClicked(el[0]);
 				//video src 끼워넣기
 				shovel.css('display','none');
 				diggingman.css('display', 'block').attr('src', `./video/${target.query}_750px.mp4`)//샘플
@@ -402,6 +394,39 @@ const renderCredit = {
 	}
 }
 
+
+const Methods = {
+	sortData : (data)=>{
+		let sortedData = Array.from(data);
+		sortedData.sort(function(a, b) {
+			const nameA = a[currLang].name;
+			const nameB = b[currLang].name;
+			if (nameA < nameB) {
+				return -1;
+			}
+			if (nameA > nameB) {
+				return 1;
+			}		  
+			// 이름이 같을 경우
+			return 0;
+		});
+		return sortedData;
+	},
+	styleClickable : (el)=>{
+		el.classList.add('clickable')
+	},
+	styleClicked : (el)=>{
+		el.classList.add('clicked')
+	},
+	styleHover : (el)=>{
+		el.classList.add('hover')
+	},
+	makeMultilingual: (el)=>{
+		el.multilingual([
+			'en', 'num'
+		]);
+	}
+}
 
 function getData(url){
 	return new Promise((res, rej)=>{
@@ -437,53 +462,20 @@ const route = {
 	}
 };
 
-const Methods = {
-	sortData : (data)=>{
-		let sortedData = Array.from(data);
-		sortedData.sort(function(a, b) {
-			const nameA = a[currLang].name;
-			const nameB = b[currLang].name;
-			if (nameA < nameB) {
-				return -1;
-			}
-			if (nameA > nameB) {
-				return 1;
-			}		  
-			// 이름이 같을 경우
-			return 0;
-		});
-		return sortedData;
-	},
-	styleClickable : (el)=>{
-		el.addClass('clickable')
-	},
-	styleClicked : (el)=>{
-		el.addClass('clicked')
-	},
-	styleHover : (el)=>{
-		el.addClass('hover')
-	},
-	makeMultilingual: (el)=>{
-		el.multilingual([
-			'en', 'num'
-		]);
-	}
-}
 
 function router(path) {
 	(route[path] || route.otherwise)(path);
 }
 
-const load = (url)=>{
+function load(url){
 	gC.empty();
-	console.log('gc emptied');
 	$('span[data-detect]').empty();
-	CheckUrl.checkUrl(url);
+	checkUrl(url);
 	router(pageIdx);
 	(()=>{
 		console.log(currLang);
 		$('.hrefConcatLang').each(function(){
-			if(currLang === 'en'){
+			if(currLang === 'en'&&!langPart.exec(this.href)){
 				this.href = this.href.concat('?lang=en');
 			}
 		})
@@ -498,8 +490,8 @@ $(document).on('click', 'a.spa', function(e) {
 	console.log(href);
 	history.pushState(href,'', href);
 	url = window.location.href;
-	console.log(url);
-	load(url);
+
+	load(url)
 	return false;
 });
 
@@ -510,14 +502,8 @@ $(document).on('click', 'a.indexSpa', function(e) {
 	console.log(href);
 	history.pushState(href,'', href);
 	url = window.location.href;
-	projectRefill(url)
 	return false;
 });
-const projectRefill = async (paramStr)=>{
-	CheckUrl.checkUrl(paramStr);
-	await getData('https://minw0525.github.io/digdeep_final/data/json2_project.json')
-	.then((res)=>{renderProject.fillDiv(res)});
-}
 
 //bind popstate event
 $(window).bind('popstate', function() {
