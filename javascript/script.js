@@ -309,8 +309,8 @@ const renderCredit = {
 		this.infoWrapper.append(this.whichTeam, this.whichUrl, this.insta, this.contact);
 		this.whichTeam.append($('<span>')).append($('<span>'));
 		this.whichUrl.append($('<a>'));
-		this.insta.append($('<span>')).append($('<span>'));
-		this.contact.append($('<span>')).append($('<span>'));
+		this.insta.append($('<span>Instagram</span>')).append($('<span>'));
+		this.contact.append($('<span>e-mail</span>')).append($('<span>'));
 		this.personalImg.append(this.shovel, this.diggingman);
 		this.creditAbout.append(this.div1, this.div2, this.div3);
 		this.div1.append(this.advisorDiv, this.sponsorDiv);
