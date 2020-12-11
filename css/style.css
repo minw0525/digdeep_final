@@ -422,7 +422,7 @@ video {
     padding: 30px 35px;
 }
 .teamName {
-    font-weight: 700;
+    font-weight: 600;
     font-size: calc(var(--font_small) * 1.2);
 }
 .roleBlock {
@@ -579,6 +579,7 @@ p.clicked {
     color: var(--blue) !important;
 }
 .inCharge:hover, .clickable:hover{
+    cursor: url('../image/cur_hover.png'), pointer;
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.4rem;
