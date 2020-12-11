@@ -95,29 +95,19 @@ const renderMain = {
 		outline : 'none', 
 		borderLeft: 'none'
 	},
-	about : $('<div>').attr('class', 'item about'),
 	info : $('<div>').attr('class', 'info hidden'),
 	title : $('<p>').attr('class','title').text('Dig deep'),
 	keynote : $('<p>'),
 	jail : $('<div>').attr('class', 'jail'),
 
-	attachHover : function(target, el){
-		target.hover(()=>{
-			el.toggleClass('hidden');
-			el.toggleClass('showed');
-		},()=>{
-			el.toggleClass('hidden');
-			el.toggleClass('showed');
-		});
-
-	},
-
 	createDiv : function(data){
 		console.log(this);
-		gC.css(renderMain.gCstyle).append(this.about, this.jail);
+		const about = $('<div>').attr('class', 'item about');
+		gC.css(renderMain.gCstyle).append(about, this.jail);
 		$('.titleName').css(this.tNstyle);
-		this.about.append(this.info);
+		about.append(this.info);
 		this.info.append(this.title, this.keynote);
+		Methods.attachHover(about, this.info);
 		for(const target of data){
 			const item = $('<div>').attr('class', `item booth diggingDiv ${target[currLang].query}` ).appendTo(this.jail);
 			const video = $('<video>').attr({
@@ -127,9 +117,8 @@ const renderMain = {
 			}).appendTo(item);
 			const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'./image/thumbnail_${target['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item);
 			const workLink = $('<a>').attr('class','personalLink spa').appendTo(wrappingBlock);
-			this.attachHover(item, wrappingBlock);
+			Methods.attachHover(item, wrappingBlock);
 		}
-		this.attachHover(this.about, this.info);
 	},
 
 	fillDiv : function(data){
@@ -155,6 +144,7 @@ const renderMain = {
 			const tagName = $(`<span>`).attr('class','name').text(target[currLang].name).appendTo(nameBlock)
 			const arrow = $(`<span>→<span>`).appendTo(nameBlock);
 		}
+
 	}
 }
 
@@ -168,10 +158,12 @@ const renderProject = {
 		borderLeft: '1px solid black'
 	},
 	findTargetData : (data)=>{
+		console.log(currLang);
 		const isTarget = function(el){
 			if(el[currLang].query === paramsObj.student) return true;
 		};
 		const targetData = data.find(isTarget);
+		console.log(`data found: ${targetData}`)
 		return targetData;
 	},
 	urlAttr : {
@@ -191,26 +183,12 @@ const renderProject = {
 	descrText : $('<p>').attr('data-detect','description'),
 	stickyWrapper : $('<div>').attr('class','stickyWrapper item'),
 	stickyBox : $('<div>'),
-	stickyImg : function(data){
-		const targetData = this.findTargetData(data);
-		for(let i=0; i<2; i++){
-			const spacer = $('<div>');
-			spacer.attr('class','stick spacer').appendTo(this.stickyBox);
 
-			if(i===1) break;
-
-			for(let j = 0; j<6; j++){
-				const stickImg = $('<div>');
-				stickImg.attr('class', 'stick stick-img').css('background-image', `url(./image/sticky_${targetData[currLang].query}_${j+1}.png)`).appendTo(this.stickyBox);
-			}
-		}
-	},
 	index : $('<div>').attr('class', 'index item'),
 	indexCreate : function(){
 		$(this.index).empty();
 		//const sortedData = Methods.sortData(data);
 		for(let i = 0; i<28; i++){
-			console.log(i);
 			$('<a>').attr('class', `index${i} indexSpa`).appendTo($(this.index));
 		}
 
@@ -245,9 +223,23 @@ const renderProject = {
 		this.stickyBox.appendTo(this.stickyWrapper);
 		this.indexCreate();
 	},
+	stickyImg : function(data){
+		console.log(currLang);
+		const targetData = this.findTargetData(data);
+		for(let i=0; i<2; i++){
+			const spacer = $('<div>');
+			spacer.attr('class','stick spacer').appendTo(this.stickyBox);
 
+			if(i===1) break;
+
+			for(let j = 0; j<6; j++){
+				const stickImg = $('<div>');
+				stickImg.attr('class', 'stick stick-img').appendTo(this.stickyBox);
+			}
+		}
+	},
 	fillDiv : function(data){
-		$('div').scrollTop(0);
+		$('.stickyWrapper div').scrollTop(0);
 		const targetData = this.findTargetData(data);
 		this.urlAttr.href = `https://${targetData[currLang].url}`;
 		this.urlAttr.title = targetData[currLang].name;
@@ -259,7 +251,17 @@ const renderProject = {
 			v.innerHTML = targetData[currLang][v.dataset.detect]
 		});
 		this.stickyImg(data);
+		$('.stick-img').each(function(i, e){
+			e.style.backgroundImage=`url(./image/sticky_${targetData[currLang].query}_${i+1}.png)`
+		})
 		this.indexFill(data)
+	},
+	onlyProjectFill : function(href, data){
+		href.replace(
+			/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) { paramsObj[key] = value; }
+		);
+		console.log(paramsObj);
+		this.fillDiv(data);
 	}
 }
 
@@ -444,7 +446,9 @@ function router(path) {
 }
 
 const load = (url)=>{
-	$('.grid-container *').each((i,e)=>{e.remove()});
+	$('.grid-container *').each((i,e)=>{
+		e.remove();
+	});
 	$('span[data-detect]').empty();
 	checkUrl(url);
 	router(pageIdx);
@@ -475,6 +479,17 @@ $(document).on('click', 'a.indexSpa', function(e) {
 });
 */
 const Methods = {
+	attachHover : function(target, el){
+		target.hover(()=>{
+			console.log(el);
+			el.toggleClass('hidden');
+			el.toggleClass('showed');
+		},()=>{
+			console.log(el);
+			el.toggleClass('hidden');
+			el.toggleClass('showed');
+		});
+	},
 	sortData : (data)=>{
 		let sortedData = Array.from(data);
 		sortedData.sort(function(a, b) {
@@ -509,7 +524,7 @@ const Methods = {
 
 // a tag onclick pushstate event
 $(document).on('click', 'a.spa', function(e) {
-	//e.preventDefault();
+	e.preventDefault();
 	let href = $(this).attr('href');
 	console.log(href);
 	history.pushState(href,'', href);
@@ -518,6 +533,16 @@ $(document).on('click', 'a.spa', function(e) {
 	return false;
 });
 
+// a tag onclick pushstate event
+$(document).on('click', 'a.indexSpa', async function(e) {
+	e.preventDefault();
+	let href = $(this).attr('href');
+	console.log(href);
+	history.pushState(href,'', href);
+	await getData('https://minw0525.github.io/digdeep_final/data/json2_project.json')
+		.then((res)=>{renderProject.onlyProjectFill(href, res)})
+	return false;
+});
 
 //bind popstate event
 $(window).bind('popstate', function() {
@@ -526,6 +551,8 @@ $(window).bind('popstate', function() {
     let href = returnLocation.search;
 	load(href);
 });
+
+
 
 
 /*
