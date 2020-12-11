@@ -7,8 +7,6 @@ let currLang;
 let url = window.location.href;
 let filePath;
 
-
-
 function checkUrl(url){
 	const currParam = paramReg.exec(url) ? paramReg.exec(url)[0] : null;
 	paramsObj.student = null;
@@ -59,13 +57,12 @@ function checkUrl(url){
 		switch (path) {
 			case "/":
 			case "/digdeep_final/":
-				pageIdx = 1;
-				console.log(pageIdx)
-				return pageIdx;
-
-			case "/project" :
+					pageIdx = 1;
+					console.log(pageIdx)
+					return pageIdx;
+		
+			case "/project":
 			case "/digdeep_final/project":
-
 				pageIdx = 2;
 				console.log(pageIdx);
 				return pageIdx;
@@ -195,7 +192,6 @@ const renderProject = {
 	stickyWrapper : $('<div>').attr('class','stickyWrapper item'),
 	stickyBox : $('<div>'),
 	stickyImg : function(data){
-		this.stickyBox.empty();
 		const targetData = this.findTargetData(data);
 		for(let i=0; i<2; i++){
 			const spacer = $('<div>');
@@ -214,6 +210,7 @@ const renderProject = {
 		$(this.index).empty();
 		//const sortedData = Methods.sortData(data);
 		for(let i = 0; i<28; i++){
+			console.log(i);
 			$('<a>').attr('class', `index${i} indexSpa`).appendTo($(this.index));
 		}
 
@@ -229,7 +226,6 @@ const renderProject = {
 			}else{
 				indexLink.setAttribute('href','?student='+item['ko'].query);
 			}
-			indexLink.setAttribute('class',`${item['ko'].query} indexSpa`);
 			indexLink.innerHTML = `<p>${item[currLang].name}</p>`;
 			if(item[currLang].query === paramsObj.student){
 				console.log(item[currLang].query);
@@ -307,13 +303,14 @@ const renderCredit = {
 	createDiv : function(){
 		gC.css(this.gCstyle).append(this.infoSidebar, this.teamList, this.creditAbout);
 		$('.titleName').css(this.tNstyle);
-		this.infoSidebar.append(this.personalInfo);
+		this.infoSidebar.append(this.personalInfo, this.personalImg);
 		this.personalInfo.append(this.touchMe);
 		this.infoWrapper.append(this.whichTeam, this.whichUrl, this.insta, this.contact);
 		this.whichTeam.append($('<span>')).append($('<span>'));
 		this.whichUrl.append($('<a>'));
 		this.insta.append($('<span>')).append($('<span>'));
 		this.contact.append($('<span>')).append($('<span>'));
+		this.personalImg.append(this.shovel, this.diggingman);
 		this.creditAbout.append(this.div1, this.div2, this.div3);
 		this.div1.append(this.advisorDiv, this.sponsorDiv);
 		this.advisorDiv.append(this.advisor, this.seok)
@@ -330,13 +327,13 @@ const renderCredit = {
 			const dataOfTeam = data[i][currLang]
 			const team = $('<div>').attr('class', `team team${i+1} item`).appendTo(this.teamList);
 			const teamName = $('<span>').attr('class', 'teamName').text(dataOfTeam.name).appendTo(team);
+			
 			//팀 내 역할별 순회
-			for(let j in dataOfTeam.roleList){
-				const dataOfRole = dataOfTeam.roleList 
+			const dataOfRole = dataOfTeam.roleList 
+			for(let j in dataOfRole){
 				let indexJ = Object.keys(dataOfRole).indexOf(j);
 				const roleDiv = $('<div>').attr('class','roleBlock').appendTo(team);
 				const role = $('<span>').attr('class', 'duty').text(Object.keys(dataOfRole)[indexJ]).appendTo(roleDiv);
-				console.log(dataOfRole);
 				//역할별 이름 채워넣기
 				for(let k in dataOfRole[j]){
 					const target = dataOfRole[j][k];
@@ -357,29 +354,42 @@ const renderCredit = {
 			}
 	
 		}
+		if (currLang==='ko'){
+			this.advisor.text('지도 교수');
+			this.seok.text('석재원');
+			this.sponsor.text('주최');
+			this.hivcd.text('홍익대학교 시각디자인과')
+			this.keynote.text('2020년, 준비를 마친 인부들이 이동을 시작했다. 오프라인에서 온라인으로, 전신의 움직임에서 손가락의 작은 움직임으로, 땅 위에서 픽셀 위로…. 수많은 변화 속에서 그들은 존재를 지속할 수 있는 무언가를 찾아 나섰다. 각자가 속한 그리드와 픽셀 위에서, 28명의 인부들은 삽을 들고 더 깊은 아래를 향해 웹 속을 파고든다. 그 끝에 발굴해낸 새로운 가능성과 존재의 조각이 궁금하다면, dig deep.')
+		}else{	
+			this.advisor.text('Professor');
+			this.seok.text('Jaewon Seok');
+			this.sponsor.text('Auspice');
+			this.hivcd.text('HIVCD')
+			this.keynote.text('In 2020, after extensive preparation, workers began to move. From offline to online, from full-body movement to small finger movements, from the ground to pixels above... Amidst a multitude of changes, they longed to find that “something” (or quality) that will rest immortally. On top of the grid and pixels to which they correspond, twenty-eight members hold a shovel to dig deeper into the web. If you are curious about the new possibilities and pieces unearthed, dig deep.');
+		}
 	},
 	clickEvent : (el, target)=>{
-		el.click((e)=>{
+		el.click(function(e){
 			e.stopPropagation();
-
+			console.log(this)
 			if(!el.hasClass('clicked')){
 				Methods.styleClicked(el[0]);
 				//video src 끼워넣기
-				shovel.css('display','none');
-				diggingman.css('display', 'block').attr('src', `./video/${target.query}_750px.mp4`)//샘플
+				renderCredit.shovel.css('display','none');
+				renderCredit.diggingman.css('display', 'block').attr('src', `./video/${target.query}_750px.mp4`)//샘플
 
 				//선택자 하이라이트, 인포창 띄우기
 				$('.infoWrapper').remove();
 				$('span').not(this).removeClass('clicked');
 				$('.touchMe').css('display', 'none');
-				this.infoWrapper.appendTo(this.personalInfo)
+				renderCredit.infoWrapper.appendTo(renderCredit.personalInfo)
 				$('.whichTeam span:first-child').text(`${target.team} ${target.role}`);
 				$('.whichTeam span:last-child').text(target.name);
 				$('.whichUrl a').text(target.url).attr({
 					'href': `https://${target.url}`, 
 					'target': 'blank'
 				});
-				Methods.styleClickable($('.whichUrl a'));
+				Methods.styleClickable($('.whichUrl a')[0]);
 				$('.insta span:last-child').text(target.personalUrl);
 				$('.contact span:last-child').text(target.email);
 				(()=>{
@@ -387,45 +397,12 @@ const renderCredit = {
 						'en', 'num'
 					]);
 				})();
-				(Methods.makeMultilingual($(".infoWrapper")))();
+				Methods.makeMultilingual($(".infoWrapper"));
 			}
 		})
 	}
 }
 
-
-const Methods = {
-	sortData : (data)=>{
-		let sortedData = Array.from(data);
-		sortedData.sort(function(a, b) {
-			const nameA = a[currLang].name;
-			const nameB = b[currLang].name;
-			if (nameA < nameB) {
-				return -1;
-			}
-			if (nameA > nameB) {
-				return 1;
-			}		  
-			// 이름이 같을 경우
-			return 0;
-		});
-		return sortedData;
-	},
-	styleClickable : (el)=>{
-		el.classList.add('clickable')
-	},
-	styleClicked : (el)=>{
-		el.classList.add('clicked')
-	},
-	styleHover : (el)=>{
-		el.classList.add('hover')
-	},
-	makeMultilingual: (el)=>{
-		el.multilingual([
-			'en', 'num'
-		]);
-	}
-}
 
 function getData(url){
 	return new Promise((res, rej)=>{
@@ -466,21 +443,69 @@ function router(path) {
 	(route[path] || route.otherwise)(path);
 }
 
-function load(url){
-	gC.empty();
+const load = (url)=>{
+	$('.grid-container *').each((i,e)=>{e.remove()});
 	$('span[data-detect]').empty();
 	checkUrl(url);
 	router(pageIdx);
 	(()=>{
 		console.log(currLang);
 		$('.hrefConcatLang').each(function(){
-			if(currLang === 'en'){
+			if(currLang === 'en'&&!langPart.exec(this.href)){
 				this.href = this.href.concat('?lang=en');
 			}
 		})
 	})()
 }
 load(url);
+/*
+const projectRefill = (data, paramStr)=>{
+
+}
+// a tag onclick pushstate event
+$(document).on('click', 'a.indexSpa', function(e) {
+	//e.preventDefault();
+	let href = $(this).attr('href');
+	console.log(href);
+	history.pushState(href,'', href);
+	url = window.location.href;
+
+	projectRefill(data, href)
+	return false;
+});
+*/
+const Methods = {
+	sortData : (data)=>{
+		let sortedData = Array.from(data);
+		sortedData.sort(function(a, b) {
+			const nameA = a[currLang].name;
+			const nameB = b[currLang].name;
+			if (nameA < nameB) {
+				return -1;
+			}
+			if (nameA > nameB) {
+				return 1;
+			}		  
+			// 이름이 같을 경우
+			return 0;
+		});
+		return sortedData;
+	},
+	styleClickable : (el)=>{
+		el.classList.add('clickable')
+	},
+	styleClicked : (el)=>{
+		el.classList.add('clicked')
+	},
+	styleHover : (el)=>{
+		el.classList.add('hover')
+	},
+	makeMultilingual: (el)=>{
+		el.multilingual([
+			'en', 'num'
+		]);
+	}
+}
 
 // a tag onclick pushstate event
 $(document).on('click', 'a.spa', function(e) {
@@ -489,20 +514,10 @@ $(document).on('click', 'a.spa', function(e) {
 	console.log(href);
 	history.pushState(href,'', href);
 	url = window.location.href;
-
 	load(url)
 	return false;
 });
 
-// a tag onclick pushstate event
-$(document).on('click', 'a.indexSpa', function(e) {
-	//e.preventDefault();
-	let href = $(this).attr('href');
-	console.log(href);
-	history.pushState(href,'', href);
-	url = window.location.href;
-	return false;
-});
 
 //bind popstate event
 $(window).bind('popstate', function() {
@@ -512,3 +527,14 @@ $(window).bind('popstate', function() {
 	load(href);
 });
 
+
+/*
+$(document).on('click', 'a.spa', function(e){ // pjax라는 클래스를 가진 앵커태그가 클릭되면,
+    $.pjax({
+        url: $(this).attr('href'), // 앵커태그가 이동할 주소 추출
+        fragment: '.grid-container', // 위 주소를 받아와서 추출할 DOM
+        container: '.grid-container' // 위에서 추출한 DOM 내용을 넣을 대상
+    });
+    return false;
+});
+*/
