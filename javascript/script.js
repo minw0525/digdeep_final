@@ -132,7 +132,6 @@ const renderMain = {
 			const workLink = $('<a>').attr('class','personalLink spa').appendTo(wrappingBlock);
 			this.attachHover(item, wrappingBlock);
 		}
-		console.log('finished drawing main page')
 		this.attachHover(this.about, this.info);
 	},
 
@@ -475,7 +474,7 @@ function load(url){
 	(()=>{
 		console.log(currLang);
 		$('.hrefConcatLang').each(function(){
-			if(currLang === 'en'&&!langPart.exec(this.href)){
+			if(currLang === 'en'){
 				this.href = this.href.concat('?lang=en');
 			}
 		})
