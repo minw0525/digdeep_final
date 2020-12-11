@@ -81,7 +81,7 @@ function checkUrl(url){
 
 	getParam();
 	getFilePath(filePath);
-	pageIdx = 1;
+//	pageIdx = 1;
 
 	console.log(currLang);
 	console.log(pageIdx);
