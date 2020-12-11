@@ -6,6 +6,7 @@ const langPart = /(\?|&)lang=(\D|\d){1,}/;
 let currLang;
 let url = window.location.href;
 let filePath;
+let pageIdx;
 
 function checkUrl(url){
 	const currParam = paramReg.exec(url) ? paramReg.exec(url)[0] : null;
@@ -80,7 +81,7 @@ function checkUrl(url){
 
 	getParam();
 	getFilePath(filePath);
-	//pageIdx = 1;
+	pageIdx = 1;
 
 	console.log(currLang);
 	console.log(pageIdx);
@@ -459,7 +460,6 @@ const load = (url)=>{
 		})
 	})()
 }
-load(url);
 /*
 const projectRefill = (data, paramStr)=>{
 
@@ -561,3 +561,12 @@ $(document).on('click', 'a.spa', function(e){ // pjax라는 클래스를 가진 
     return false;
 });
 */
+
+function init(){
+	document.querySelector('#photoDiv').style.visibility='hidden';
+	load(url);
+	setTimeout(loading, 4000);
+	function loading(){
+		document.querySelector('#loadingBox').style.visibility='hidden';
+	}
+}
