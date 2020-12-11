@@ -162,6 +162,18 @@ a:visited {
     font-size: var(--font_big);
     padding: 0 40px;
 }
+.titleName .title{
+    display:-ms-flexbox;
+    display:-moz-box;
+    display:-webkit-box;
+    -ms-flex-direction: row;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -ms-line-clamp: 1;
+    line-clamp: 1;
+}
 .titleName > span {
     font-size: calc(var(--font_mid) * 1.25);
     font-weight: 600;
@@ -372,11 +384,11 @@ video {
 .stick {
     max-width: 100%;
     height: calc(100vh - 60px);
-    position: sticky;
-    position: -webkit-sticky;
-    position: -moz-sticky;
-    position: -ms-sticky;
     position: -o-sticky;
+    position: -ms-sticky;
+    position: -moz-sticky;
+    position: -webkit-sticky;
+    position: sticky;
     top: 0;
 }
 .stick-img {
