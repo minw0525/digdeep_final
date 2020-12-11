@@ -2,15 +2,15 @@
 	"ko": {
 		"title": "180도",
 		"name": "남정현",
-		"url": "",
-		"description": "‘나는 사랑하고 증오한다. 좋아하는데 싫어한다. 하고 싶지만 하기 싫다.’\n이건 180도 다른 감정을 품고 살아가는 너와 나의 모습이다. 그리고 감정들의 솔직한 목소리이다.",
+		"url": "one-eighty.degree",
+		"description": "사람들은 전혀 다른 감정을 동시에 느끼며 살아간다. 애증을 느끼는 자신을 깨닫지 못하거나, 하고싶은데 하기싫다는 모순된 생각을 애써 숨기곤 한다. 〈180도〉는 양가감정을 솔직하게 털어놓는 공간이자 그 이야기를 듣는 공감과 이해의 장이다. 어쩌면 이 곳에서 당신도 미처 몰랐던 당신의 ‘180도’를 떠올릴 수 있지 않을까?",
 		"query": "junghyun"
 	},
 	"en": {
 		"title": "180 Degree",
 		"name": "Junghyun Nam",
-		"url": "",
-		"description": "‘I love it, but I hate it. I want to, but I don't want to.’\nThis is what you and I are living with ‘180 degrees’ different emotions. And it's the honest voice of emotions.",
+		"url": "one-eighty.degree",
+		"description": "We live with two conflicting emotions at the same time. <i>180 DEGREE</i> is a place of empathy and understanding where you can honestly talk about and listen to the two feelings. Maybe you can think of your ‘180degree’ here that you didn't even know?",
 		"query": "junghyun"
 	}
 },
@@ -39,10 +39,10 @@
 		"query": "seoyoon"
 	},
 	"en": {
-		"title": "Cocktail recommendation APP",
+		"title": "DRINKIN",
 		"name": "Seoyoon Lee",
-		"url": "",
-		"description": "With its various taste, cocktails give us wonderful experiences. However, there are so many types of cocktails that people have difficulty getting close to them. It is an application that recommends cocktails that go well with users' daily moods, making it easy for beginners to enjoy cocktails.",
+		"url": "https://drinkincocktail.cargo.site",
+		"description": "There are so many kinds of cocktails that people have difficulty enjoying for the first time. Through <i>DRINKIN</i>, users answer questions in different moods everyday. In this process, users can gradually know their tastes, and they can see the characteristics of cocktails by looking at easy graphics.",
 		"query": "seoyoon"
 	}
 },
@@ -51,14 +51,14 @@
 		"title": "볕뉘",
 		"name": "이수지",
 		"url": "suzylee.xyz",
-		"description": "「1」 작은 틈을 통하여 잠시 비치는 햇볕.\r\n「2」 그늘진 곳에 미치는 조그마한 햇볕의 기운.\r\n「3」 다른 사람으로부터 받는 보살핌이나 보호.\r\n국립국어원 표준국어대사전, \"볕뉘\"\r\n<br>\r\n​〈볕뉘〉는 민부리 계열의 제목용 글꼴로 수성 잉크 펜으로 써낸 손글씨를 바탕삼아 디자인되었다. 큼직한 뼈대에 부드러우면서도 힘있게 뻗은 획들이 특징적이며 '볕뉘'의 뜻처럼 틈에서 새어 나온 빛의 나긋나긋한 느낌, 햇볕이 데운 바닥의 미지근한 온도 등을 떠올리며 그렸다. 필순이 드러나는 획과 미세한 필압 처리에서 손글씨의 흔적을 볼 수 있다. 일부 자소에는 필기할 때의 속도감을 반영해 경쾌한 인상을 주었다. 30pt 이상의 크기에서 글자의 특징이 가장 돋보이며 특히 영화 대사나 문학 구절을 인용할 때 유용하다.",
+		"description": "「1」 작은 틈을 통하여 잠시 비치는 햇볕.<br>「2」 그늘진 곳에 미치는 조그마한 햇볕의 기운.<br>「3」 다른 사람으로부터 받는 보살핌이나 보호.<br>국립국어원 표준국어대사전, “볕뉘”<br><br>〈볕뉘〉는 민부리 계열의 제목용 글꼴로, 수성 잉크 펜으로 쓴 손글씨를 바탕삼아 디자인되었다. 큼직한 뼈대에 부드럽고 힘있게 뻗은 획들이 특징적이며, 틈에서 새어 나온 빛의 나긋나긋한 느낌, 햇볕이 데운 바닥의 미지근한 온도 등 ‘볕뉘’의 이미지를 떠올리며 그렸다. 필순이 드러나는 획과 미세한 필압 처리에서 손글씨의 흔적을 볼 수 있다. 일부 자소에는 필기할 때의 속도감을 반영해 경쾌한 인상을 주었다. 30pt 이상의 크기에서 글자의 특징이 가장 돋보이며 특히 영화 대사나 문학 구절을 인용할 때 유용하다.",
 		"query": "suzy"
 	},
 	"en": {
-		"title": "Lux",
+		"title": "Byut Neue",
 		"name": "Suzy Lee",
-		"url": "",
-		"description": "lux' is humanist serif typeface. It has a straight face that reflects handwriting and is suitable for use in movie subtitles and literary quotations with a contrast that is not excessive.",
+		"url": "suzylee.xyz",
+		"description": "<i>Byut Neue</i> is a title font based on handwriting written in water-based ink pen. It has a stroke reminiscent of the feeling of light leaking out of the gap. In some parts, it also has a cheerful impression by reflecting the speed of writing. It suits well using in subtitles or quoting literature.",
 		"query": "suzy"
 	}
 },
@@ -67,14 +67,14 @@
 		"title": "SOOUVENIR",
 		"name": "박소연",
 		"url": "soouvenir.one",
-		"description": "수집은 인간 고유의 기억 행위이고, 우리의 감정은 그 기억과 밀접하게 연관되어 있다. 자신만의 감정이 담겨 있는 기억이 수집의 대상이 된다면 어떨까? 잊을래야 잊을 수 없는 기억들, 그 때의 기억과 감정을 손에 잡힐 수 있는 오브제로 제작한다. \n<br><br>\n각자의 심연에 가라앉은 기억을 꺼내 한 사람만을 위한 기억품을 만들어주는 〈SOOUVENIR〉, 당신의 기억을 공유해주세요.",
+		"description": "수집은 인간 고유의 기억 행위이고, 우리의 감정은 그 기억과 밀접하게 연관되어 있다. 자신만의 감정이 담겨 있는 기억이 수집의 대상이 된다면 어떨까? 잊을래야 잊을 수 없는 기억들, 그 때의 기억과 감정을 손에 잡힐 수 있는 오브제로 제작한다. <br><br>각자의 심연에 가라앉은 기억을 꺼내 한 사람만을 위한 기억품을 만들어주는 〈SOOUVENIR〉, 당신의 기억을 공유해주세요.",
 		"query": "soyeon"
 	},
 	"en": {
 		"title": "SOOUVENIR",
 		"name": "Soyeon Park",
 		"url": "soouvenir.one",
-		"description": "Collecting is a human-specific memory act, and our emotions are closely linked to that memory. What if memories with their own emotions are subject to collection? It is made into an object that can hold onto memories and emotions that cannot be forgotten. It brings out memories that have sunk into each abyss and creates memories for only one person. 〈SOOUVENIR〉, please share your memory.",
+		"description": "Collecting is a human-specific memory act, and our emotions are closely linked to that memory. What if memories with their own emotions are subject to collection? It is made into an object that can hold onto memories and emotions that cannot be forgotten. It brings out memories that have sunk into each abyss and creates memories for only one person. <i>SOOUVENIR</i>, please share your memory.",
 		"query": "soyeon"
 	}
 },
@@ -82,15 +82,15 @@
 	"ko": {
 		"title": "365 stations",
 		"name": "황다예",
-		"url": "365stations.cargo.site",
-		"description": "*데스크탑 관람을 추천드립니다.\n<br><br>\n〈트리비 스튜디오〉는 손으로 시시콜콜한 이야기를 끄적이는 디지털 문구 브랜드다. 일기를 숙제가 아닌 즐거운 놀이로 만들기 위해 다양한 스타일의 다이어리를 제작한다. 〈365 stations〉는 첫 컨셉 다이어리로, 365일의 기록을 역으로 표현한다. 기록을 남기는 것은 마음 속에 역을 짓는 것과 같다. 보잘 것 없는 이야기라도 일단 글로 남기면 역이 만들어진다. 역이 늘어날수록 내 삶의 영역 또한 넓고 깊어진다. 과거에 지은 역은 어느날 미래의 역이 될 것이다.\n<br><br>\n대학 생활 5년 동안 지은 역의 노선도를 그렸다. 이곳을 떠나도 언제든 그리운 역으로 돌아올 수 있도록. 당신도 마음 속에 역을 짓고 싶다면, 트리비 스튜디오로 오라. 내일의 당신은 분명 오늘의 당신을 그리워할테니까.",
+		"url": "365stations.xyz",
+		"description": "〈트리비 스튜디오〉는 손으로 시시콜콜한 이야기를 끄적이는 디지털 문구 브랜드다. 일기를 숙제가 아닌 즐거운 놀이로 만들기 위해 다양한 스타일의 다이어리를 제작한다. 〈365 stations〉는 첫 컨셉 다이어리로, 365일의 기록을 역으로 표현한다. 기록을 남기는 것은 마음 속에 역을 짓는 것과 같다. 보잘 것 없는 이야기라도 일단 글로 남기면 역이 만들어진다. 역이 늘어날수록 내 삶의 영역 또한 넓고 깊어진다. 과거에 지은 역은 어느날 미래의 역이 될 것이다.<br><br>대학 생활 5년 동안 지은 역의 노선도를 그렸다. 이곳을 떠나도 언제든 그리운 역으로 돌아올 수 있도록. 당신도 마음 속에 역을 짓고 싶다면, 트리비 스튜디오로 오라. 내일의 당신은 분명 오늘의 당신을 그리워할테니까.",
 		"query": "dayeeh"
 	},
 	"en": {
 		"title": "365 stations",
 		"name": "Dayee Hwang",
-		"url": "365stations.cargo.site",
-		"description": "\"Tribi Studio\" is a digital stationery brand. It has various styles of diaries you can scribble trivial round of daily life in it. The \"Tribi Studio Products\" feature to make writing fun rather than homework. '365 stations' is the first theme diary. Recording things and feeling in everyday life is like building stations. It is a construction of a charming space in your mind. The more stations you create, the wider and deeper the realm of your life will be. A station built in the past will lay a cornerstone for that in the future. And you can always return to the places whenever you miss them. I drew a map that had my own stations with five years of college life. I can go back to them at any time I need a shelter. So come to the \"Tribi Studio\" to build a station in your heart. Surely you can get something precious and liable for good.",
+		"url": "365stations.xyz",
+		"description": "‘Tribi Studio’ is a digital stationery brand. It has various styles of diaries you can scribble trivial round of daily life in it. The ‘Tribi Studio Products’ feature to make writing fun rather than homework. <i>365 stations</i> is the first theme diary. Recording things and feeling in everyday life is like building stations. It is a construction of a charming space in your mind. The more stations you create, the wider and deeper the realm of your life will be. A station built in the past will lay a cornerstone for that in the future. And you can always return to the places whenever you miss them. I drew a map that had my own stations with five years of college life. I can go back to them at any time I need a shelter. So come to the “Tribi Studio” to build a station in your heart. Surely you can get something precious and liable for good.",
 		"query": "dayeeh"
 	}
 },
@@ -103,10 +103,10 @@
 		"query": "jaebin"
 	},
 	"en": {
-		"title": "Ttukttak",
+		"title": "CliTtEr cLAtTeR",
 		"name": "Jaebin Jeong",
 		"url": "jaebin.kr",
-		"description": "Where does the feeling of cuteness come from? 〈CliTtEr cLAtTeR〉 presents a personal opinion on this question. Something sloppy and clumsy. Things that are slightly lacking in the typical framework defined by society. The awkwardness and embarrassment of facing them lead to curiosity and joy, which soon extends to cuteness. A little strange and inefficient, but so more attractive. If you're ready to take it as something special, not wrong, let's go meet them now.",
+		"description": "Where does the feeling of cuteness come from? <i>CliTtEr cLAtTeR</i> presents a personal opinion on this question. Something sloppy and clumsy. Things that are slightly lacking in the typical framework defined by society. The awkwardness and embarrassment of facing them lead to curiosity and joy, which soon extends to cuteness. A little strange and inefficient, but so more attractive. If you’re ready to take it as something special, not wrong, let's go meet them now.",
 		"query": "jaebin"
 	}
 },
@@ -115,14 +115,14 @@
 		"title": "A Song for Europa",
 		"name": "김세현",
 		"url": "sehyun.xyz",
-		"description": "음악을 재생하는 순간부터, 우리는 그 소리를 이 순간에만 들을 수 있다. 듣는 음악은 이렇게 흐르는 시간과 뗄 수 없는 관계에 놓여있다. 그러나 보는 음악은 시간과 독립적으로 존재할 수 있다.\n<br><br>\n음악은 모티프(motif)를 반복하고 변주하는 구조를 가진다. 이 구조를 따라 시각화된 모티프를 반복하고 변형한다. 그러면 비디오는 음악과 상응하는 특정 패턴을 보여준다. 패턴들은 더욱 유형화되어 책이 되고 한 장의 이미지에 이른다. 이제 우리는 재생하지 않고, 읽고 보는 방식으로 음악을 마주한다.\n<br><br>\n이렇게 거듭되는 결합은 또한 음악을 인식하는 방식과도 닮아있다. 음향은 시간에 따라 전개되어 음악으로 기억된다. 비디오는 패턴에 따라 유형화되어 한 장의 이미지가 된다. 그렇게 불확실한 형태의 음악은 이제 확실한 형태로 남는다.\n<br><br>\n결국 음악에서 시간의 흐름은 지워진다. 〈A Song for Europa〉는 Jóhann Jóhannsson이 작곡한 동명의 곡을 바탕으로 음악과 그 시각화에 대하여 탐구한다.",
+		"description": "음악을 재생하는 순간부터, 우리는 그 소리를 이 순간에만 들을 수 있다. 듣는 음악은 이렇게 흐르는 시간과 뗄 수 없는 관계에 놓여있다. 그러나 보는 음악은 시간과 독립적으로 존재할 수 있다.<br><br>음악은 모티프(motif)를 반복하고 변주하는 구조를 가진다. 이 구조를 따라 시각화된 모티프를 반복하고 변형한다. 그러면 비디오는 음악과 상응하는 특정 패턴을 보여준다. 패턴들은 더욱 유형화되어 책이 되고 한 장의 이미지에 이른다. 이제 우리는 재생하지 않고, 읽고 보는 방식으로 음악을 마주한다.<br><br>이렇게 거듭되는 결합은 또한 음악을 인식하는 방식과도 닮아있다. 음향은 시간에 따라 전개되어 음악으로 기억된다. 비디오는 패턴에 따라 유형화되어 한 장의 이미지가 된다. 그렇게 불확실한 형태의 음악은 이제 확실한 형태로 남는다.<br><br>결국 음악에서 시간의 흐름은 지워진다. 〈A Song for Europa〉는 Jóhann Jóhannsson이 작곡한 동명의 곡을 바탕으로 음악과 그 시각화에 대하여 탐구한다.",
 		"query": "sehyun"
 	},
 	"en": {
 		"title": "A Song for Europa",
 		"name": "Sehyun Kim",
 		"url": "sehyun.xyz",
-		"description": "From the moment we play the music, we can only hear the sound at this moment. Listening music is inseparable from this flow of time. But the music you see can exist independently of time.\n\nMusic has a structure that repeats and varies motifs. Repeat and transform visualized motifs along this structure. The video then shows a specific pattern corresponding to the music. Patterns become more tangible, becoming a book and reaching an image. Now we face music in the way we read and see, not play.\n\nThese repeated combinations also resemble the way music is perceived. The sound develops over time and is remembered as music. The video is formatted according to the pattern and becomes a single image. Such uncertain forms of music now remain certain forms.\n\nEventually, the flow of time in music is erased. “A Song for Europa” explores music and its visualizations based on a song of the same name composed by Jóhann Jóhannsson.",
+		"description": "By visualizing the structure of music with patterns, it proposes a new way of listening to music without auditory stimulation. Additionally, the visualized patterns are combined to form a single piece of image, an image-music. This continuous image combining process also resembles the way we perceive music.",
 		"query": "sehyun"
 	}
 },
@@ -130,15 +130,15 @@
 	"ko": {
 		"title": "DARE!",
 		"name": "조현승",
-		"url": "darebooks.cargo.site/",
-		"description": "보이는 대로 보지 않는다. \n〈DARE!〉은 기존의 상식, 통념, 금기, 패러다임에 도전하며 입체적인 관점을 제시하는 도서 출판 브랜드이다. 마르셀 프루스트는 \"진정한 탐험은 새로운 풍경을 찾는 것이 아니라 새로운 시각을 갖는 것이다.\"라고 말했다. 당신이 어떤 사람이든 상관없이 제안한다. 감히 | 해보라고 | 모험",
+		"url": "darebooks.cargo.site",
+		"description": "보이는 대로 보지 않는다.<br>〈DARE!〉은 기존의 상식, 통념, 금기, 패러다임에 도전하며 입체적인 관점을 제시하는 도서 출판 브랜드이다. 마르셀 프루스트는 “진정한 탐험은 새로운 풍경을 찾는 것이 아니라 새로운 시각을 갖는 것이다.”라고 말했다. 당신이 어떤 사람이든 상관없이 제안한다.<br>감히 | 해보라고 | 모험",
 		"query": "hyunseung"
 	},
 	"en": {
 		"title": "DARE!",
 		"name": "Hyunseung Cho",
-		"url": "",
-		"description": "\"Do not see as it appears.\"\nA publishing brand that looks at the world from diverse perspectives and presents a new viewpoint.",
+		"url": "darebooks.cargo.site",
+		"description": "Do not see as it appears.<br>〈DARE!〉 is a publishing brand that challenges common sense, taboos, and paradigms and presents diverse perspectives. Marcel Proust said “The real voyage of discovery consists not in seeking new landscapes but in having new eyes.” Whoever you are, I propose.<br>Dare | to Dare | a Dare",
 		"query": "hyunseung"
 	}
 },
@@ -147,14 +147,14 @@
 		"title": "Hello, Goodbye, World!",
 		"name": "민정은",
 		"url": "hellogoodbyeworld.com",
-		"description": "“Hello, World!”는 인간과 컴퓨터의 소통을 위한 대표적인 프로그래밍의 예제이자, 디지털이라는 새로운 세상에 대한 선언, 감탄, 그리고 인사였다. 그런데 그곳은 과연 우리가 계속해서 살아갈 수 있는 세상일까. 이제는 조심스레 다시 안녕을 고해본다. 이번의 인사는 “Goodbye!”가 되길 바라며.",
+		"description": "〈Hello, Goodbye, World!〉는 디지털이라는 새로운 세상에 건넨 수많은 ‘Hello’에 대한 의문이다. 물리적, 시간적 경계가 무너져 모든 것이 뒤엉킨 디지털 세상은 과연 우리가 계속해서 살아갈 수 있는 곳일까. 그렇기에 이제는 조심스레 다른 안녕을 고해본다. 이번 인사는, ‘Goodbye’가 되길 바라며.",
 		"query": "jeongeun"
 	},
 	"en": {
 		"title": "Hello, Goodbye, World!",
 		"name": "Jeongeun Min",
 		"url": "hellogoodbyeworld.com",
-		"description": "“Hello, World!” is a representative example of programming language for human-computer communication, and a declaration, admiration, and greeting for the new world, digital. But is it a world where we can continue to live? Now I carefully greet again, hoping this greeting will be “Goodbye!”.",
+		"description": "<i>Hello, Goodbye, World!</i> is a question for countless ‘Hellos’ that has been sent to the new world; digital. Can we continue to live in the world of digital where physical and temporal boundaries are broken? Now, I am sending my another greetings, hoping this could be ‘Goodbye’.",
 		"query": "jeongeun"
 	}
 },
@@ -162,15 +162,15 @@
 	"ko": {
 		"title": "몸이 없는 세계",
 		"name": "이희은",
-		"url": "",
-		"description": "몸은 가장 보편적이면서 가장 개성적인 것이다. 우리는 몸이라는 공통 분모가 있기에 서로를 이해하고 공감한다. 하지만 모양새가 다르다는 이유로 쉽게 차별하고 판단한다. 만약, 그 근거가 사라졌을때 우리는 어떻게 남들과 관계맺을 수 있을까? \n〈몸이 없는 세계〉은 몸이 사라져버리길 바랐던 어떤 이의 이야기이다. 어쩌면, 우리 모두의 이야기.  \n  ",
+		"url": "bonetobebone.com",
+		"description": "우리 모두는 몸으로 존재한다. 몸이라는 공통분모가 있기에 서로를 이해하고 공감한다. 몸들은 모두 고유한 모양새를 가지고 있다. 각자의 유별난, 독자적인 생김새는 쉽게 차별과 판단의 근거가 되기도 한다. 만약, 서로의 몸이라는 근거가 사라지게 된다면 우리는 어떻게 관계맺을 수 있을까? 〈몸이 없는 세계〉는 몸이 사라져버리길 바랐던 어떤 이의, 혹은 우리 모두의 이야기이다." ,
 		"query": "heeeun"
 	},
 	"en": {
-		"title": "The Bodyless Place",
+		"title": "The Bodiless Dream",
 		"name": "Heeeun Lee",
-		"url": "",
-		"description": "We all exist as a body. This common ground makes us empathize with each other. Our bodies all have own shapes. These differences could be the basis for discrimination easily. If we lose that, how would we relate to others? \"The Bodyless World\" is the story of someone who wants body to disappear.",
+		"url": "bonetobebone.com",
+		"description": "We all exist as bodies. This common ground makes us to empathize with each other. Our body all has its own shape. This difference can be the reason for discrimination.  If our bodies are gone, how can we relate to others? <i>The Bodiless Dream</i> is the story of someone who wants body to disappear.",
 		"query": "heeeun"
 	}
 },
@@ -178,15 +178,15 @@
 	"ko": {
 		"title": "720",
 		"name": "배채원",
-		"url": "https://720.cargo.site/",
-		"description": "720'은 바다에서 사용할 수있는 실용적인 제품 디자인을 통해 세일링 라이프 스타일 로맨스를 구현합니다.",
+		"url": "720.cargo.site",
+		"description": "〈720〉은 바다에서 사용할 수 있는 실용적인 제품 디자인을 통해 세일링 라이프 스타일 로맨스를 구현합니다.",
 		"query": "chaewon"
 	},
 	"en": {
 		"title": "720",
 		"name": "Chaewon Bae",
-		"url": "",
-		"description": "720 embodies the sailing lifestyle romance through the design of practical products that can be used by the sea. ",
+		"url": "720.cargo.site",
+		"description": "<i>720</i> embodies the sailing lifestyle romance through practical products that can be used by the sea.",
 		"query": "chaewon"
 	}
 },
@@ -195,14 +195,14 @@
 		"title": "옵스큐리어스 영화제",
 		"name": "김지우",
 		"url": "jiuziu.xyz",
-		"description": "왜 누군가는 공포영화에 치를 떨고, 누군가는 열광할까? 왜 사람들은 끔찍한 사고 현장에 웅성거리며 모여들까? 공포는 '알 수 없음'에서 기인하고, 역설적으로 이 '알 수 없음'은 호기심을 유발해 우리를 공포의 대상으로 이끈다. Obscurious는  Obscure과 Curious를 합친 단어이다. 〈옵스큐리어스 영화제〉는 공포영화라는 매체를 통해 공포와 호기심, 이 두가지 감정의 줄다리기를 탐구해본다. ",
+		"description": "왜 누군가는 공포영화에 치를 떨고, 누군가는 열광할까? 왜 사람들은 끔찍한 사고 현장에 웅성거리며 모여들까? 공포는 ‘알 수 없음’에서 기인하고, 역설적으로 이 ‘알 수 없음’은 호기심을 유발해 우리를 공포의 대상으로 이끈다. Obscurious는 Obscure과 Curious를 합친 단어이다. 〈옵스큐리어스 영화제〉는 공포영화라는 매체를 통해 공포와 호기심, 이 두가지 감정의 줄다리기를 탐구해본다.  ",
 		"query": "jiu"
 	},
 	"en": {
 		"title": "Obscurious Film Festival",
 		"name": "Jiu Kim",
 		"url": "jiuziu.xyz",
-		"description": "Fear stems from the obscure and the unknwon. Paradoxically, this obscure nature yields curiosity and draws us to the unknown. <i>Obscurious Film Festival</i> explores the ambivalent emotion of fear and curisoity through the means of horror cinema.",
+		"description": "Fear stems from the obscure and the unknown. Paradoxically, this obscure nature yields curiosity and draws us to the unknown. <i>Obscurious Film Festival</i> explores the ambivalent emotions of fear and curiosity through the means of horror cinema.",
 		"query": "jiu"
 	}
 },
@@ -210,14 +210,14 @@
 	"ko": {
 		"title": "회고록",
 		"name": "김민아",
-		"url": "",
-		"description": "그분은 꿈과 낭만이 넘치는 대학 문턱을 들어서시며 10대 때 꿈꾸던 일들을 현실로 이루어낼 수 있는 전지전능한 '대학생'의 힘을 얻으셨다. 찬양과 경배의 마음을 담아 신의 면모와 품위를 담아내니, 모두의 귀감이 되어 영원히 영광을 받으실 것이다. ",
+		"url": "memoir.kim",
+		"description": "그분은 꿈과 낭만이 넘치는 대학 문턱을 들어서시며 10대 때 꿈꾸던 일들을 현실로 이루어낼 수 있는 전지전능한 ‘대학생’의 힘을 얻으셨다. 찬양과 경배의 마음을 담아 신의 면모와 품위를 담아내니, 모두의 귀감이 되어 영원히 영광을 받으실 것이다. ",
 		"query": "mina"
 	},
 	"en": {
 		"title": "Memoirs",
 		"name": "Mina Kim",
-		"url": "",
+		"url": "memoir.kim",
 		"description": "Entering the threshold of the university full of dreams and romance, He gained the power of an almighty university student who can achieve whatever teenager dream. With praise and adoration, here is the dignity and glory of His life as a god, He shall take the highest honor.",
 		"query": "mina"
 	}
@@ -227,14 +227,14 @@
 		"title": "Hesiod",
 		"name": "박민우",
 		"url": "parkminwoo.com",
-		"description": "헤시오드는 로마 제국의 명각 글자에 영감을 받은 현대적 세리프 글꼴이다. 끌로 깎은 듯한 세리프와 날카로운 획 처리가 단정한 인상을 준다. 고전적이면서도 예스럽지 않은 인상으로 신화나 서사시, 판타지 작품 등에 잘 어울린다. 제목용, 본문용 스타일을 지원한다.",
+		"description": "Hesiod는 로마 제국의 명각 글자에 영감을 받은 현대적 세리프 글꼴이다. 그 이름에 걸맞게, 곧게 뻗은 당당한 구조와 날카로운 획 처리로 장엄하면서도 환상적인 신화와 서사시의 세계를 표현한다. 고전적 형태를 따르면서도 미묘한 변주를 통해 매력적인 표정을 완성한다. 스크린 디스플레이를 위해 개발되었으며, 좁은 자간과 세밀한 세리프는 50px 이상의 커다란 크기로 사용되었을 때 제 역할을 다한다. ",
 		"query": "minwoo"
 	},
 	"en": {
 		"title": "Hesiod",
 		"name": "Minwoo Park",
-		"url": "minupark.cargo.site",
-		"description": "<i>Hesiod</i> is a contemporary interpretation of the inscriptional capitals of the Roman Empire. Its chiseled serif and crisp outline give a classic, but neat and up-to-date look which makes it perfect for myths, epics, and fantasy pieces. It includes display, text style to provide such editorial needs.",
+		"url": "parkminwoo.com",
+		"description": "<i>Hesiod</i> is a contemporary interpretation of the Roman square capitals. Fittingly named, it exposes a solemn and mythical world of epics with its straight strokes, sharp serifs, and crisp outlines. It follows a classical form, yet subtle details add a touch of sober beauty. Developed for screens, its close spacing and elaborate details are ideal for large sizes over 50px.",
 		"query": "minwoo"
 	}
 },
@@ -242,31 +242,31 @@
 	"ko": {
 		"title": "VERUDO",
 		"name": "문석진",
-		"url": "",
-		"description": "당신은 동심을 믿는가? 동심은 실제로 존재한다. 어렸을 적 장난감 하나를 손에 쥐고도 여러 상상의 나라를 펼쳤던 기억이 있을 것이다. 그게 바로 동심이 존재한다는 증거이다. 우리는 동심을 통해 여러 상상의 세계를 드나든다. 하지만 아쉽게도 현재 우리에게는 동심이 없다. 그 이유는 바로 'VERUDO' 때문이다. 'VERUDO'는 세계를 중심으로 활동하는 비밀리 단체로 동심을 훔치는 단체이다. 우리가 알고 있는 이미 알고 있는 이들이다. 헨젤과 그레텔에 나오는 마녀, 피리부는 사나이 등 동화 속 아이들을 유괴했던 이들은 모두 'VERUDO' 단체의 일원이다. 이들은 우리의 동심을 훔쳐 자신들의 힘을 유지하는데 사용한다. 지금 이 순간에도 이들은 아이들을 유혹해 동심을 훔치고 있다. ",
+		"url": "doorseokjeen.xyz",
+		"description": "아이들은 동심을 지니고 있어 여러 상상의 나라를 펼칠 수 있다. 하지만 인간은 나이를 먹으면서 동심을 잃는다. 자연스러운 현상처럼 보이지만 인간이 동심을 잃는 데에는 이유가 있다. ‘VERUDO’는 세계를 중심으로 아이들이 가진 동심을 빼앗는 단체이다. 동심에는 가공할만한 특별한 힘이 있고, 이를 위해 ‘VERUDO’ 는 수단을 가리지 않고 아이들에게 접근한다. 지금 이 순간에도 아이들은 동심을 잃고 있다. 우리는 왜, 어떻게 동심을 잃게 되었는지 알아내기 위해 ‘VERUDO’의 발자취를 추적해본다.",
 		"query": "seokjin"
 	},
 	"en": {
 		"title": "VERUDO",
 		"name": "Seokjin Moon",
-		"url": "",
-		"description": "If you play with your toys now, can you be as excited as you were when you were younger? Why can't we play like we were young anymore? Our children's hearts have been robbed. There are groups that take advantage of their children's hearts. It's branding for that group.",
+		"url": "doorseokjeen.xyz",
+		"description": "Children have a special power, so they can come in and out many worlds without restrictions. However, as humans age, they lose their ability that can feel other worlds. It looks like a natural phenomenon of becoming an adult, but there is a reason why children lose their abilitie. ‘VERUDO’ is an organization that takes away children’s power around the world. Children have a potential energy, and for this,‘VERUDO’ approaches children regardless of means. Even at this moment, the children are losing their power. We trace the footsteps of ‘VERUDO’ to find out why and how we lost our power at childhood.",
 		"query": "seokjin"
 	}
 },
 {
 	"ko": {
-		"title": "서울특별시 마포구 와우산로 48 604호",
+		"title": "curiousworks",
 		"name": "이민지",
-		"url": "",
-		"description": "『서울특별시 마포구 와우산로 48 604호』는 출판사 curiousworks의 소재지이자 저자의 거주지인 책이다. 이 주소는 책이 만들어지는 공간과 실제 삶의 공간이라는 두 기능을 소화한다. 이곳에서 출판사, 저자, 집 안 사물들에 어떤 변화가 생겼는지 궁금하다면, 방문하여 읽어보아라.",
+		"url": "curiousworks.xyz",
+		"description": "curiousworks는 디자인과 예술 주변부에서 새로운 출판 문법을 제안하려 기록, 실험, 재생산하는 출판사이다. 디자이너와 예술가, 원본과 복제, 작품으로서의 책에 관심을 두고, 복제 불가능하거나 지면을 벗어난 책 제작을 시도한다.",
 		"query": "curie"
 	},
 	"en": {
-		"title": "The Address",
+		"title": "curiousworks",
 		"name": "Curie Lee",
-		"url": "",
-		"description": "‘The Address’ is a book that exists as the location of press curiousworks and author’s residence. This address practices two functions: space where books are made and space of real life. If you're curious about what's happened to curiousworks, author, and things in this address, visit and read.",
+		"url": "curiousworks.xyz",
+		"description": "Curiousworks is a publisher that documents, experiments, and reproduces to suggest new publishing grammar near design and fine arts. Curiousworks pays attention to designers and artists, original and reproduction, and books as works. Curiousworks attempts to produce non-reproducible or out-of-print books.",
 		"query": "curie"
 	}
 },
@@ -275,14 +275,14 @@
 		"title": "찰나만사",
 		"name": "김예샘",
 		"url": "yesaemkim.cargo.site",
-		"description": "우리는 지금도 무언가를 찍고 복사하고 공유하고 전송하고 다운로드하고 백업하고 있다. 혹은 찍히고 복사되고 공유되고 전송되고 다운로드되고 백업되고 있거나. 이러한 환경 속에서 우리가 남긴 흔적들은 얼마나 지속될까? <찰나만사>는 극히 짧은 시간인 찰나의 정의에서 출발해 데이터의 죽음과 부활, 그리고 이들의 수명에 대해 이야기한다.",
+		"description": "우리는 지금도 무언가를 찍고 복사하고 공유하고 전송하고 다운로드하고 백업하고 있다. 혹은 찍히고 복사되고 공유되고 전송되고 다운로드되고 백업되고 있거나. 이러한 환경 속에서 우리가 남긴 흔적들은 얼마나 지속될까? 〈찰나만사〉는 극히 짧은 시간인 찰나의 정의에서 출발해 데이터의 죽음과 부활, 그리고 이들의 수명에 대해 이야기한다.",
 		"query": "yesaem"
 	},
 	"en": {
-		"title": "Don't kill my vibe",
+		"title": "Challamansa",
 		"name": "Yesaem Kim",
-		"url": "",
-		"description": "How long is forever? Sometimes, just one second.",
+		"url": "yesaemkim.cargo.site",
+		"description": "We film, copy, share, transmit, download, and back up something everyday. Or vice versa.How long will the traces we have left in this environment last? The story of <i>Challamansa</i> begins with the definition of the word ‘challa’ and deals with the death and resurrection of data and their lifespan.",
 		"query": "yesaem"
 	}
 },
@@ -290,15 +290,15 @@
 	"ko": {
 		"title": "매일, 밥",
 		"name": "유화정",
-		"url": "mydelicatequisine.cargo.site/",
-		"description": "〈매일, 밥〉은 입고 먹고 자는 것과 같이 당연한 루틴으로 느껴지는 요리라는 행위에 대해 다양한 질문을 던진다. <매일, 밥>에 실린 인터뷰이의 요리들은 별다를 것 없이 평범하지만, 요리에 담긴 이야기는 저마다 유일하다. ‘평범’하지만 ‘특별’하다. 비슷해 보여도 각기 다른 대답들이 누군가에게는 공감을, 누군가에게는 새로운 경험을 선물할 것이다. 이 흥미로운 대화에 함께해보자.",
+		"url": "mydelicatequisine.cargo.site",
+		"description": "〈매일, 밥〉은 입고 먹고 자는 것과 같이 당연한 루틴으로 느껴지는 요리라는 행위에 대해 다양한 질문을 던진다. 〈매일, 밥〉에 실린 인터뷰이의 요리들은 별다를 것 없이 평범하지만, 요리에 담긴 이야기는 저마다 유일하다. ‘평범’하지만 ‘특별’하다. 비슷해 보여도 각기 다른 대답들이 누군가에게는 공감을, 누군가에게는 새로운 경험을 선물할 것이다. 이 흥미로운 대화에 함께해보자.",
 		"query": "hwajeong"
 	},
 	"en": {
 		"title": "My Delicate Quisine",
 		"name": "Hwajeong Yoo",
-		"url": "https://mydelicatequisine.cargo.site/",
-		"description": "Cooking is closely related to our daily lives. 〈My Delicate Quisine〉 induces you to reflect on what seems to be a natural routine, such as wearing, eating, and sleeping. Interviewees' cook is normal, but the story inside is the only one, so \"normal\" and \"special\" coexist. Although similar, different answers present empathy to someone and new experiences to someone. Let's join in this interesting and contradictory conversation.",
+		"url": "mydelicatequisine.cargo.site",
+		"description": "Cooking is closely related to our daily lives. <i>My Delicate Quisine</i> induces you to reflect on what seems to be a natural routine, such as wearing, eating, and sleeping. Interviewees’ cook is normal, but the story inside is the only one, so “normal” and “special” coexist. Although similar, different answers present empathy to someone and new experiences to someone. Let's join in this interesting and contradictory conversation.",
 		"query": "hwajeong"
 	}
 },
@@ -307,14 +307,14 @@
 		"title": "Still Theater",
 		"name": "이선호",
 		"url": "still.theater",
-		"description": "이동식 극장인 Still Theater는 인쇄된 텍스트와 이미지만으로 무대 위의 모든 움직임을 ‘고요히(still)’ 대변한다. 독자는 곧 관객이다. 임의로 건너뛰거나 이전으로 돌아갈 수 없으며, 마치 객석에 앉아있는 것처럼, 한 번뿐인 모든 순간에 집중해야 한다. 그리고 읽기가 끝났을 때, 텍스트는 독자의 기억 속에만 희미하게 남는다. 단 한 장의 지면에 불과하지만, ‘그럼에도 불구하고(still)’ 이는 곧 하나의 극장, 무대이자 연극이다.",
+		"description": "이동식 극장인 〈Still Theater〉는 인쇄된 텍스트와 이미지만으로 무대 위의 모든 움직임을 ‘고요히(still)’ 대변한다. 독자는 곧 관객이다. 임의로 건너뛰거나 이전으로 돌아갈 수 없으며, 마치 객석에 앉아있는 것처럼, 한 번뿐인 모든 순간에 집중해야 한다. 그리고 읽기가 끝났을 때, 텍스트는 독자의 기억 속에만 희미하게 남는다. 단 한 장의 지면에 불과하지만, ‘그럼에도 불구하고(still)’ 이는 곧 하나의 극장, 무대이자 연극이다.",
 		"query": "sunho"
 	},
 	"en": {
 		"title": "Still Theater",
 		"name": "Sunho Lee",
 		"url": "still.theater",
-		"description": "In this mobile Still Theater, printed text and images represent every action and movement on stage, in a ‘still’ way. Readers are the audience. You can’t skip or go back. As if you are seated in the middle of a theater, you have to concentrate on every single moment. At last, when reading is done, the text will only remain as blurred imagery. Yet a single sheet of script, ‘still,’ it is a theater, a stage, a play.",
+		"description": "In this mobile <i>Still Theater</i>, printed text and images represent every action and movement on stage, in a ‘still’ way. Readers are the audience. You can’t skip or go back. As if you are seated in the middle of a theater, you have to concentrate on every single moment. At last, when reading is done, the text will only remain as blurred imagery. Yet a single sheet of script, ‘still,’ it is a theater, a stage, a play.",
 		"query": "sunho"
 	}
 },
@@ -323,14 +323,14 @@
 		"title": "Open the Window",
 		"name": "신혜원",
 		"url": "hyewon.xyz",
-		"description": "쉬고 있다는 인식과 함께 휴식시간을 보내면 양질의 회복을 얻을 수 있다. 'Open the window'는 쉼을 인식할 수 있게 도와주면서 휴식이 필요할 때 바로 열어볼 수 있는 모니터 속 창문이다.",
+		"description": "쉼은 무의식 또는 의식 상태에서 이루어진다. 쉼을 인식하는 것은 효율적인 휴식의 첫 단계이다. 〈Open the Window〉는 창문을 여는 행위를 통해 휴식의 시작을 알려 준다. 책상 앞에서 무의식적으로 쉬던 현대인들은 모니터 속 창을 열어 쉼을 인식하고, 풍경을 보며 마음을 환기시킬 것이다.",
 		"query": "hyewon"
 	},
 	"en": {
 		"title": "Open the window",
 		"name": "Hyewon Shin",
 		"url": "hyewon.xyz",
-		"description": "If you spend your break time with the perception that you are resting, you can get a good recovery. 'Open the Window' is a window in the monitor that helps you recognize rest and opens it when you need rest.",
+		"description": "We rest unconsciously or consciously. The first step in efficient rest is to recognize rest. <i>Open the Window</i> tells you the beginning of a rest through the action of opening the window. Unconsciously resting people can notice their own rest and immerse themselves in rest with <i>Open the Window</i>.",
 		"query": "hyewon"
 	}
 },
@@ -338,15 +338,15 @@
 	"ko": {
 		"title": "Studio Specique",
 		"name": "강지원",
-		"url": "https://studiospecique.cargo.site/",
+		"url": "studiospecique.cargo.site/",
 		"description": "밀키프록, 비어디드래곤, 볼파이톤, 크레스티드 게코, 레오파드 게코...  특수동물 전문 사진관 〈Studio Specique〉에서 촬영하는 동물들이다. 특수동물을 향한 관심에서 시작된 〈Studio Specique〉는 특수동물을 위해 여러 컨셉을 준비하고 그들의 색다른 모습을 담는다. ",
 		"query": "jeewon"
 	},
 	"en": {
 		"title": "Studio Specique",
 		"name": "Jeewon Kang",
-		"url": "https://studiospecique.cargo.site/",
-		"description": "Milk Frog, Bearded Dragon, Ball Python, Crested Gecko, Leopard Gecko… These are the animals that are photographed at 〈Studio Specique〉, a special animal portrait studio. 〈Studio Specique〉 prepares various concepts for our pets and captures their unique appearances.",
+		"url": "studiospecique.cargo.site/",
+		"description": "Milk Frog, Bearded Dragon, Ball Python, Crested Gecko, Leopard Gecko… These are the animals that are photographed at <i>Studio Specique</i>, a special animal portrait studio. <i>Studio Specique</i> prepares various concepts for our pets and captures their unique appearances.",
 		"query": "jeewon"
 	}
 },
@@ -355,14 +355,14 @@
 		"title": "Companion Observations by Fish",
 		"name": "민하람",
 		"url": "https://companionobservations.cargo.site",
-		"description": "관상을 위해 기르는 물고기가 반대로 우리를 관찰하고 있다면 어떨까?  \n〈Companion Observations by Fish〉는 물고기의 반려인 관찰기다.",
+		"description": "관상을 위해 기르는 물고기가 반대로 우리를 관찰하고 있다면 어떨까? <br>〈Companion Observations by Fish〉는 물고기의 반려인 관찰기다.",
 		"query": "haram"
 	},
 	"en": {
 		"title": "Companion Obervations by Fish",
 		"name": "Haram Min",
-		"url": "",
-		"description": "",
+		"url": "https://companionobservations.cargo.site",
+		"description": "What if the fishes raised for aesthetic purposes were observing us on the contrary?<ㅑi>Companion Observations by Fish</i> is an observation recorded by Fish.",
 		"query": "haram"
 	}
 },
@@ -371,14 +371,14 @@
 		"title": "사의세계",
 		"name": "노경태",
 		"url": "nodabee.xyz",
-		"description": "1. 4차원을 인지하기 위해서는 3차원의 공간에서 시간의 축으로부터 독립된 존재가 되어야힌다.\n<br>\n2. 미시세계에서 전자는 불연속적으로 운동을 하면서 시공간의 개념이 무의미해진다.\n<br>\n3. 우리는 죽으면 물리적,화학적으로 해체되며 입자의 존재로 나아간다.",
+		"description": "4차원을 인식하려면 3차원의 세 축을 둘러싼 고정된 축, 시간이라는 것에 대해 독립돼야 한다.<br>1. 미시세계에서 전자가 가진 불연속적인 존재적 특성은 그 존재 자체를 시공간으로부터 독립시켜준다. <br>2. 사람은 죽으면 어떤 방법으로든 해체된다. 그렇게 우리는 최소 단위의 입자로 쪼개질 것이다. <br>3. 결국 우리는 사후에 입자의 존재로 남아 시공간에서 독립해 4차원을 볼 수 있지 않을까.<br><br>〈사의 세계〉는 그런 가정 하에 4차원 세계를 시각화하기 위해 노경태의 사후를 영상과 스크롤 인터렉션을 이용해 만들어진 웹이다. 4차원의 시공간에서 3차원 시공간을 바라본다. 그 주체는 3차원의 시간 축을 조절해 여러 시간대를 드나들 수 있다. 그리고 그 3차원 속으로 들어가 입자의 입장에서 그 시간을 바라볼 수 있다.",
 		"query": "kyungtae"
 	},
 	"en": {
 		"title": "World4",
 		"name": "Kyungtae Roh",
 		"url": "nodabee.xyz",
-		"description": "To recognize 4th dimension, it should be independent of time axis.\nIn the micro world, Discontinuous movement quantum has makes itself independent of spacetime. Our being got split after life up to Minimum unit. In the end, we can see 4th dimension after life in the micro world.",
+		"description": "To recognize 4th dimension, it should be independent of time axis.<br>In the micro world, Discontinuous movement quantum has makes itself independent of spacetime. <br>Our being got split after life up to Minimum unit<br>In the end, we can see 4th dimension after life in the micro world.<br><br><i>World4</i> is a website to visualize these sequences toward the 4th dimension with scroll interaction and videos. We can see 3rd dimension in the 4th dimension’s position. The being might adjust the time of 3rd dimension. Enter into 3rd dimension and see the world with particle being sight.",
 		"query": "kyungtae"
 	}
 },
@@ -386,31 +386,31 @@
 	"ko": {
 		"title": "DIistorted Utopia",
 		"name": "최다인",
-		"url": "",
-		"description": "〈Distorted Utopia〉는 모든 것이 충족되는 이상세계가 아닌, 부정적인 억압의 이면을 드러내는 곳을 이상으로 설정하며 경험과 꿈, 무의식 속의 이야기들이 의식 밖으로 드러낸다.",
+		"url": "distortedutopia.cargo.site",
+		"description": "〈Distorted Utopia〉는 스스로 선택하는 죽음에 대해 이야기한다. 어디에서도 죽은 후의 모습은 공개되지 않는다. 그 중에서도 스스로 선택한 죽음이 공개되는 것은 만천하에 자신의 민낯을 드러내는 것과 다름없다. 하지만 스스로 선택한 결말을 투명하게 드러낼 수 있는 곳이 진정한 유토피아가 아니겠는가. 두려워말고 그들의 선택에 마음껏 슬퍼하라. 또, 마음껏 기뻐하라.",
 		"query": "dain"
 	},
 	"en": {
 		"title": "Distorted Utopia",
 		"name": "Dain Choi",
-		"url": "",
-		"description": "〈Distorted Utopia〉 is not the ideal world in which everything is satisfied. By setting the ideal world as a place where negative oppression is revealed, it presents stories of experience, dreams and unconsciousness.",
+		"url": "distortedutopia.cargo.site",
+		"description": "<i>Distorted Utopia</i> talks about suicide. Post-death images are nowhere to be seen. Among those, revealing one's own chosen death is like revealing one's bare face. But the true utopia is a place where you can transparently reveal the ending of your choice. Don't be afraid to feel sad about their choice. Also, please feel free to be happy.",
 		"query": "dain"
 	}
 },
 {
 	"ko": {
-		"title": "눈에 띄지 않지만, 계속 찾게 되는 것.",
+		"title": "Q2.5",
 		"name": "안민석",
-		"url": "",
+		"url": "q2point5.cargo.site/",
 		"description": "눈에 띄지 않지만 계속 찾게 되는 것. 아카이브 스토어〈Q2.5〉는 단순하고 평범하기에 시선을 사로잡지는 않지만, 매력적인 작은 디테일로 사람들 곁에서 오래도록 사랑받아온 대상들을 재조명한다.",
 		"query": "minseok"
 	},
 	"en": {
-		"title": "Unnoticed, but Kept Looking",
+		"title": "Q2.5",
 		"name": "Minseok Ahn",
-		"url": "",
-		"description": "There are things around us that are unnoticed, but kept looking. These things are simple in form but attractive from their own self, and are quietly valued by us for a long time. Archive store \"Q25\" introduces these things in various areas, and further suggests a sustainable lifestyle.",
+		"url": "q2point5.cargo.site/",
+		"description": "Unnoticed, but kept looking. Archive Store <i>Q2.5</i> refocuses the objects which are simple and ordinary that doesn't catch the eye, but have long been loved by people with charming small details.",
 		"query": "minseok"
 	}
 },
@@ -419,14 +419,14 @@
 		"title": "셧업앤쇼",
 		"name": "강미리",
 		"url": "miro.com/app/board/o9J_kltY3Tc=",
-		"description": "사물을 ‘통해서 아는 법’ 외에 ‘보는 법'을 잊어버린 우리에게, 그림자는 좋은 선생님이 된다. 표면의 다양한 메시지는 깨끗이 씻겨나가고 당황스럽도록 조용한 형태를 마주할 테지만, 그다지 나쁜 경험은 아닐 수도 있다. 한편 형태를 잃은 메시지는 다른 곳을 통해 경험된다. 말 그대로 정형성은 더 이상 찾아볼 수 없다.",
+		"description": "〈셧업앤쇼〉는 그림자를 이용해, 오로지 사물의 윤곽만을 포착하고 표면의 글 또는 그림을 무차별 제거한 프로젝트다. 이곳의 사물들은 더 이상 메시지를 조잘대지 않는다. 대신 다채로운 형태들로 자신을 내보인다. 한편 메시지들은 사물과 분리된 순간 본연의 상태, 즉 ‘해석되기 나름’의 상태를 거쳐 이제는 음성으로 전달된다.",
 		"query": "miri"
 	},
 	"en": {
 		"title": "shut up and show",
 		"name": "Miri Kang",
 		"url": "miro.com/app/board/o9J_kltY3Tc=/",
-		"description": "You will only see the shadows of objects that have something written or drawn on. Objects don't say anything. You don't know anything, you just see. This isn't great, but it's not a prevalent experience. Still, the time passing without knowing anything can be a waste. In that case, just press the play button at the top. That'something' transferred by voice (until the ability to reach) will be reproduced and will inform on behalf of the object.",
+		"description": "<i>shut up and show</i> uses shadows to capture only the outline of objects and indiscriminately remove text and images on the surface. The objects here no longer say a message but show themselves in various shapes. Meanwhile, the messages goes through the original state: open to interpretation, at the moment of separation from the objects. And they are now delivered by voice.",
 		"query": "miri"
 	}
 },
@@ -435,14 +435,14 @@
 		"title": "Obiliviate",
 		"name": "주지함",
 		"url": "obiliviate.com",
-		"description": "〈Obiliviate〉는 삼림중의 원소를 주제로 타로로 표현하는 방식으로 일러스트레이션 작품인데, 강렬한 색조와 심플한 그림 속에 타로의 스타일이 표현을 하다.삼림은 사람의 마음과 같고 삼림에서 길을 잃을수도 있고 방향을 잃을수도 있다. 삼림속에는 당신의 두려움, 사랑, 기대, 미지수가 들어있을것이다. 당신이 가슴에 맺힌 일이 대해서 카드 한 장을 선택해 그 해답을 한번 보인가? ",
+		"description": "마치 우리의 삶과 같이 숲은 두려움, 사랑, 기대, 미지수로 채워져 있다. 〈Obiliviate〉은 이러한 숲을 소재로 한 타로카드이다. 지금 당신이 어려운 난관에 봉착해 있다면 카드 한 장을 선택해 그 해답을 한 번 찾아보자. ",
 		"query": "zhihan"
 	},
 	"en": {
 		"title": "Obiliviate",
 		"name": "Zhihan Zhu",
 		"url": "obiliviate.com",
-		"description": "",
+		"description": "What would you be like without the external factors, like a forest without green. In the forest there will be your fears, your loves, your expectations, your unknowns, all from within. You can pick a card and see if there’s a solution to something that bothers you?",
 		"query": "zhihan"
 	}
 }
