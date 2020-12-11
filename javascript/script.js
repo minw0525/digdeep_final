@@ -6,21 +6,29 @@ const langPart = /(\?|&)lang=(\D|\d){1,}/;
 let currLang;
 let url = window.location.href;
 let filePath;
+let pageIdx;
 
-function checkUrl(url){
-	const currParam = paramReg.exec(url) ? paramReg.exec(url)[0] : null;
-	paramsObj.student = null;
-	paramsObj.lang = null;
+const CheckUrl = {
 
+	setCurrParam : function(url){
+		const currParam = paramReg.exec(url) ? paramReg.exec(url)[0] : null;
+		return currParam;
+	}, 
+	
 	//get querystring
-	function getParam(){
+	getParam : function(url){
+		paramsObj.student = null
+		paramsObj.lang = null;
+		const currParam = this.setCurrParam(url);
 		if(currParam){
 			currParam.replace(
 				/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) { paramsObj[key] = value; }
-			);
-		}
-		console.log(paramsObj);
+			)
+		};
+		return paramsObj;
+	},
 
+	setCurrLang : function(){
 		$('[data-altLang] span').removeClass('altLangOn');
 		$('[data-altLang').each(function(){$(this).removeAttr('href')})
 		switch (paramsObj.lang) {
@@ -48,12 +56,9 @@ function checkUrl(url){
 				break;
 		}
 		console.log(currLang);
-		return paramsObj;
-	}
-
+	},
 	//check pathname
-	filePath = window.location.pathname;
-	function getFilePath(path){
+	getPageIdx: function(path){
 		switch (path) {
 			case "/":
 			case "/digdeep_final/":
@@ -72,23 +77,26 @@ function checkUrl(url){
 				pageIdx = 3;
 				console.log(pageIdx)
 				return pageIdx;
-			default: //window.location.href = "https://digdeep.works"
+			default: console.log(`invalid pageIdx : ${pageIdx}`)//window.location.href = "https://digdeep.works"
 			console.log(pageIdx);
-
 		}
+	},
+	checkUrl : function(url){
+		this.getParam(url);
+		this.setCurrLang();
+		filePath = window.location.pathname;
+		this.getPageIdx(filePath);
+
+		//pageIdx = 1;
+		console.log(currLang);
+		console.log(pageIdx);
 	}
-
-	getParam();
-	getFilePath(filePath);
-	//pageIdx = 1;
-
-	console.log(currLang);
-	console.log(pageIdx);
-};
+}
 
 const renderMain = {
 	gCstyle : {
-		gridTemplateColumns : 'repeat(7, 1fr) 170px 170px'
+		gridTemplateColumns : 'repeat(7, 1fr) 170px 170px',
+		gridTemplateRows : '1fr'
 	},
 	tNstyle : { 
 		outline : 'none', 
@@ -159,7 +167,8 @@ const renderMain = {
 
 const renderProject = {
 	gCstyle : {
-		gridTemplateColumns : 'repeat(3, minmax(100px, 1fr)) repeat(5, minmax(0, 1fr)) 170px 170px;'
+		gridTemplateColumns : 'repeat(3, minmax(100px, 1fr)) repeat(5, minmax(0, 1fr)) 170px 170px',
+		gridTemplateRows : '1fr'
 	},
 	tNstyle : { 
 		outline : '1px solid black', 
@@ -190,6 +199,7 @@ const renderProject = {
 	stickyWrapper : $('<div>').attr('class','stickyWrapper item'),
 	stickyBox : $('<div>'),
 	stickyImg : function(data){
+		this.stickyBox.empty();
 		const targetData = this.findTargetData(data);
 		for(let i=0; i<2; i++){
 			const spacer = $('<div>');
@@ -208,7 +218,6 @@ const renderProject = {
 		$(this.index).empty();
 		//const sortedData = Methods.sortData(data);
 		for(let i = 0; i<28; i++){
-			console.log(i);
 			$('<a>').attr('class', `index${i} indexSpa`).appendTo($(this.index));
 		}
 
@@ -233,7 +242,6 @@ const renderProject = {
 	},
 
 	createDiv : function(){
-		$('div').scrollTop(0);
 		gC.css(this.gCstyle).append(this.leftPannel, this.stickyWrapper, this.index);
 		$('.titleName').css(this.tNstyle);
 		this.personal.appendTo(this.leftPannel).append(this.vidWrapper, this.urlBox);
@@ -246,6 +254,7 @@ const renderProject = {
 	},
 
 	fillDiv : function(data){
+		$('div').scrollTop(0);
 		const targetData = this.findTargetData(data);
 		this.urlAttr.href = `https://${targetData[currLang].url}`;
 		this.urlAttr.title = targetData[currLang].name;
@@ -436,28 +445,6 @@ const route = {
 	}
 };
 
-
-function router(path) {
-	(route[path] || route.otherwise)(path);
-}
-
-const load = (url)=>{
-	gC.empty();
-	$('span[data-detect]').empty();
-	checkUrl(url);
-	router(pageIdx);
-	(()=>{
-		console.log(currLang);
-		$('.hrefConcatLang').each(function(){
-			if(currLang === 'en'){
-				this.href = this.href.concat('?lang=en');
-			}
-		})
-	})()
-}
-load(url);
-
-
 const Methods = {
 	sortData : (data)=>{
 		let sortedData = Array.from(data);
@@ -490,3 +477,61 @@ const Methods = {
 		]);
 	}
 }
+
+function router(path) {
+	(route[path] || route.otherwise)(path);
+}
+
+const load = (url)=>{
+	gC.empty();
+	console.log('gc emptied');
+	$('span[data-detect]').empty();
+	CheckUrl.checkUrl(url);
+	router(pageIdx);
+	(()=>{
+		console.log(currLang);
+		$('.hrefConcatLang').each(function(){
+			if(currLang === 'en'){
+				this.href = this.href.concat('?lang=en');
+			}
+		})
+	})()
+}
+load(url);
+
+// a tag onclick pushstate event
+$(document).on('click', 'a.spa', function(e) {
+	//e.preventDefault();
+	let href = $(this).attr('href');
+	console.log(href);
+	history.pushState(href,'', href);
+	url = window.location.href;
+	console.log(url);
+	load(url);
+	return false;
+});
+
+// a tag onclick pushstate event
+$(document).on('click', 'a.indexSpa', function(e) {
+	//e.preventDefault();
+	let href = $(this).attr('href');
+	console.log(href);
+	history.pushState(href,'', href);
+	url = window.location.href;
+	projectRefill(url)
+	return false;
+});
+const projectRefill = async (paramStr)=>{
+	CheckUrl.checkUrl(paramStr);
+	await getData('https://minw0525.github.io/digdeep_final/data/json2_project.json')
+	.then((res)=>{renderProject.fillDiv(res)});
+}
+
+//bind popstate event
+$(window).bind('popstate', function() {
+    let returnLocation = history.location || document.location;
+    console.log(returnLocation)
+    let href = returnLocation.search;
+	load(href);
+});
+
