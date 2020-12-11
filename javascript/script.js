@@ -185,7 +185,6 @@ const renderProject = {
 	index : $('<div>').attr('class', 'index item'),
 	indexCreate : function(data){
 		const sortedData = Methods.sortData(data);
-		console.log(sortedData);
 		$(this.index).empty();
 		//const sortedData = Methods.sortData(data);
 		$.each(sortedData,(i, item)=>{

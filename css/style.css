@@ -459,7 +459,6 @@ video {
     display: flex;
     flex-direction: column;
     padding: 30px 35px;
-    color: var(--blue);
 }
 .touchMe {
     margin: auto;
@@ -469,6 +468,7 @@ video {
     transform: rotate(-40deg);
     font-size: var(--font_big);
     font-weight: 600;
+    color: var(--blue);
 }
 .infoWrapper {
     position: relative;
@@ -564,7 +564,22 @@ video {
     text-underline-offset: 0.4rem;
     color: var(--blue) !important;
 }
-.clicked {
+p.clicked {
     background-color: black !important;
     color: white !important;
+    text-decoration: none;
+}
+.clicked {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.4rem;
+    color: black !important;
+}
+.clickable {
+    color: var(--blue) !important;
+}
+.inCharge:hover, .clickable:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.4rem;
 }
