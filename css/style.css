@@ -341,7 +341,7 @@ video {
 .personal video {
     height: 100%;
 }
-.personal > .url {
+.personal .url {
     position: relative;
     flex: 0 0 80px;
     top: 5px;
@@ -410,7 +410,6 @@ video {
     line-height: 1.85;
 }
 .index a .ml-en {
-    font-size: calc(var(--font_small) * 1.1);
     font-weight: 500;
 }
 

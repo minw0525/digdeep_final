@@ -175,8 +175,8 @@ const renderProject = {
 	personal : $('<div>').attr('class', 'personal item'),
 	vidWrapper : $('<div>'),
 	diggingVid : $('<video autoplay muted loop>').attr('type','video/mp4'),
-	urlBox : $('<span>').attr('class', 'url'),
-	urlLink : $('<a>Digging location→</a>'),
+	urlBox : $('<a>'),
+	urlLink : $('<span>Digging location→</span>').attr('class', 'url'),
 	description : $('<div>').attr('class','description item'),
 	descrBox : $('<div>').attr('class','descrBox'),
 	descrText : $('<p>').attr('data-detect','description'),
@@ -242,7 +242,7 @@ const renderProject = {
 		console.log(targetData)
 		this.urlAttr.href = `https://${targetData[currLang].url}`;
 		this.urlAttr.title = `https://${targetData[currLang].url}`;
-		this.urlLink.attr(this.urlAttr);
+		this.urlBox.attr(this.urlAttr);
 		Methods.styleClickable(this.urlLink[0]);
 		this.diggingVid.attr('src', `./video/${targetData[currLang].query}_750px.mp4`);
 		let changeList = Array.prototype.slice.call($('[data-detect]'))
