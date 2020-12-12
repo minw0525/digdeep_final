@@ -1,0 +1,111 @@
+@font-face {
+    font-family: 'AritaDotum';
+    font-style: normal;
+    font-weight: 500;
+    src: local('아리따-돋움(OTF)'),
+        url('../webfont/AritaDotumMedium.woff2') format('woff2'),
+        url('../webfont/AritaDotumMedium.eot') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'AritaDotum';
+    font-style: normal;
+    font-weight: 600;
+    src: local('아리따-돋움(OTF)'),
+        url('../webfont/AritaDotumSemiBold.woff2') format('woff2'),
+        url('../webfont/AritaDotumSemiBold.eot') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'AritaDotum';
+    font-style: normal;
+    font-weight: 700;
+    src: local('아리따-돋움(OTF)'),
+        url('../webfont/AritaDotumBold.woff2') format('woff2'),
+        url('../webfont/AritaDotumBold.eot') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'covik-sans-mono';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../webfont/CovikSansMono-Medium.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'covik-sans-mono';
+    font-style: italic;
+    font-weight: 500;
+    src: url('../webfont/CovikSansMono-MediumItalic.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'covik-sans-mono';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../webfont/CovikSansMono-Semibold.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'covik-sans-mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../webfont/CovikSansMono-Bold.woff2') format('woff2');
+}
+
+:root {
+    font-size: calc(0.3vh + 7px);
+    /*color*/
+    --blue: #0909d1;
+    /*size*/
+    --min_gap: 15px;
+    /*font*/
+    --font_family: covik-sans-mono, AritaDotum, Roboto, sans-serif;
+    --font_big: 3rem;
+    --font_mid: 2rem;
+    --font_small: 1.5rem;
+    --font_micro: 0.6rem;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font_family);
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    overscroll-behavior-y: none;
+}
+.ml-en,
+.ml-num {
+    font-family: covik-sans-mono;
+}
+.item {
+    background-color: white;
+    outline: 1px solid black;
+    border: 1px solid black;
+    overflow: auto;
+    -ms-overflow-style: none; /* IE and Edge*/
+    scrollbar-width: none; /* Firefox*/
+}
+/*Hide scrollbar for Chrome, Safari and Opera*/
+.item::-webkit-scrollbar {
+    display: none;
+}
+/*initial typography setting */
+p,
+span,
+h1,
+h2,
+div {
+    word-break: keep-all;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+a {
+    text-decoration: none;
+}
+a:link,
+a:visited {
+    color: inherit;
+}
