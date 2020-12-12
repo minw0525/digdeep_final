@@ -464,25 +464,6 @@ function router(path) {
 	(route[path] || route.otherwise)(path);
 }
 
-function load(url){
-	$('.grid-container *').each((i,e)=>{
-		e.remove();
-	});
-	$('span[data-detect]').empty();
-	checkUrl(url);
-	router(pageIdx);
-	(()=>{
-		console.log(currLang);
-		$('.hrefConcatLang').each(function(){
-			if(currLang === 'en'&&!langPart.exec(this.href)){
-				this.href = this.href.concat('?lang=en');
-			}
-		})
-	})()
-	Methods.makeMultilingual(gC);
-}
-
-
 /*
 const projectRefill = (data, paramStr)=>{
 
@@ -575,6 +556,24 @@ $(window).bind('popstate', function() {
 	load(href);
 });
 
+
+function load(url){
+/*	$('.grid-container *').each((i,e)=>{
+		e.remove();
+	});*/
+	$('span[data-detect]').empty();
+	checkUrl(url);
+	router(pageIdx);
+	(()=>{
+		console.log(currLang);
+		$('.hrefConcatLang').each(function(){
+			if(currLang === 'en'&&!langPart.exec(this.href)){
+				this.href = this.href.concat('?lang=en');
+			}
+		})
+	})()
+	Methods.makeMultilingual(gC);
+}
 load(url);
 
 

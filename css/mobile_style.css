@@ -161,7 +161,7 @@ video {
     display: none;
 }
 .grid-container {
-    height: calc(100vh - 80px);*/
+    height: calc(100vh - 80px);
     /*display: grid;
     grid-template-rows: repeat(6, 1fr);*/
     /*zgrid-template-rows: repeat(auto-fill, minmax(0, auto));
@@ -173,8 +173,7 @@ video {
 /*###################################*/
 /*###################################*/
 /*###################################*/
-.jail{
-}
+
 .booth {
     min-height: 220px;
     position: relative;
@@ -279,13 +278,15 @@ video {
 /*###################################*/
 /*###################################*/
 
-.personalInfo, .sponsor, .team{
+.personalInfo,
+.sponsor,
+.team {
     grid-column: 1/4;
 }
-.personalInfo{
+.personalInfo {
     height: 120px;
 }
-.sponsor{
+.sponsor {
     height: fit-content;
 }
 
