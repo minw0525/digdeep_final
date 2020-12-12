@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<title>Dig Deep: 2020</title>
+		<!--<link rel="stylesheet" href="https://use.typekit.net/ehy7syo.css">-->
+		<link rel="stylesheet" href="css/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script defer src="javascript/script.js"></script>
+		<style>
+			@keyframes spaceship-ani {
+				to {
+					background-position: -4100px 0;
+				}
+			}
+			#photoDiv,
+			#loadingBox{
+				position : fixed;
+				width : 100vw;
+				height : 100vh;
+				background: white;
+				z-index: 100;
+				transition: opacity 0.5s;
+			}
+			#photoDiv{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.loading {
+				position: absolute;
+				left:0;
+				right:0;
+				margin-left:auto;
+				margin-right:auto;
+				top: 0;
+				bottom:0;
+				margin-top:auto;
+				margin-bottom:auto;
+				width: 410px;
+				height: 416px;
+				background: url('image/loading.png') no-repeat 0 0 / cover;
+				animation: spaceship-ani 2s infinite steps(10);
+			}
+			.photo {
+				position: absolute;
+				left:0;
+				right:0;
+				margin-left:auto;
+				margin-right:auto;
+				top: 0;
+				bottom:0;
+				margin-top:auto;
+				margin-bottom:auto;
+				width: 100%;
+				height: 100%;
+				background: url('image/groupPhoto1.jpeg') no-repeat center 0 / contain;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="loadingBox">
+			<div class="loading"></div>
+		</div>
+		<div class="all-wrapper">	
+			<div class="header item">
+				<div class="logo"><a href="../digdeep_final/" class="spa hrefConcatLang">Dig Deep</a></div>
+				<div class="titleName">
+					<span class="title" data-detect="title"></span><span class="name" data-detect="name"></span>
+				</div>
+			</div>
+			<div class="credit item"><a href="./credit" class="spa hrefConcatLang">Credit</a></div>
+			<div class="altLang item">
+				<a data-altLang="ko" class="spa"><span>KR&nbsp</span></a>
+				<span>/</span>
+				<a data-altLang="en" class="spa"><span>&nbspEN</span></a>
+			</div>
+			<div class="grid-container">
+			</div>
+		</div>
+		<div id="photoDiv">
+			<div class="photo"></div>
+		</div>
+		<script src="javascript/jquery.multilingual.min.js"></script>
+		<script>
+			/*document.querySelector('.photo').addEventListener('click', function(){
+			    document.querySelector('#photoDiv').style.visibility='hidden';
+	            load(url);
+            	setTimeout(loading, 3000);
+             	function loading(){
+        		document.querySelector('#loadingBox').style.visibility='hidden';
+	            }
+			})*/
+        </script>
+	</body>
+</html>
