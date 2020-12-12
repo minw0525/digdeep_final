@@ -74,6 +74,7 @@ html {
 }
 body {
     overscroll-behavior-y: none;
+    min-height: -webkit-fill-available;
 }
 .ml-en,
 .ml-num {
@@ -108,4 +109,18 @@ a {
 a:link,
 a:visited {
     color: inherit;
+}
+
+/*###################################*/
+/*###################################*/
+/*###################################*/
+
+.clicked {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.4rem;
+    color: black !important;
+}
+.clickable {
+    color: var(--blue) !important;
 }
