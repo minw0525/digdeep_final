@@ -11,7 +11,7 @@
 		<style>
 			@keyframes spaceship-ani {
 				to {
-					background-position: -4100px 0;
+					background-position: -2050px 0;
 				}
 			}
 			#photoDiv,
@@ -33,7 +33,7 @@
 				bottom:0;
 				margin-top:auto;
 				margin-bottom:auto;
-				width: 210px;
+				width: 205px;
 				height: 208px;
 				background: url('image/loading.png') no-repeat 0 0 / cover;
                 animation: spaceship-ani 2s infinite steps(10);
@@ -102,10 +102,10 @@
 		</div>
 		<script src="javascript/jquery.multilingual.min.js"></script>
 		<script>
-			document.querySelector('.photo').addEventListener('click', function(){
+			document.querySelector('#photoDiv').addEventListener('click', function(){
 			    document.querySelector('#photoDiv').style.visibility='hidden';
 	            load(url);
-            	setTimeout(loading, 3000);
+            	setTimeout(loading, 0)//3000);
              	function loading(){
         		document.querySelector('#loadingBox').style.visibility='hidden';
 	            }
