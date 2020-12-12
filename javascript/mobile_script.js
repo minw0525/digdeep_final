@@ -377,6 +377,7 @@ const Methods = {
 		el.multilingual([
 			'en', 'num'
 		]);
+		console.log('multilingualed');
 	}
 }
 

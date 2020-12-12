@@ -162,10 +162,11 @@ video {
 }
 .grid-container {
     height: calc(100vh - 80px);*/
-    display: grid;
-    /*grid-template-rows: repeat(6, 1fr);*/
-    grid-template-rows: repeat(auto-fill, minmax(0, auto));
-    grid-template-columns: repeat(3, 1fr);
+    /*display: grid;
+    grid-template-rows: repeat(6, 1fr);*/
+    /*zgrid-template-rows: repeat(auto-fill, minmax(0, auto));
+    grid-template-columns: repeat(3, 1fr);*/
+
     overflow: auto;
 }
 
@@ -274,6 +275,20 @@ video {
 .descrBox {
     padding: 15px 20px;
 }
+/*###################################*/
+/*###################################*/
+/*###################################*/
+
+.personalInfo, .sponsor, .team{
+    grid-column: 1/4;
+}
+.personalInfo{
+    height: 120px;
+}
+.sponsor{
+    height: fit-content;
+}
+
 /*###################################*/
 /*###################################*/
 /*###################################*/
