@@ -81,7 +81,7 @@ function checkUrl(url){
 
 	getParam();
 	getFilePath(filePath);
-//	pageIdx = 1;
+//	pageIdx = 3;
 
 	console.log(currLang);
 	console.log(pageIdx);
@@ -309,17 +309,30 @@ const renderCredit = {
 	hivcd : $('<span>').attr('class','inCharge'),
 	title : $('<p>').attr('class','title').text('Dig deep'),
 	keynote : $('<p>'),
-
+	initiate : function(parent, ...args){
+		console.log(parent[0]);
+		for(const el of args){
+			parent[0].appendChild(el[0])
+			while(el[0].hasChildNodes()){
+				el[0].removeChild(el[0].firstChild); 
+				console.log(parent[0])
+			}
+			console.log(el[0]);
+		}
+	},
 	createDiv : function(){
 		gC.css(this.gCstyle).append(this.infoSidebar, this.teamList, this.creditAbout);
 		$('.titleName').css(this.tNstyle);
 		this.infoSidebar.append(this.personalInfo, this.personalImg);
-		this.personalInfo.append(this.touchMe);
-		this.infoWrapper.append(this.whichTeam, this.whichUrl, this.insta, this.contact);
+		this.personalInfo.append(this.touchMe, this.infoWrapper);
+		this.initiate(this.infoWrapper,this.whichTeam, this.whichUrl, this.insta, this.contact);
+		//this.infoWrapper.append(this.whichTeam, this.whichUrl, this.insta, this.contact);
 		this.whichTeam.append($('<span>')).append($('<span>'));
 		this.whichUrl.append($('<a>'));
 		this.insta.append($('<span>Instagram</span>')).append($('<span>'));
 		this.contact.append($('<span>e-mail</span>')).append($('<span>'));
+		this.infoWrapper.css('display','none')
+		console.log(this.infoWrapper)
 		this.personalImg.append(this.shovel, this.diggingman);
 		this.creditAbout.append(this.div1, this.div2, this.div3);
 		this.div1.append(this.advisorDiv, this.sponsorDiv);
@@ -333,6 +346,10 @@ const renderCredit = {
 	},
 
 	fillDiv : function(data){
+		this.touchMe.css('display', 'block');
+		this.shovel.css('display','block');
+		this.diggingman.css('display','none');
+		
 		for(let i = 0; i<4; i++){
 			const dataOfTeam = data[i][currLang]
 			const team = $('<div>').attr('class', `team team${i+1} item`).appendTo(this.teamList);
@@ -355,15 +372,17 @@ const renderCredit = {
 				}
 				//add name click eventlistener
 				$('.teamList').not('span.inCharge.clicked').click(()=>{
-					$('.touchMe ~ div').remove();
+					//$('.touchMe ~ div').remove();
 					$('.inCharge').removeClass('clicked');
 					$('.touchMe').css('display', 'block');
 					this.shovel.css('display','block');
+					this.infoWrapper.css('display','none');
 					this.diggingman.css('display','none');
 				});
 			}
 	
 		}
+
 		if (currLang==='ko'){
 			this.advisor.text('지도 교수');
 			this.seok.text('석재원');
@@ -389,10 +408,9 @@ const renderCredit = {
 				renderCredit.diggingman.css('display', 'block').attr('src', `./video/${target.query}_750px.mp4`)//샘플
 
 				//선택자 하이라이트, 인포창 띄우기
-				$('.infoWrapper').remove();
+				$('.infoWrapper').css('display','flex');
 				$('span').not(this).removeClass('clicked');
 				$('.touchMe').css('display', 'none');
-				renderCredit.infoWrapper.appendTo(renderCredit.personalInfo)
 				$('.whichTeam>span:first-child').text(`${target.team} ${target.role}`);
 				$('.whichTeam>span:last-child').text(target.name);
 				$('.whichUrl a').text(target.url).attr({
@@ -465,6 +483,8 @@ function load(url){
 	})()
 	Methods.makeMultilingual(gC);
 }
+
+
 /*
 const projectRefill = (data, paramStr)=>{
 
@@ -525,23 +545,27 @@ const Methods = {
 
 // a tag onclick pushstate event
 $(document).on('click', 'a.spa', function(e) {
+	$(this).attr('disabled',true);
 	e.preventDefault();
 	let href = $(this).attr('href');
 	console.log(href);
 	history.pushState(href,'', href);
 	url = window.location.href;
 	load(url)
+	$(this).removeAttr('disabled')
 	return false;
 });
 
 // a tag onclick pushstate event
 $(document).on('click', 'a.indexSpa', async function(e) {
+	$(this).attr('disabled',true);
 	e.preventDefault();
 	let href = $(this).attr('href');
 	console.log(href);
 	history.pushState(href,'', href);
 	await getData('https://minw0525.github.io/digdeep_final/data/json2_project.json')
 		.then((res)=>{renderProject.onlyProjectFill(href, res)})
+	$(this).removeAttr('disabled')
 	return false;
 });
 

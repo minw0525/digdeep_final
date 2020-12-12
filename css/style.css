@@ -339,7 +339,7 @@ video {
     overflow: hidden;
 }
 .personal video {
-    height: -webkit-fill-available;
+    height: 100%;
 }
 .personal > .url {
     position: relative;
@@ -499,6 +499,7 @@ video {
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
 }
 .shovel {
     background: url('../image/singleshovel.png') center center / contain
@@ -510,12 +511,7 @@ video {
 }
 .personalImg video {
     flex: 1 1 auto;
-    height: -moz-available;
-    height: -webkit-fill-available;
-    height: fill-available;
-    /*width: -moz-available;
-    width: -webkit-fill-available;
-    width: fill-available;*/
+    height: 100%;
     padding: 5px;
 }
 .creditAbout {
@@ -582,9 +578,10 @@ p.clicked {
 .clickable {
     color: var(--blue) !important;
 }
-.inCharge:hover,
+.team .inCharge:hover,
 .clickable:hover {
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.4rem;
+    cursor: url('../image/cur_hover.png'), pointer;
 }
