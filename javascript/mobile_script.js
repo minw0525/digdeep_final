@@ -56,6 +56,8 @@ function checkUrl(url){
 	filePath = window.location.pathname;
 	function getFilePath(path){
 		switch (path) {
+			case "/mobile":
+			case "/mobile/":
 			case "/mobile.html":
 					pageIdx = 1;
 					console.log(pageIdx)
@@ -86,6 +88,11 @@ function checkUrl(url){
 
 
 const renderMain = {
+	gCstyle : {
+		display: 'block',
+		gridTemplateRows : 'unset',
+		gridTemplateColumns : 'unset',
+	},
 	jailStyle : {
 		display: 'grid',
 		gridTemplateRows : 'repeat(auto-fill, minmax(100px, auto))',
@@ -96,6 +103,7 @@ const renderMain = {
 
 	createDiv : function(data){
 		console.log(this);
+		gC.css(renderMain.gCstyle);
 		this.jail.css(this.jailStyle).appendTo(gC);
 		for(const target of data){
 			const item = $('<div>').attr('class', `item booth diggingDiv ${target[currLang].query}` ).appendTo(this.jail);
@@ -104,7 +112,7 @@ const renderMain = {
 			}).prop({ 
 				autoplay: true, muted: true, loop: true
 			}).appendTo(item);
-			const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'./image/thumbnail_${target['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item);
+			const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'../image/thumbnail_${target['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item);
 			const workLink = $('<a>').attr('class','personalLink spa').appendTo(wrappingBlock);
 			Methods.attachHover(item, wrappingBlock);
 		}
@@ -113,12 +121,12 @@ const renderMain = {
 	fillDiv : function(data){
 		for(const target of data){
 			const i = data.indexOf(target);
-			$('video')[i].setAttribute('src', `./video/${target[currLang].query}_300px.mp4`);
+			$('video')[i].setAttribute('src', `../video/${target[currLang].query}_300px.mp4`);
 			const workLink = $('a.personalLink')[i];
 			if(currLang === 'en'){
-				workLink.setAttribute('href',`./project?student=${target[currLang].query}&lang=en`);
+				workLink.setAttribute('href',`project?student=${target[currLang].query}&lang=en`);
 			}else{
-				workLink.setAttribute('href', `./project?student=${target[currLang].query}`);
+				workLink.setAttribute('href', `project?student=${target[currLang].query}`);
 			}
 			//append block tag
 			const blockTitle = $('<span>').attr('class', 'title').text(target[currLang].title).appendTo(workLink);
@@ -234,14 +242,14 @@ const renderProject = {
 		this.urlAttr.title = `https://${targetData[currLang].url}`;
 		this.urlBox.attr(this.urlAttr);
 		Methods.styleClickable(this.urlLink[0]);
-		this.diggingVid.attr('src', `./video/${targetData[currLang].query}_750px.mp4`);
+		this.diggingVid.attr('src', `../video/${targetData[currLang].query}_750px.mp4`);
 		let changeList = Array.prototype.slice.call($('[data-detect]'))
 		changeList.map(v=>{
 			v.innerHTML = targetData[currLang][v.dataset.detect]
 		});
 		this.stickyImg(data);
 		$('.stick-img').each(function(i, e){
-			e.style.backgroundImage=`url(./image/sticky_${targetData[currLang].query}_${i+1}.png)`
+			e.style.backgroundImage=`url(../image/sticky_${targetData[currLang].query}_${i+1}.png)`
 		})
 		this.indexHighlight();
 		document.querySelector('video').play();

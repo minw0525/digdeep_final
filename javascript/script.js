@@ -575,7 +575,11 @@ $(window).bind('popstate', function() {
 	load(href);
 });
 
-
+load(url);
+setTimeout(loading, 3000);
+function loading(){	
+	document.querySelector('#loadingBox').style.visibility='hidden';
+}
 
 
 /*
