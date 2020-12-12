@@ -278,18 +278,118 @@ video {
 /*###################################*/
 /*###################################*/
 
-.personalInfo,
 .sponsor,
 .team {
-    grid-column: 1/4;
+    padding: 10px 20px 20px 20px;
 }
 .personalInfo {
+    position: -o-sticky;
+    position: -ms-sticky;
+    position: -moz-sticky;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     height: 120px;
 }
-.sponsor {
-    height: fit-content;
+.touchMe {
+    margin: auto;
+    text-align: center;
+    position: relative;
+    display: block;
+    font-size: var(--font_big);
+    font-weight: 600;
+    color: var(--blue);
+    top: 50%;
+    transform: translateY(-50%);
 }
-
+.info {
+    padding: 20px 20px;
+    height: 100%;
+    flex: 1 1 66%;
+    word-break: break-all;
+    overflow: hidden;
+}
+.videoWrap {
+    width: 60%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-items: center;
+}
+.videoWrap video {
+    height: 100%;
+    position: relative;
+    top: -20px;
+}
+.info span {
+    font-size: var(--font_mid);
+    display: flex;
+    align-items: center;
+}
+.info * {
+    z-index: 100;
+}
+.icon {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    position: relative;
+    top: 0.2rem;
+    margin-right: 7px;
+    background: url('../image/credit_icon.svg') 0 0 / cover no-repeat;
+}
+.info span:nth-child(2) .icon {
+    background-position: 0 -20px;
+}
+.info span:last-child .icon {
+    background-position: 0 -40px;
+}
+.sponsor {
+    display: flex;
+}
+.sponsor > div {
+    height: 70px;
+}
+.sponsor > div:first-child {
+    flex: 1 1 33%;
+}
+.sponsor > div:last-child {
+    flex: 1 1 66%;
+}
+.teamName {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font_mid);
+    font-weight: 600;
+    padding: 5px 0;
+    height: 50px;
+    justify-content: space-between;
+}
+.roleBlock {
+    display: flex;
+    flex-direction: row;
+}
+.duty {
+    flex: 1 1 33%;
+    padding: 5px 0;
+    font-size: var(--font_small);
+}
+.nameList {
+    flex: 1 1 66%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.inCharge {
+    font-size: var(--font_mid);
+    font-weight: 600;
+    display: inline-block;
+    width: 33%;
+    min-width: 70px;
+    padding: 5px 0;
+}
 /*###################################*/
 /*###################################*/
 /*###################################*/
@@ -297,7 +397,7 @@ video {
 .clicked {
     text-decoration: underline;
     text-decoration-thickness: 2px;
-    text-underline-offset: 0.4rem;
+    text-underline-offset: 0.2rem;
     color: black !important;
 }
 .clickable {
@@ -305,4 +405,8 @@ video {
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.2rem;
+}
+.clickedGnb {
+    background-color: black;
+    color: white;
 }

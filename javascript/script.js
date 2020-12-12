@@ -112,9 +112,10 @@ const renderMain = {
 		for(const target of data){
 			const item = $('<div>').attr('class', `item booth diggingDiv ${target[currLang].query}` ).appendTo(this.jail);
 			const video = $('<video>').attr({
-				type: 'video/mp4'
+				type: 'video/mp4',
+				playsinline: ''
 			}).prop({ 
-				autoplay: true, muted: true, loop: true, playsinline: true
+				autoplay: true, muted: true, loop: true
 			}).appendTo(item);
 			const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'./image/thumbnail_${target['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item);
 			const workLink = $('<a>').attr('class','personalLink spa').appendTo(wrappingBlock);
@@ -285,7 +286,10 @@ const renderCredit = {
 	touchMe : $('<span>').attr('class','touchMe').text('Click a name!'),
 	personalImg : $('<div>').attr('class', 'personalImg item'),
 	shovel : $('<div>').attr('class','shovel'),
-	diggingman : $('<video>').attr('type','video/mp4').prop({ 
+	diggingman : $('<video>').attr({
+		type:'video/mp4',
+		playsinline: ''
+	}).prop({ 
 		autoplay: true, muted: true, loop: true, playsinline: true
 	}),
 	infoWrapper : $('<div>').attr('class', 'infoWrapper'),
@@ -558,9 +562,9 @@ $(window).bind('popstate', function() {
 
 
 function load(url){
-/*	$('.grid-container *').each((i,e)=>{
+	$('.grid-container *').each((i,e)=>{
 		e.remove();
-	});*/
+	});
 	$('span[data-detect]').empty();
 	checkUrl(url);
 	router(pageIdx);

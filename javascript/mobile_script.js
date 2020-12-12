@@ -80,7 +80,7 @@ function checkUrl(url){
 
 	getParam();
 	getFilePath(filePath);
-	pageIdx = 3;
+//	pageIdx = 3;
 
 	console.log(currLang);
 	console.log(pageIdx);
@@ -108,9 +108,10 @@ const renderMain = {
 		for(const target of data){
 			const item = $('<div>').attr('class', `item booth diggingDiv ${target[currLang].query}` ).appendTo(this.jail);
 			const video = $('<video>').attr({
-				type: 'video/mp4'
+				type: 'video/mp4',
+				playsinline:''
 			}).prop({ 
-				autoplay: true, muted: true, loop: true, playsinline: true
+				autoplay: true, muted: true, loop: true
 			}).appendTo(item);
 			const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'../image/thumbnail_${target['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item);
 			const workLink = $('<a>').attr('class','personalLink spa').appendTo(wrappingBlock);
@@ -242,7 +243,7 @@ const renderProject = {
 		this.urlAttr.title = `https://${targetData[currLang].url}`;
 		this.urlBox.attr(this.urlAttr);
 		Methods.styleClickable(this.urlLink[0]);
-		this.diggingVid.attr('src', `../video/${targetData[currLang].query}_750px.mp4`);
+		this.diggingVid.attr('src', `../video/${targetData[currLang].query}_300px.mp4`);
 		let changeList = Array.prototype.slice.call($('[data-detect]'))
 		changeList.map(v=>{
 			v.innerHTML = targetData[currLang][v.dataset.detect]
@@ -274,10 +275,130 @@ const renderProject = {
 
 
 const renderCredit = {
-	createDiv: ()=>{console.log('create')},
-	fillDiv: ()=>{console.log('fill')}
-}
+	gCstyle : {
+		display: 'block',
+		gridTemplateColumns : 'unset',
+		gridTemplateRows : 'unset'
+	},
+	
+	personalInfo: $('<div>').attr('class','personalInfo item'),
+	touchMe: $('<span>').attr('class','touchMe').text('Touch a name!'),
+	info: $('<div>').attr('class','info'),
+	email: $('<span>').attr('class','email'),
+	insta: $('<span>').attr('class','insta'),
+	workUrl: $('<span>').attr({
+		'class':'workUrl',
+	}),
+	videoWrap: $('<div>').attr('class','videoWrap'),
+	video: $('<video>').prop({
+		autoplay: true,
+		muted: true,
+		loop: true
+	}).attr({
+		type: 'video/mp4',
+		playsinline: ''
+	}),
+	sponsor: $('<div>').attr('class','sponsor item'),
 
+	createDiv: function(){
+		gC.css(this.gCstyle).append(this.personalInfo, this.sponsor);
+		$('.credit').addClass('clickedGnb');
+		this.personalInfo.append(this.touchMe, this.videoWrap, this.info);
+		this.info.append(this.email, this.insta, this.workUrl);
+		const children = this.info.children().toArray();
+		for(el of children){
+			console.log(el);
+			const icon = document.createElement('div')
+			icon.setAttribute('class','icon');
+			el.appendChild(icon);
+		}
+		$('<span>').appendTo(this.email).attr('data-detect', 'email');
+		$('<span>').appendTo(this.insta).attr('data-detect', 'personalUrl');
+		this.workUrl.append($('<a>').attr('data-detect', 'url'));
+		this.videoWrap.append(this.video);
+		for(let i = 0; i<2; i++){
+			const teamName = $('<div>').attr('class','teamName').appendTo(this.sponsor);
+			for(let j = 0; j<2; j++){
+				$('<span>').attr('class','school').appendTo(teamName);
+			}
+		};
+		for(let i = 0; i<4; i++){
+			$('<div>').attr('class',`team team${i} item`).appendTo(gC);
+		}
+	},
+	fillDiv: function(data){
+		this.touchMe.css('display', 'block');
+		//this.touchMe.css('display', 'none');
+		$('.touchMe ~ div').css('display','none');
+
+		for(const [i,el] of data.entries()){
+			const teamName = $('<span>').attr('class','teamName').appendTo($('.team')[i])
+			teamName.text(el[currLang].name);
+			const roleList = el[currLang].roleList;
+			for(let j in roleList){
+				console.log(roleList[j])
+				const roleBlock = $('<div>').attr('class','roleBlock').appendTo($('.team')[i])
+				$('<span>').attr('class','duty').text(j).appendTo(roleBlock);//duty
+				const nameList = $('<div>').attr('class','nameList').appendTo(roleBlock);
+				const target = roleList[j]
+				for(let k in target){
+					const roleName = $('<span>').attr('class','inCharge').text(target[k].name).appendTo(nameList);
+					this.clickEvent(roleName, target[k])
+				}
+				//add name click eventlistener
+				gC.not('span.inCharge.clicked').click(()=>{
+					//$('.touchMe ~ div').remove();
+					$('.inCharge').removeClass('clicked');
+					$('.touchMe').css('display', 'block');
+					this.info.css('display','none');
+					this.videoWrap.css('display','none');
+				});
+			}
+		}
+		if (currLang==='ko'){
+			$('.school')[0].textContent = '지도 교수';
+			$('.school')[1].textContent = '석재원';
+			$('.school')[2].textContent = '주최';
+			$('.school')[3].textContent = '홍익대학교 시각디자인과'
+		}else{
+			$('.school')[0].textContent = 'Professor';
+			$('.school')[1].textContent = 'Jaewon Seok';
+			$('.school')[2].textContent = 'Auspice';
+			$('.school')[3].textContent = 'Hongik University Visual Communication Design'
+		}
+	},
+	clickEvent : (el, target)=>{
+		el.click(function(e){
+			e.stopPropagation();
+			console.log(this)
+			if(!el.hasClass('clicked')){
+				Methods.styleClicked(el[0]);
+				renderCredit.videoWrap.css('display', 'flex');
+				renderCredit.video.attr('src', `../video/${target.query}_300px.mp4`)//샘플
+
+
+				//선택자 하이라이트, 인포창 띄우기
+				$('.info').css('display','block');
+				$('span').not(this).removeClass('clicked');
+				$('.touchMe').css('display', 'none');
+				$('[data-detect=url]').attr({
+					'href': `https://${target.url}`, 
+					'target': 'blank'
+				});
+				let changeList = Array.prototype.slice.call($('[data-detect]'))
+				const textpart = /[>][a-zA-Z0-0]{0,}[<]/
+				changeList.map(v=>{
+					console.log(v.innerHTML)
+					$(v).text(target[v.dataset.detect]);
+				});
+				Methods.styleClickable($('.workUrl a')[0]);
+				$('.insta>span:last-child').text(target.personalUrl);
+				$('.contact>span:last-child').text(target.email);
+			}
+			document.querySelector('video').play()
+		})
+	}
+}
 
 
 function getData(url){
