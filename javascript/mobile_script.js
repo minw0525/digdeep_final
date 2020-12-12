@@ -80,7 +80,7 @@ function checkUrl(url){
 
 	getParam();
 	getFilePath(filePath);
-//	pageIdx = 3;
+	pageIdx = 3;
 
 	console.log(currLang);
 	console.log(pageIdx);
@@ -110,7 +110,7 @@ const renderMain = {
 			const video = $('<video>').attr({
 				type: 'video/mp4'
 			}).prop({ 
-				autoplay: true, muted: true, loop: true
+				autoplay: true, muted: true, loop: true, playsinline: true
 			}).appendTo(item);
 			const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'../image/thumbnail_${target['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item);
 			const workLink = $('<a>').attr('class','personalLink spa').appendTo(wrappingBlock);
@@ -175,7 +175,7 @@ const renderProject = {
     }),
 	personal : $('<div>').attr('class', 'personal item'),
 	vidWrapper : $('<div>'),
-	diggingVid : $('<video autoplay muted loop>').attr('type','video/mp4'),
+	diggingVid : $('<video autoplay muted playsinline loop>').attr('type','video/mp4'),
 	urlBox : $('<a>'),
 	urlLink : $('<span>Digging location →</span>').attr('class', 'url'),
 	description : $('<div>').attr('class','description item'),
@@ -414,5 +414,8 @@ $(window).bind('popstate', function() {
 });
 
 
-
-document.querySelector('video').play();
+load(url);
+setTimeout(loading, 0)//3000);
+ function loading(){
+	document.querySelector('#loadingBox').style.visibility='hidden';
+}

@@ -114,7 +114,7 @@ const renderMain = {
 			const video = $('<video>').attr({
 				type: 'video/mp4'
 			}).prop({ 
-				autoplay: true, muted: true, loop: true
+				autoplay: true, muted: true, loop: true, playsinline: true;
 			}).appendTo(item);
 			const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'./image/thumbnail_${target['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item);
 			const workLink = $('<a>').attr('class','personalLink spa').appendTo(wrappingBlock);
@@ -174,7 +174,7 @@ const renderProject = {
 	leftPannel : $('<div>').attr('class', 'leftPannel'),
 	personal : $('<div>').attr('class', 'personal item'),
 	vidWrapper : $('<div>'),
-	diggingVid : $('<video autoplay muted loop>').attr('type','video/mp4'),
+	diggingVid : $('<video autoplay muted playsinline loop>').attr('type','video/mp4'),
 	urlBox : $('<a>'),
 	urlLink : $('<span>Digging location→</span>').attr('class', 'url'),
 	description : $('<div>').attr('class','description item'),
@@ -286,7 +286,7 @@ const renderCredit = {
 	personalImg : $('<div>').attr('class', 'personalImg item'),
 	shovel : $('<div>').attr('class','shovel'),
 	diggingman : $('<video>').attr('type','video/mp4').prop({ 
-		autoplay: true, muted: true, loop: true
+		autoplay: true, muted: true, loop: true, playsinline: true
 	}),
 	infoWrapper : $('<div>').attr('class', 'infoWrapper'),
 	whichTeam : $('<div>').attr('class', 'whichTeam'),
