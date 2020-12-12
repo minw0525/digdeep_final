@@ -177,7 +177,7 @@ const renderProject = {
 	vidWrapper : $('<div>'),
 	diggingVid : $('<video autoplay muted playsinline loop>').attr('type','video/mp4'),
 	urlBox : $('<a>'),
-	urlLink : $('<span>Digging location→</span>').attr('class', 'url'),
+	urlLink : $('<span>Visit website →</span>').attr('class', 'url'),
 	description : $('<div>').attr('class','description item'),
 	descrBox : $('<div>').attr('class','descrBox'),
 	descrText : $('<p>').attr('data-detect','description'),

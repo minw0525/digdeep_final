@@ -115,7 +115,8 @@ const renderMain = {
 			}).appendTo(item);
 			const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'../image/thumbnail_${target['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item);
 			const workLink = $('<a>').attr('class','personalLink spa').appendTo(wrappingBlock);
-			Methods.attachHover(item, wrappingBlock);
+			workLink.css('display','none');
+			this.clickEvent(item, wrappingBlock, workLink);
 		}
 	},
 
@@ -134,10 +135,30 @@ const renderMain = {
 			const nameBlock = $(`<div>`).attr('class', 'nameBlock').appendTo(workLink);
 
 			//append span to nameBlock
+			const arrow = $(`<span>→</span>`).appendTo(nameBlock);
 			const tagName = $(`<span>`).attr('class','name').text(target[currLang].name).appendTo(nameBlock)
-			const arrow = $(`<span>→<span>`).appendTo(nameBlock);
 		}
-		document.querySelector('video').play();
+		$('video').each(function(i,el){
+			el.play()
+		})
+	},
+
+	clickEvent : (el, target1, target2)=>{
+		el.click(function(e){
+			e.stopPropagation();
+			console.log(this)
+			if(!target1.hasClass('showed')){
+				$('.wrappingBlock').each(function(i,e){
+					e.classList.remove('showed');
+					e.classList.add('hidden');
+					e.children[0].style.display='none';
+				})
+				target2.css('display','flex');
+				target1.toggleClass('hidden')
+				target1.toggleClass('showed')
+				target2.toggleClass('cilcked');
+			}
+		})
 	}
 }
 
@@ -178,7 +199,7 @@ const renderProject = {
 	vidWrapper : $('<div>'),
 	diggingVid : $('<video autoplay muted playsinline loop>').attr('type','video/mp4'),
 	urlBox : $('<a>'),
-	urlLink : $('<span>Digging location →</span>').attr('class', 'url'),
+	urlLink : $('<span>Visit website →</span>').attr('class', 'url'),
 	description : $('<div>').attr('class','description item'),
 	descrBox : $('<div>').attr('class','descrBox'),
     descrText : $('<p>').attr('data-detect','description'),

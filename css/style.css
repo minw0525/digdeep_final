@@ -267,7 +267,7 @@ video {
     padding: var(--min_gap);
 }
 .personalLink span {
-    font-weight: 700;
+    font-weight: 600;
     font-size: var(--font_mid);
     line-height: var(--font_big);
 }
