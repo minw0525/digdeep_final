@@ -34,14 +34,14 @@
 	"ko": {
 		"title": "DRINKIN",
 		"name": "이서윤",
-		"url": "https://drinkincocktail.cargo.site",
+		"url": "drinkincocktail.cargo.site",
 		"description": "사람들은 칵테일을 즐기고 싶어하면서도, 칵테일의 많은 종류 때문에 그 시작에 어려움을 겪는다. <DRINKIN>은 사용자의 선택에 따라 칵테일 종류를 추천하는 서비스이다. 또한 눈으로 확인 가능한 그래픽으로 초심자도 쉽게 인식할 수 있도록 칵테일의 특징을 설명한다. 사용자는 이 서비스를 통해 매일 다른 기분에 따라 직접 질문에 대답하게 되며, 그 과정에서 점차 자신의 칵테일 취향을 알아갈 수 있도록 〈DRINKIN〉이 그 시작을 도와줄 것이다.",
 		"query": "seoyoon"
 	},
 	"en": {
 		"title": "DRINKIN",
 		"name": "Seoyoon Lee",
-		"url": "https://drinkincocktail.cargo.site",
+		"url": "drinkincocktail.cargo.site",
 		"description": "There are so many kinds of cocktails that people have difficulty enjoying for the first time. Through <i>DRINKIN</i>, users answer questions in different moods everyday. In this process, users can gradually know their tastes, and they can see the characteristics of cocktails by looking at easy graphics.",
 		"query": "seoyoon"
 	}
@@ -354,14 +354,14 @@
 	"ko": {
 		"title": "Companion Observations by Fish",
 		"name": "민하람",
-		"url": "https://companionobservations.cargo.site",
+		"url": "companionobservations.cargo.site",
 		"description": "관상을 위해 기르는 물고기가 반대로 우리를 관찰하고 있다면 어떨까? <br>〈Companion Observations by Fish〉는 물고기의 반려인 관찰기다.",
 		"query": "haram"
 	},
 	"en": {
 		"title": "Companion Obervations by Fish",
 		"name": "Haram Min",
-		"url": "https://companionobservations.cargo.site",
+		"url": "companionobservations.cargo.site",
 		"description": "What if the fishes raised for aesthetic purposes were observing us on the contrary?<i>Companion Observations by Fish</i> is an observation recorded by Fish.",
 		"query": "haram"
 	}
