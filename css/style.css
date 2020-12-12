@@ -391,7 +391,8 @@ video {
     background: center / cover no-repeat;
 }
 .spacer {
-    height: 1000px;
+    height: calc(100vh - 60px);
+    background: url('../image/scrollshovel.jpeg') center 0 / cover no-repeat;
 }
 .index {
     grid-column: 10/11;

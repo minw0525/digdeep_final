@@ -224,17 +224,13 @@ const renderProject = {
 		console.log(currLang);
 		const targetData = this.findTargetData(data);
 		this.stickyBox.empty();
-		for(let i=0; i<2; i++){
-			const spacer = $('<div>');
-			spacer.attr('class','stick spacer').appendTo(this.stickyBox);
-
-			if(i===1) break;
-
-			for(let j = 0; j<6; j++){
-				const stickImg = $('<div>');
-				stickImg.attr('class', 'stick stick-img').appendTo(this.stickyBox);
-			}
+		const spacer = $('<div>');
+		spacer.attr('class','spacer').appendTo(this.stickyBox);
+		for(let j = 0; j<6; j++){
+			const stickImg = $('<div>');
+			stickImg.attr('class', 'stick stick-img').appendTo(this.stickyBox);
 		}
+		
 	},
 	fillDiv : function(data){
 		$('.stickyWrapper').scrollTop(0);
