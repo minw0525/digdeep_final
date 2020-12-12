@@ -274,7 +274,8 @@ const renderProject = {
 
 
 const renderCredit = {
-
+	createDiv: ()=>{console.log('create')},
+	fillDiv: ()=>{console.log('fill')}
 }
 
 
