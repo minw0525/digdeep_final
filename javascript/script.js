@@ -145,7 +145,7 @@ const renderMain = {
 			const tagName = $(`<span>`).attr('class','name').text(target[currLang].name).appendTo(nameBlock)
 			const arrow = $(`<span>→<span>`).appendTo(nameBlock);
 		}
-
+		document.querySelector('video').play();
 	}
 }
 
@@ -254,6 +254,7 @@ const renderProject = {
 			e.style.backgroundImage=`url(./image/sticky_${targetData[currLang].query}_${i+1}.png)`
 		})
 		this.indexHighlight();
+		document.querySelector('video').play();
 	},
 	onlyProjectFill : function(href, data){
 		href.replace(
@@ -422,6 +423,7 @@ const renderCredit = {
 				$('.contact>span:last-child').text(target.email);
 				Methods.makeMultilingual($(".infoWrapper"));
 			}
+			document.querySelector('video').play()
 		})
 	}
 }
