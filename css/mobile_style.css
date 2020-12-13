@@ -76,6 +76,7 @@ html {
 }
 body {
     height: 100%;
+    overscroll-behavior-y: none;
 }
 .ml-en {
     font-family: covik-sans-mono;
@@ -171,7 +172,6 @@ video {
     flex-direction: column;
     overflow-x: hidden;
     height: calc(var(--vh, vh) * 100 - 80px);
-    -webkit-overflow-scrolling: auto;
 }
 .indiv {
     display: flex;
