@@ -230,7 +230,13 @@ const renderProject = {
 		for(let j = 0; j<6; j++){
 			const stickImg = $('<div>');
 			stickImg.attr('class', 'stick stick-img').appendTo(this.stickyBox);
-		}
+			if(j===5){
+				stickImg.addClass('clickable').click(function(){
+					window.open(`https://${targetData[currLang].url}`)	
+				})
+			}
+		};
+
 		
 	},
 	fillDiv : function(data){

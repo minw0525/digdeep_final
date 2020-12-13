@@ -577,6 +577,7 @@ p.clicked {
 .clickable {
     color: var(--blue) !important;
 }
+a.indexSpa:hover,
 .team .inCharge:hover,
 .clickable:hover {
     text-decoration: underline;
