@@ -171,7 +171,6 @@ video {
     flex-direction: column;
     overflow-x: hidden;
     height: calc(var(--vh, vh) * 100 - 80px);
-    padding: 20px 10px;
 }
 .indiv {
     display: flex;
@@ -224,7 +223,6 @@ video {
 }
 .diggingDiv video {
     position: absolute;
-    min-height: -webkit-fill-available;
     max-height: 100%;
 }
 .wrappingBlock {

@@ -83,7 +83,7 @@ function checkUrl(url){
 
 	getParam();
 	getFilePath(filePath);
-	//pageIdx = 2;
+//	pageIdx = 2;
 
 	console.log(currLang);
 	console.log(pageIdx);
@@ -324,7 +324,7 @@ const renderCredit = {
 	
 	dropdownStyle : {
 		display: 'block',
-		padding: 0,
+		padding: '0',
 	},
 	dropdown : $('.dropdown'),
 	spacer: $('<div>'),
@@ -354,7 +354,7 @@ const renderCredit = {
 	instadata: $('<span>').attr('data-detect','personalUrl'),
 	pageLink : $('<a>').attr('data-detect','url'),
 	createDiv: function(){
-		gC.css(this.gCstyle);
+		//gC.css(this.gCstyle);
 		this.dropdown.empty();
 		this.dropdown.css(this.dropdownStyle)
 		this.sponsor.empty();
@@ -402,7 +402,7 @@ const renderCredit = {
 					}
 				}
 				//add name click eventlistener
-				this.dropdown.not('span.inCharge.clicked').click(()=>{
+				$('div').not('.info').click(()=>{
 					//$('.touchMe ~ div').remove();
 					$('.inCharge').removeClass('clicked');
 					$('.touchMe').css('display', 'block');
@@ -476,7 +476,7 @@ const renderAbout = {
 	sponsorInfo: $('<p>'),
 
 	render: function(){
-		gC.css(this.gCstyle);
+		//gC.css(this.gCstyle);
 		this.dropdown.empty();
 		if (currLang==='ko'){
 			this.keynote.text('2020년, 준비를 마친 인부들이 이동을 시작했다. 오프라인에서 온라인으로, 전신의 움직임에서 손가락의 작은 움직임으로, 땅 위에서 픽셀 위로…. 수많은 변화 속에서 그들은 존재를 지속할 수 있는 무언가를 찾아 나섰다. 각자가 속한 그리드와 픽셀 위에서, 28명의 인부들은 삽을 들고 더 깊은 아래를 향해 웹 속을 파고든다. 그 끝에 발굴해낸 새로운 가능성과 존재의 조각이 궁금하다면, dig deep.')
@@ -506,7 +506,7 @@ const renderWorks = {
 	dropdown : $('.dropdown'),
 
 	render: function(data){
-		gC.css(this.gCstyle);
+		//gC.css(this.gCstyle);
 		this.dropdown.empty();
 
 		this.dropdown.css(this.dropdownStyle).append(this.keynote, this.sponsor);
@@ -567,6 +567,7 @@ $('.gnb').each((i,el)=>{
 		if(!this.classList.contains('clickedGnb')){
 			gnbRoute(this)
 		}else{
+			$('.dropdown').stop().slideUp(500)
 			gnbRemove(this)
 		}
 	})
@@ -574,11 +575,10 @@ $('.gnb').each((i,el)=>{
 
 async function gnbRoute(e){
 	$('.gnb').not(e).removeClass('clickedGnb')
-	$('.dropdown').stop().slideUp(200)
 	const id = e.id;
 	console.log(e);
 	e.classList.add('clickedGnb')
-	$('.dropdown').stop().slideDown(200)
+	$('.dropdown').stop().slideDown(500)
 	switch (id) {
 		case "about":
 			console.log('rendering about');
@@ -604,7 +604,7 @@ async function gnbRoute(e){
 function gnbRemove(){
 	$('.gnb').each((i,el)=>{
 		el.classList.remove('clickedGnb');
-		$('.dropdown').css('display','none');
+		//$('.dropdown').css('display','none');
 		gC.css('display','grid')
 	})
 }
@@ -692,6 +692,7 @@ const Methods = {
 // a tag onclick pushstate event
 $(document).on('click', 'a.spa', function(e) {
 	$(this).attr('disabled',true);
+	console.log('spa')
 	e.preventDefault();
 	let href = $(this).attr('href');
 	console.log(href);

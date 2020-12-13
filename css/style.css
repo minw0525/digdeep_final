@@ -172,6 +172,9 @@ a:visited {
     -ms-line-clamp: 1;
     line-clamp: 1;
 }
+.titleName .name {
+    white-space: nowrap;
+}
 .titleName > span {
     font-size: calc(var(--font_mid) * 1.25);
     font-weight: 600;
