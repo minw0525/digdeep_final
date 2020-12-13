@@ -222,7 +222,8 @@ const renderProject = {
     
     
 	createDiv : function(data){
-		this.dropdown.css(this.dropdownStyle);
+		$('.dropdown').stop().slideUp(500)
+		//this.dropdown.css(this.dropdownStyle);
 		gC.css(this.gCstyle).append(this.stickyWrapper, this.titleName, this.personal, this.description);
         this.stickyWrapper.append(this.stickyBox);
         this.titleName.append(this.title, this.name);
@@ -303,6 +304,10 @@ const renderProject = {
 			/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) { paramsObj[key] = value; }
 		);
 		console.log(paramsObj);
+		$('.grid-container *').each((i,e)=>{
+			e.remove();
+		});
+		this.createDiv(data);
 		this.fillDiv(data);
 
 		const ko = $('a[data-altLang=ko]');
@@ -313,6 +318,9 @@ const renderProject = {
 			ko[0].href = `?student=${paramsObj.student}`
 		}
 		Methods.makeMultilingual(gC);
+
+		$('.dropdown').stop().slideUp(500)
+		gnbRemove($('.dropdown'))
 	}
 }
 
@@ -320,11 +328,6 @@ const renderProject = {
 const renderCredit = {
 	gCstyle : {
 		display: 'none'
-	},
-	
-	dropdownStyle : {
-		display: 'block',
-		padding: '0',
 	},
 	dropdown : $('.dropdown'),
 	spacer: $('<div>'),
@@ -356,7 +359,6 @@ const renderCredit = {
 	createDiv: function(){
 		//gC.css(this.gCstyle);
 		this.dropdown.empty();
-		this.dropdown.css(this.dropdownStyle)
 		this.sponsor.empty();
 		console.log('emptied')
 		this.dropdown.append(this.personalInfo, this.sponsor);
@@ -464,11 +466,6 @@ const renderAbout = {
 	gCstyle : {
 		display: 'none',
 	},
-	
-	dropdownStyle : {
-		//display: 'block',
-		padding: '20px 10px'
-	},
 	dropdown : $('.dropdown'),
 	keynote : $('<p>').attr('class', 'keynote'),
 
@@ -485,7 +482,7 @@ const renderAbout = {
 			this.keynote.text('In 2020, after extensive preparation, workers began to move. From offline to online, from full-body movement to small finger movements, from the ground to pixels above... Amidst a multitude of changes, they longed to find that “something” (or quality) that will rest immortally. On top of the grid and pixels to which they correspond, twenty-eight members hold a shovel to dig deeper into the web. If you are curious about the new possibilities and pieces unearthed, dig deep.');
 			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 Hongik University<br>Visual Communication Design <br>Graduation Week</a> Class C<br>Advisor : Jaewon Seok').appendTo(this.sponsor)		
 		}
-		this.dropdown.append(this.keynote, this.sponsor).css(this.dropdownStyle);
+		this.dropdown.append(this.keynote, this.sponsor);
 		$('.aboutSponsor a').attr({
 			target: "blank",
 			href: "http://www.hivcdgw2020.com/",
@@ -498,21 +495,15 @@ const renderWorks = {
 	gCstyle : {
 		display: 'none',
 	},
-	
-	dropdownStyle : {
-		display: 'block',
-		padding: '20px 10px'
-	},
 	dropdown : $('.dropdown'),
 
 	render: function(data){
 		//gC.css(this.gCstyle);
 		this.dropdown.empty();
 
-		this.dropdown.css(this.dropdownStyle).append(this.keynote, this.sponsor);
+		this.dropdown.append(this.keynote, this.sponsor);
 		for(el of data){
-			console.log(el)
-			const workLink = $('<a>').appendTo(this.dropdown)
+			const workLink = $('<a>').attr('class', 'indexSpa').appendTo(this.dropdown);
 			const indiv = $('<p>').attr('class','indiv').appendTo(workLink)
 			$('<span>').appendTo(indiv).text(el[currLang].name);
 			$('<span>').appendTo(indiv).text(el[currLang].title);
@@ -578,20 +569,28 @@ async function gnbRoute(e){
 	const id = e.id;
 	console.log(e);
 	e.classList.add('clickedGnb')
-	$('.dropdown').stop().slideDown(500)
 	switch (id) {
 		case "about":
+			$('.dropdown').css('padding','20px 10px')
+			$('.dropdown').stop().slideDown(500)
 			console.log('rendering about');
 			renderAbout.render();
 			break;
 		case "works":
+			$('.dropdown').css('padding','20px 10px')
+			$('.dropdown').stop().slideDown(500)
 			console.log('rendering works')
+			//$('.dropdown').css('padding','20px 10px')
 			renderWorks.render(tempdata);
 			break;
 		case "credit":
+			$('.dropdown').css('padding','0')
+				//padding-left':'0'})
+			$('.dropdown').stop().slideDown(500)
 			console.log('getting data');
 			await getData('https://minw0525.github.io/digdeep_final/data/json3_credit.json')
 				.then((res) => {
+					//$('.dropdown').css('padding','0')
 					renderCredit.createDiv();
 					renderCredit.fillDiv(res);
 				})
