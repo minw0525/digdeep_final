@@ -3,8 +3,10 @@
     font-style: normal;
     font-weight: 500;
     src: local('아리따-돋움(OTF)'),
-        url('../webfont/AritaDotumMedium.woff2') format('woff2'),
-        url('../webfont/AritaDotumMedium.eot') format('embedded-opentype');
+        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumMedium.woff2')
+            format('woff2'),
+        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumMedium.woff2')
+            format('embedded-opentype');
 }
 
 @font-face {
@@ -12,8 +14,10 @@
     font-style: normal;
     font-weight: 600;
     src: local('아리따-돋움(OTF)'),
-        url('../webfont/AritaDotumSemiBold.woff2') format('woff2'),
-        url('../webfont/AritaDotumSemiBold.eot') format('embedded-opentype');
+        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumSemiBold.woff2')
+            format('woff2'),
+        url('.https://minw0525.github.io/digdeep_final/webfont/AritaDotumSemiBold.eot')
+            format('embedded-opentype');
 }
 
 @font-face {
@@ -21,33 +25,39 @@
     font-style: normal;
     font-weight: 700;
     src: local('아리따-돋움(OTF)'),
-        url('../webfont/AritaDotumBold.woff2') format('woff2'),
-        url('../webfont/AritaDotumBold.eot') format('embedded-opentype');
+        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumBold.woff2')
+            format('woff2'),
+        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumBold.eot')
+            format('embedded-opentype');
 }
 
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 500;
-    src: url('../webfont/CovikSansMono-Medium.woff2') format('woff2');
+    src: url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-Medium.woff2')
+        format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: italic;
     font-weight: 500;
-    src: url('../webfont/CovikSansMono-MediumItalic.woff2') format('woff2');
+    src: url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-MediumItalic.woff2')
+        format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 600;
-    src: url('../webfont/CovikSansMono-Semibold.woff2') format('woff2');
+    src: url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-Semibold.woff2')
+        format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 700;
-    src: url('../webfont/CovikSansMono-Bold.woff2') format('woff2');
+    src: url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-Bold.woff2')
+        format('woff2');
 }
 
 :root {
@@ -156,11 +166,13 @@ video {
     grid-column: 3/4;
 }
 .altLangOn {
-    cursor: url('../image/cur_hover.png'), pointer;
+    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_hover.png'),
+        pointer;
     opacity: 0.2;
 }
 .altLangOn:active {
-    cursor: url('../image/cur_pointer.png'), pointer;
+    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_pointer.png'),
+        pointer;
 }
 .altLangOn:hover {
     color: var(--blue);
@@ -276,7 +288,8 @@ video {
 }
 .spacer {
     height: calc(var(--vh, 1vh) * 50 - 40px);
-    background: url('../image/scrollshovel.jpeg') center / 150% no-repeat;
+    background: url('https://minw0525.github.io/digdeep_final/image/scrollshovel.jpeg')
+        center / 150% no-repeat;
 }
 .stick {
     height: calc(var(--vh, 1vh) * 50 - 40px);
@@ -286,7 +299,7 @@ video {
     position: -o-sticky;
     position: -webkit-sticky;
     position: sticky;
-    background: url('../image/sticky_soyeon_2.png') center / cover no-repeat;
+    background: center / cover no-repeat;
     top: 0;
 }
 .titleName {
@@ -411,7 +424,8 @@ video {
     position: relative;
     top: 0.2rem;
     margin-right: 7px;
-    background: url('../image/credit_icon.svg') 0 0 / cover no-repeat;
+    background: url('https://minw0525.github.io/digdeep_final/image/credit_icon.svg')
+        0 0 / cover no-repeat;
 }
 .info span:nth-child(2) .icon {
     background-position: 0 -20px;

@@ -3,8 +3,10 @@
     font-style: normal;
     font-weight: 500;
     src: local('아리따-돋움(OTF)'),
-        url('../webfont/AritaDotumMedium.woff2') format('woff2'),
-        url('../webfont/AritaDotumMedium.eot') format('embedded-opentype');
+        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumMedium.woff2')
+            format('woff2'),
+        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumMedium.eot')
+            format('embedded-opentype');
 }
 
 @font-face {
@@ -12,8 +14,10 @@
     font-style: normal;
     font-weight: 600;
     src: local('아리따-돋움(OTF)'),
-        url('../webfont/AritaDotumSemiBold.woff2') format('woff2'),
-        url('../webfont/AritaDotumSemiBold.eot') format('embedded-opentype');
+        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumSemiBold.woff2')
+            format('woff2'),
+        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumSemiBold.eot')
+            format('embedded-opentype');
 }
 
 @font-face {
@@ -21,33 +25,39 @@
     font-style: normal;
     font-weight: 700;
     src: local('아리따-돋움(OTF)'),
-        url('../webfont/AritaDotumBold.woff2') format('woff2'),
-        url('../webfont/AritaDotumBold.eot') format('embedded-opentype');
+        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumBold.woff2')
+            format('woff2'),
+        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumBold.eot')
+            format('embedded-opentype');
 }
 
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 500;
-    src: url('../webfont/CovikSansMono-Medium.woff2') format('woff2');
+    src: url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-Medium.woff2')
+        format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: italic;
     font-weight: 500;
-    src: url('../webfont/CovikSansMono-MediumItalic.woff2') format('woff2');
+    src: url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-MediumItalic.woff2')
+        format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 600;
-    src: url('../webfont/CovikSansMono-Semibold.woff2') format('woff2');
+    src: url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-Semibold.woff2')
+        format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 700;
-    src: url('../webfont/CovikSansMono-Bold.woff2') format('woff2');
+    src: url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-Bold.woff2')
+        format('woff2');
 }
 
 :root {
@@ -104,11 +114,13 @@ div {
     hyphens: auto;
 }
 a {
-    cursor: url('../image/cur_hover.png'), pointer;
+    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_hover.png'),
+        pointer;
     text-decoration: none;
 }
 a:active {
-    cursor: url('../image/cur_pointer.png'), pointer;
+    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_pointer.png'),
+        pointer;
 }
 a:link,
 a:visited {
@@ -126,7 +138,8 @@ a:visited {
         170px 170px;
     overflow: hidden;
     min-width: 768px;
-    cursor: url('../image/cur_default.png'), auto;
+    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_default.png'),
+        auto;
 }
 .header {
     width: 100%;
@@ -184,11 +197,13 @@ a:visited {
     font-size: calc(var(--font_big) * 0.9);
 }
 .altLangOn {
-    cursor: url('../image/cur_hover.png'), pointer;
+    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_hover.png'),
+        pointer;
     opacity: 0.2;
 }
 .altLangOn:active {
-    cursor: url('../image/cur_pointer.png'), pointer;
+    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_pointer.png'),
+        pointer;
 }
 .altLangOn:hover {
     color: var(--blue);
@@ -289,8 +304,8 @@ video {
     grid-column: 8/10;
     grid-row: 1/5;
     min-width: 320px;
-    background: url('../image/shovels.jpeg') center center / contain no-repeat
-        white;
+    background: url('https://minw0525.github.io/digdeep_final/image/shovels.jpeg')
+        center center / contain no-repeat white;
 }
 .info {
     padding: 4rem 2rem 0 2.5rem;
@@ -394,7 +409,8 @@ video {
 }
 .spacer {
     height: calc(100vh - 60px);
-    background: url('../image/scrollshovel.jpeg') center 0 / cover no-repeat;
+    background: url('https://minw0525.github.io/digdeep_final/image/scrollshovel.jpeg')
+        center 0 / cover no-repeat;
 }
 .index {
     grid-column: 10/11;
@@ -504,8 +520,8 @@ video {
     overflow: hidden;
 }
 .shovel {
-    background: url('../image/singleshovel.png') center center / contain
-        no-repeat;
+    background: url('https://minw0525.github.io/digdeep_final/image/singleshovel.png')
+        center center / contain no-repeat;
     transform: rotate(50deg);
     position: absolute;
     width: 66%;
@@ -586,5 +602,6 @@ a.indexSpa:hover,
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.4rem;
-    cursor: url('../image/cur_hover.png'), pointer;
+    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_hover.png'),
+        pointer;
 }
