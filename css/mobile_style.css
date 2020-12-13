@@ -183,6 +183,7 @@ video {
     font-size: var(--font_mid);
     font-weight: 600;
     white-space: nowrap;
+    vertical-align: top;
 }
 .indiv span .ml-en {
     font-size: var(--font_big);
