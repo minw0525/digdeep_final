@@ -59,7 +59,7 @@
     /*font*/
     --font_family: covik-sans-mono, AritaDotum, Roboto, sans-serif;
     --font_big: 1.4rem;
-    --font_mid: 1.25rem;
+    --font_mid: 1.2rem;
     --font_small: 1rem;
     --font_micro: 0.6rem;
 }
@@ -145,13 +145,13 @@ video {
 .gnb {
     grid-row: 2/3;
 }
-.about {
+#about {
     grid-column: 1/2;
 }
-.works {
+#works {
     grid-column: 2/3;
 }
-.credit {
+#credit {
     grid-column: 3/4;
 }
 .altLangOn {
@@ -169,6 +169,14 @@ video {
     grid-row: 2/3;
     height: calc(100vh - 80px);
     display: none;
+    flex-direction: column;
+    overflow: auto;
+}
+.indiv {
+    display: flex;
+}
+.indiv span {
+    display: block;
 }
 .grid-container {
     height: calc(100vh - 80px);
@@ -428,6 +436,26 @@ video {
     width: 33%;
     min-width: 70px;
     padding: 5px 0;
+}
+/*###################################*/
+/*###################################*/
+/*###################################*/
+
+.keynote,
+.aboutSponsor {
+    margin: 40px 20px;
+    line-height: 1.7;
+    font-weight: 600;
+}
+.keynote .ml-en,
+.keynote .ml-num,
+.aboutSponsor .ml-en,
+.aboutSponsor .ml-num {
+    font-size: var(--font_mid);
+    line-height: 1.2;
+    font-weight: 500;
+}
+.aboutSponsor {
 }
 /*###################################*/
 /*###################################*/

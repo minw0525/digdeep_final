@@ -7,6 +7,7 @@ let currLang;
 let url = window.location.href;
 let filePath;
 let pageIdx = 1
+let tempdata;
 
 function checkUrl(url){
 	const currParam = paramReg.exec(url) ? paramReg.exec(url)[0] : null;
@@ -57,7 +58,7 @@ function checkUrl(url){
 	function getFilePath(path){
 		switch (path) {
 			case "/mobile":
-			case "/mobile.html":
+			case "/mobile/":
 			case "/digdeep_final/mobile":
 			case "/digdeep_final/mobile/":
 				pageIdx = 1;
@@ -70,26 +71,8 @@ function checkUrl(url){
 				pageIdx = 2;
 				console.log(pageIdx);
 				return pageIdx;
-
-			case '/mobile/credit':
-			case "/digdeep_final/mobile/credit":
-			case "/digdeep_final/mobile/credit/":
-					pageIdx = 3;
-				console.log(pageIdx)
-				return pageIdx;
-			case '/mobile/about':
-			case "/digdeep_final/mobile/about":
-			case "/digdeep_final/mobile/about/":
-				pageIdx = 4;
-				console.log(pageIdx)
-				return pageIdx;
-			case '/mobile/works':
-			case "/digdeep_final/mobile/works":
-			case "/digdeep_final/mobile/works/":
-				pageIdx = 5;
-				console.log(pageIdx)
-				return pageIdx;
-			default: //window.location.href = "https://digdeep.works"
+			default: 
+			//	window.location.href = "https://digdeep.works"
 			console.log(pageIdx);
 
 		}
@@ -115,11 +98,16 @@ const renderMain = {
 		gridTemplateRows : 'repeat(auto-fill, minmax(100px, auto))',
 		gridTemplateColumns : 'repeat(3, 1fr)',
 	},
+	dropdownStyle : {
+		display: 'none'
+	},
+	dropdown : $('.dropdown'),
 	placeholder : $('<div>').attr('class', 'item booth diggingDiv placeholder'),
 	jail : $('<div>').attr('class', 'jail'),
 
 	createDiv : function(data){
 		console.log(this);
+		this.dropdown.css(this.dropdownStyle);
 		gC.css(renderMain.gCstyle);
 		this.jail.css(this.jailStyle).appendTo(gC);
 		for(const target of data){
@@ -143,9 +131,9 @@ const renderMain = {
 			$('video')[i].setAttribute('src', `../video/${target[currLang].query}_300px.mp4`);
 			const workLink = $('a.personalLink')[i];
 			if(currLang === 'en'){
-				workLink.setAttribute('href',`project?student=${target[currLang].query}&lang=en`);
+				workLink.setAttribute('href',`./project?student=${target[currLang].query}&lang=en`);
 			}else{
-				workLink.setAttribute('href', `project?student=${target[currLang].query}`);
+				workLink.setAttribute('href', `./project?student=${target[currLang].query}`);
 			}
 			//append block tag
 			const blockTitle = $('<span>').attr('class', 'title').text(target[currLang].title).appendTo(workLink);
@@ -188,6 +176,11 @@ const renderProject = {
 		gridTemplateRows : 'repeat(6, 1fr)'
 	},
 
+	dropdownStyle : {
+		display: 'none'
+	},
+	dropdown : $('.dropdown'),
+
 	findTargetData : (data)=>{
 		const isTarget = function(el){
 			if(el[currLang].query === paramsObj.student) return true;
@@ -223,6 +216,7 @@ const renderProject = {
     
     
 	createDiv : function(data){
+		this.dropdown.css(this.dropdownStyle);
 		gC.css(this.gCstyle).append(this.stickyWrapper, this.titleName, this.personal, this.description);
         this.stickyWrapper.append(this.stickyBox);
         this.titleName.append(this.title, this.name);
@@ -314,11 +308,14 @@ const renderProject = {
 
 const renderCredit = {
 	gCstyle : {
-		display: 'block',
-		gridTemplateColumns : 'unset',
-		gridTemplateRows : 'unset'
+		display: 'none'
 	},
 	
+	dropdownStyle : {
+		display: 'block'
+	},
+	dropdown : $('.dropdown'),
+
 	personalInfo: $('<div>').attr('class','personalInfo item'),
 	touchMe: $('<span>').attr('class','touchMe').text('Touch a name!'),
 	info: $('<div>').attr('class','info'),
@@ -338,21 +335,25 @@ const renderCredit = {
 	}),
 	sponsor: $('<div>').attr('class','sponsor item'),
 
+	icon1 : $('<div>').attr('class','icon'),
+	icon2 : $('<div>').attr('class','icon'),
+	icon3 : $('<div>').attr('class','icon'),
+	emaildata: $('<span>').attr('data-detect','email'),
+	instadata: $('<span>').attr('data-detect','personalUrl'),
+	pageLink : $('<a>').attr('data-detect','url'),
 	createDiv: function(){
-		gC.css(this.gCstyle).append(this.personalInfo, this.sponsor);
+		gC.css(this.gCstyle);
+		this.dropdown.empty();
+		this.sponsor.empty();
+		console.log('emptied')
+		this.dropdown.css(this.dropdownStyle).append(this.personalInfo, this.sponsor);
+		console.log('dropdownStyled')
 		$('.credit').addClass('clickedGnb');
 		this.personalInfo.append(this.touchMe, this.videoWrap, this.info);
 		this.info.append(this.email, this.insta, this.workUrl);
-		const children = this.info.children().toArray();
-		for(el of children){
-			console.log(el);
-			const icon = document.createElement('div')
-			icon.setAttribute('class','icon');
-			el.appendChild(icon);
-		}
-		$('<span>').appendTo(this.email).attr('data-detect', 'email');
-		$('<span>').appendTo(this.insta).attr('data-detect', 'personalUrl');
-		this.workUrl.append($('<a>').attr('data-detect', 'url'));
+		this.email.append(this.icon1, this.emaildata)
+		this.insta.append(this.icon2, this.instadata);
+		this.workUrl.append(this.icon3, this.pageLink);
 		this.videoWrap.append(this.video);
 		for(let i = 0; i<2; i++){
 			const teamName = $('<div>').attr('class','teamName').appendTo(this.sponsor);
@@ -361,7 +362,7 @@ const renderCredit = {
 			}
 		};
 		for(let i = 0; i<4; i++){
-			$('<div>').attr('class',`team team${i} item`).appendTo(gC);
+			$('<div>').attr('class',`team team${i} item`).appendTo(this.dropdown);
 		}
 	},
 	fillDiv: function(data){
@@ -384,7 +385,7 @@ const renderCredit = {
 					this.clickEvent(roleName, target[k])
 				}
 				//add name click eventlistener
-				gC.not('span.inCharge.clicked').click(()=>{
+				this.dropdown.not('span.inCharge.clicked').click(()=>{
 					//$('.touchMe ~ div').remove();
 					$('.inCharge').removeClass('clicked');
 					$('.touchMe').css('display', 'block');
@@ -435,9 +436,74 @@ const renderCredit = {
 			}
 			document.querySelector('video').play()
 		})
+	},
+	removeCredit: function(){
+		this.dropdown.css('display','none')
 	}
 }
 
+
+const renderAbout = {
+	gCstyle : {
+		display: 'none',
+	},
+	
+	dropdownStyle : {
+		display: 'block'
+	},
+	dropdown : $('.dropdown'),
+	keynote : $('<p>').attr('class', 'keynote'),
+
+	sponsor: $('<div>').attr('class','aboutSponsor'),
+	sponsorInfo: $('<p>'),
+	render: function(){
+		gC.css(this.gCstyle);
+		this.dropdown.empty();
+		if (currLang==='ko'){
+			this.keynote.text('2020년, 준비를 마친 인부들이 이동을 시작했다. 오프라인에서 온라인으로, 전신의 움직임에서 손가락의 작은 움직임으로, 땅 위에서 픽셀 위로…. 수많은 변화 속에서 그들은 존재를 지속할 수 있는 무언가를 찾아 나섰다. 각자가 속한 그리드와 픽셀 위에서, 28명의 인부들은 삽을 들고 더 깊은 아래를 향해 웹 속을 파고든다. 그 끝에 발굴해낸 새로운 가능성과 존재의 조각이 궁금하다면, dig deep.')
+			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 홍익대학교 시각디자인과 졸업주간</a> C반<br>지도교수 석재원').appendTo(this.sponsor)
+		}else{	
+			this.keynote.text('In 2020, after extensive preparation, workers began to move. From offline to online, from full-body movement to small finger movements, from the ground to pixels above... Amidst a multitude of changes, they longed to find that “something” (or quality) that will rest immortally. On top of the grid and pixels to which they correspond, twenty-eight members hold a shovel to dig deeper into the web. If you are curious about the new possibilities and pieces unearthed, dig deep.');
+			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 Hongik University Visual Communication Design <br>Graduation Week</a> Class C<br>Advisor : Jaewon Seok').appendTo(this.sponsor)		
+		}
+		this.dropdown.css(this.dropdownStyle).append(this.keynote, this.sponsor);
+		$('.aboutSponsor a').attr({
+			target: "blank",
+			href: "http://www.hivcdgw2020.com/",
+			class: "clickable"
+		})
+	}
+}
+
+const renderWorks = {
+	gCstyle : {
+		display: 'none',
+	},
+	
+	dropdownStyle : {
+		display: 'block'
+	},
+	dropdown : $('.dropdown'),
+
+	render: function(data){
+		gC.css(this.gCstyle);
+		this.dropdown.empty();
+
+		this.dropdown.css(this.dropdownStyle).append(this.keynote, this.sponsor);
+		for(el of data){
+			console.log(el)
+			const workLink = $('<a>').appendTo(this.dropdown)
+			if(currLang === 'en'){
+				workLink.attr('href',`./project?student=${el[currLang].query}&lang=en`);
+			}else{
+				workLink.attr('href', `./project?student=${el[currLang].query}`);
+			}
+			const indiv = $('<p>').attr('class','indiv').appendTo(workLink)
+			$('<span>').appendTo(indiv).text(el[currLang].name);
+			$('<span>').appendTo(indiv).text(el[currLang].title);
+		}
+	}
+}
 
 function getData(url){
 	return new Promise((res, rej)=>{
@@ -450,6 +516,7 @@ const route = {
 	'1': async () => {
         await getData('https://minw0525.github.io/digdeep_final/data/json2_project.json')
 			.then((res) => {
+				tempdata = Methods.sortData(res);
 				renderMain.createDiv(res);
 				renderMain.fillDiv(res);
 			})
@@ -457,15 +524,9 @@ const route = {
 	'2': async () => {
 		await getData('https://minw0525.github.io/digdeep_final/data/json2_project.json')
 			.then((res) => {
+				tempdata = Methods.sortData(res);
 				renderProject.createDiv(res);
 				renderProject.fillDiv(res);
-			})	
-	},
-	'3': async () => {
-		await getData('https://minw0525.github.io/digdeep_final/data/json3_credit.json')
-			.then((res) => {
-				renderCredit.createDiv();
-				renderCredit.fillDiv(res);
 			})	
 	},
 	otherwise(path){
@@ -478,11 +539,59 @@ function router(path) {
 	(route[path] || route.otherwise)(path);
 }
 
+$('.gnb').each((i,el)=>{
+	el.addEventListener('click',function(){
+		console.log(this);
+		const id = this.id;
+		if(!this.classList.contains('clickedGnb')){
+			gnbRoute(this)
+		}else{
+			gnbRemove(this)
+		}
+	})
+})
+
+function gnbRoute(e){
+	$('.gnb').not(e).removeClass('clickedGnb')
+	const id = e.id;
+	console.log(e);
+	e.classList.add('clickedGnb')
+	switch (id) {
+		case "about":
+			console.log('rendering about');
+			renderAbout.render();
+			break;
+		case "works":
+			console.log('rendering works')
+			renderWorks.render(tempdata);
+			break;
+		case "credit":
+			console.log('getting data');
+			getData('https://minw0525.github.io/digdeep_final/data/json3_credit.json')
+				.then((res) => {
+					renderCredit.createDiv();
+					renderCredit.fillDiv(res);
+				})
+			break;
+		default: 
+			break;
+	};
+	Methods.makeMultilingual($('.dropdown'));
+}
+function gnbRemove(){
+	$('.gnb').each((i,el)=>{
+		el.classList.remove('clickedGnb');
+		$('.dropdown').css('display','none');
+		gC.css('display','grid')
+	})
+}
+
 function load(url){
 	$('.grid-container *').each((i,e)=>{
 		e.remove();
 	});
 	$('span[data-detect]').empty();
+	gnbRemove();
 	checkUrl(url);
 	router(pageIdx);
 	(()=>{
@@ -537,7 +646,23 @@ const Methods = {
 			'en', 'num'
 		]);
 		console.log('multilingualed');
-	}
+	},
+	sortData : (data)=>{
+		let sortedData = Array.from(data);
+		sortedData.sort(function(a, b) {
+			const nameA = a[currLang].name;
+			const nameB = b[currLang].name;
+			if (nameA < nameB) {
+				return -1;
+			}
+			if (nameA > nameB) {
+				return 1;
+			}		  
+			// 이름이 같을 경우
+			return 0;
+		});
+		return sortedData;
+	},
 }
 
 // a tag onclick pushstate event
