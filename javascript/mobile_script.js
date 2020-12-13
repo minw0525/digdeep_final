@@ -83,7 +83,7 @@ function checkUrl(url){
 
 	getParam();
 	getFilePath(filePath);
-	//pageIdx = 2;
+	pageIdx = 2;
 
 	console.log(currLang);
 	console.log(pageIdx);
@@ -327,7 +327,7 @@ const renderCredit = {
 		padding: 0,
 	},
 	dropdown : $('.dropdown'),
-
+	spacer: $('<div>'),
 	personalInfo: $('<div>').attr('class','personalInfo item'),
 	touchMe: $('<span>').attr('class','touchMe').text('Touch a name!'),
 	info: $('<div>').attr('class','info'),

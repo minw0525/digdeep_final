@@ -166,7 +166,6 @@ video {
 }
 .dropdown {
     grid-row: 2/3;
-    height: calc(var(--vh, 1vh) * 100 - 80px);
     display: none;
     flex-direction: column;
     overflow-x: hidden;
@@ -183,7 +182,7 @@ video {
     font-size: var(--font_mid);
     font-weight: 600;
     white-space: nowrap;
-    vertical-align: top;
+    display: flex;
 }
 .indiv span .ml-en {
     font-size: var(--font_big);
@@ -203,7 +202,6 @@ video {
     grid-template-rows: repeat(6, 1fr);*/
     /*zgrid-template-rows: repeat(auto-fill, minmax(0, auto));
     grid-template-columns: repeat(3, 1fr);*/
-
     overflow: auto;
 }
 
@@ -321,7 +319,7 @@ video {
     flex: 0 0 80px;
     top: 5px;
     padding: 15px 20px;
-    font-size: var(--font_big);
+    font-size: var(--font_mid);
     line-height: 1.2;
     white-space: normal;
     font-weight: 600;
@@ -336,6 +334,7 @@ video {
     grid-column: 1 / 3;
     grid-row: 5 / 8;
     line-height: 1.7;
+    font-weight: 600;
 }
 .descrBox {
     padding: 15px 20px;
@@ -467,6 +466,15 @@ video {
     width: 33%;
     min-width: 70px;
     padding: 5px 0;
+}
+.personalInfo,
+.sponsor,
+.team {
+    border-left: none;
+    border-right: none;
+}
+.personalInfo {
+    border-top: none;
 }
 /*###################################*/
 /*###################################*/
