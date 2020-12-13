@@ -83,7 +83,7 @@ function checkUrl(url){
 
 	getParam();
 	getFilePath(filePath);
-	pageIdx = 2;
+	//pageIdx = 2;
 
 	console.log(currLang);
 	console.log(pageIdx);
@@ -356,9 +356,10 @@ const renderCredit = {
 	createDiv: function(){
 		gC.css(this.gCstyle);
 		this.dropdown.empty();
+		this.dropdown.css(this.dropdownStyle)
 		this.sponsor.empty();
 		console.log('emptied')
-		this.dropdown.css(this.dropdownStyle).append(this.personalInfo, this.sponsor);
+		this.dropdown.append(this.personalInfo, this.sponsor);
 		console.log('dropdownStyled')
 		$('.credit').addClass('clickedGnb');
 		this.personalInfo.append(this.touchMe, this.videoWrap, this.info);
@@ -465,7 +466,7 @@ const renderAbout = {
 	},
 	
 	dropdownStyle : {
-		display: 'block',
+		//display: 'block',
 		padding: '20px 10px'
 	},
 	dropdown : $('.dropdown'),
@@ -484,7 +485,7 @@ const renderAbout = {
 			this.keynote.text('In 2020, after extensive preparation, workers began to move. From offline to online, from full-body movement to small finger movements, from the ground to pixels above... Amidst a multitude of changes, they longed to find that “something” (or quality) that will rest immortally. On top of the grid and pixels to which they correspond, twenty-eight members hold a shovel to dig deeper into the web. If you are curious about the new possibilities and pieces unearthed, dig deep.');
 			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 Hongik University<br>Visual Communication Design <br>Graduation Week</a> Class C<br>Advisor : Jaewon Seok').appendTo(this.sponsor)		
 		}
-		this.dropdown.css(this.dropdownStyle).append(this.keynote, this.sponsor);
+		this.dropdown.append(this.keynote, this.sponsor).css(this.dropdownStyle);
 		$('.aboutSponsor a').attr({
 			target: "blank",
 			href: "http://www.hivcdgw2020.com/",
@@ -573,9 +574,11 @@ $('.gnb').each((i,el)=>{
 
 async function gnbRoute(e){
 	$('.gnb').not(e).removeClass('clickedGnb')
+	$('.dropdown').stop().slideUp(200)
 	const id = e.id;
 	console.log(e);
 	e.classList.add('clickedGnb')
+	$('.dropdown').stop().slideDown(200)
 	switch (id) {
 		case "about":
 			console.log('rendering about');
@@ -684,6 +687,7 @@ const Methods = {
 		return sortedData;
 	},
 }
+
 
 // a tag onclick pushstate event
 $(document).on('click', 'a.spa', function(e) {

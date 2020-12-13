@@ -143,6 +143,7 @@ video {
 }
 .gnb {
     grid-row: 2/3;
+    position: relative;
 }
 #about {
     grid-column: 1/2;
@@ -169,6 +170,7 @@ video {
     display: none;
     flex-direction: column;
     overflow-x: hidden;
+    height: calc(var(--vh, vh) * 100 - 80px);
     padding: 20px 10px;
 }
 .indiv {
