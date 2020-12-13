@@ -122,7 +122,7 @@ const renderMain = {
 				autoplay: true, muted: true, loop: true
 			}).appendTo(item);
 			const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'../image/thumbnail_${target['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item);
-			const workLink = $('<a>').attr('class','personalLink spa').appendTo(wrappingBlock);
+			const workLink = $('<a>').attr('class','spa personalLink').appendTo(wrappingBlock);
 			workLink.css('display','none');
 			this.clickEvent(item, wrappingBlock, workLink);
 		}
@@ -155,7 +155,7 @@ const renderMain = {
 
 	clickEvent : (el, target1, target2)=>{
 		el.click(function(e){
-			e.stopPropagation();
+			//e.stopPropagation();
 			console.log(this)
 			if(!target1.hasClass('showed')){
 				$('.wrappingBlock').each(function(i,e){
@@ -694,15 +694,14 @@ $(document).on('click', 'a.spa', function(e) {
 	$(this).attr('disabled',true);
 	console.log('spa')
 	e.preventDefault();
-	/*let href = $(this).attr('href');
+	let href = $(this).attr('href');
 	console.log(href);
 	history.pushState(href,'', href);
 	url = window.location.href;
-	load(url)
-	$(this).removeAttr('disabled')*/
+	load(url);
+	$(this).removeAttr('disabled');
 	return false;
 });
-
 // a tag onclick pushstate event
 $(document).on('click', 'a.indexSpa', async function(e) {
 	$(this).attr('disabled',true);
