@@ -189,6 +189,7 @@ video {
     font-size: var(--font_big);
     font-weight: 500;
     position: relative;
+    white-space: normal;
     top: -0.2rem;
 }
 .indiv > span:last-child {
@@ -295,6 +296,7 @@ video {
     justify-content: space-between;
     padding: 15px 20px;
     font-size: var(--font_mid);
+    font-weight: 600;
 }
 .personal {
     grid-column: 3 / 4;
