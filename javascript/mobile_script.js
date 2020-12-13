@@ -1,3 +1,6 @@
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 const gC = $('.grid-container');
 
 const paramsObj = {};
@@ -80,7 +83,7 @@ function checkUrl(url){
 
 	getParam();
 	getFilePath(filePath);
-//	pageIdx = 3;
+	pageIdx = 2;
 
 	console.log(currLang);
 	console.log(pageIdx);
