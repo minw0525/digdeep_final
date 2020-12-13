@@ -694,12 +694,12 @@ $(document).on('click', 'a.spa', function(e) {
 	$(this).attr('disabled',true);
 	console.log('spa')
 	e.preventDefault();
-	let href = $(this).attr('href');
+	/*let href = $(this).attr('href');
 	console.log(href);
 	history.pushState(href,'', href);
 	url = window.location.href;
 	load(url)
-	$(this).removeAttr('disabled')
+	$(this).removeAttr('disabled')*/
 	return false;
 });
 
