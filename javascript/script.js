@@ -527,7 +527,7 @@ const Methods = {
 	},
 	makeMultilingual: (el)=>{
 		el.multilingual([
-			'en', 'num'
+			'en'
 		]);
 	}
 }

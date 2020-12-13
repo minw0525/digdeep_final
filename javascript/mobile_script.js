@@ -143,6 +143,8 @@ const renderMain = {
 			const arrow = $(`<span>→</span>`).appendTo(nameBlock);
 			const tagName = $(`<span>`).attr('class','name').text(target[currLang].name).appendTo(nameBlock)
 		}
+		Methods.makeMultilingual(gC);
+
 		$('video').each(function(i,el){
 			el.play()
 		})
@@ -165,6 +167,7 @@ const renderMain = {
 			}
 		})
 	}
+	
 }
 
 
@@ -312,7 +315,8 @@ const renderCredit = {
 	},
 	
 	dropdownStyle : {
-		display: 'block'
+		display: 'block',
+		padding: 0,
 	},
 	dropdown : $('.dropdown'),
 
@@ -372,7 +376,7 @@ const renderCredit = {
 
 		for(const [i,el] of data.entries()){
 			const teamName = $('<span>').attr('class','teamName').appendTo($('.team')[i])
-			teamName.text(el[currLang].name);
+			teamName.html(el[currLang].name);
 			const roleList = el[currLang].roleList;
 			for(let j in roleList){
 				console.log(roleList[j])
@@ -380,9 +384,13 @@ const renderCredit = {
 				$('<span>').attr('class','duty').text(j).appendTo(roleBlock);//duty
 				const nameList = $('<div>').attr('class','nameList').appendTo(roleBlock);
 				const target = roleList[j]
+				if(currLang === 'en')nameList.css('flex','1 1 40%')
 				for(let k in target){
 					const roleName = $('<span>').attr('class','inCharge').text(target[k].name).appendTo(nameList);
 					this.clickEvent(roleName, target[k])
+					if(currLang === 'en'){
+						roleName.css('flex','1 1 100%');	
+					}
 				}
 				//add name click eventlistener
 				this.dropdown.not('span.inCharge.clicked').click(()=>{
@@ -403,7 +411,7 @@ const renderCredit = {
 			$('.school')[0].textContent = 'Professor';
 			$('.school')[1].textContent = 'Jaewon Seok';
 			$('.school')[2].textContent = 'Auspice';
-			$('.school')[3].textContent = 'Hongik University Visual Communication Design'
+			$('.school')[3].innerHTML = 'Hongik University <br>Visual Communication Design'
 		}
 	},
 	clickEvent : (el, target)=>{
@@ -449,13 +457,15 @@ const renderAbout = {
 	},
 	
 	dropdownStyle : {
-		display: 'block'
+		display: 'block',
+		padding: '20px 10px'
 	},
 	dropdown : $('.dropdown'),
 	keynote : $('<p>').attr('class', 'keynote'),
 
 	sponsor: $('<div>').attr('class','aboutSponsor'),
 	sponsorInfo: $('<p>'),
+
 	render: function(){
 		gC.css(this.gCstyle);
 		this.dropdown.empty();
@@ -464,7 +474,7 @@ const renderAbout = {
 			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 홍익대학교 시각디자인과 졸업주간</a> C반<br>지도교수 석재원').appendTo(this.sponsor)
 		}else{	
 			this.keynote.text('In 2020, after extensive preparation, workers began to move. From offline to online, from full-body movement to small finger movements, from the ground to pixels above... Amidst a multitude of changes, they longed to find that “something” (or quality) that will rest immortally. On top of the grid and pixels to which they correspond, twenty-eight members hold a shovel to dig deeper into the web. If you are curious about the new possibilities and pieces unearthed, dig deep.');
-			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 Hongik University Visual Communication Design <br>Graduation Week</a> Class C<br>Advisor : Jaewon Seok').appendTo(this.sponsor)		
+			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 Hongik University<br>Visual Communication Design <br>Graduation Week</a> Class C<br>Advisor : Jaewon Seok').appendTo(this.sponsor)		
 		}
 		this.dropdown.css(this.dropdownStyle).append(this.keynote, this.sponsor);
 		$('.aboutSponsor a').attr({
@@ -481,7 +491,8 @@ const renderWorks = {
 	},
 	
 	dropdownStyle : {
-		display: 'block'
+		display: 'block',
+		padding: '20px 10px'
 	},
 	dropdown : $('.dropdown'),
 
@@ -493,14 +504,15 @@ const renderWorks = {
 		for(el of data){
 			console.log(el)
 			const workLink = $('<a>').appendTo(this.dropdown)
-			if(currLang === 'en'){
-				workLink.attr('href',`./project?student=${el[currLang].query}&lang=en`);
-			}else{
-				workLink.attr('href', `./project?student=${el[currLang].query}`);
-			}
 			const indiv = $('<p>').attr('class','indiv').appendTo(workLink)
 			$('<span>').appendTo(indiv).text(el[currLang].name);
 			$('<span>').appendTo(indiv).text(el[currLang].title);
+			if(currLang === 'en'){
+				workLink.attr('href',`./project?student=${el[currLang].query}&lang=en`);
+				$('.indiv > span:first-child').css('flex','1 1 80%')
+			}else{
+				workLink.attr('href', `./project?student=${el[currLang].query}`);
+			}
 		}
 	}
 }
@@ -551,7 +563,7 @@ $('.gnb').each((i,el)=>{
 	})
 })
 
-function gnbRoute(e){
+async function gnbRoute(e){
 	$('.gnb').not(e).removeClass('clickedGnb')
 	const id = e.id;
 	console.log(e);
@@ -567,7 +579,7 @@ function gnbRoute(e){
 			break;
 		case "credit":
 			console.log('getting data');
-			getData('https://minw0525.github.io/digdeep_final/data/json3_credit.json')
+			await getData('https://minw0525.github.io/digdeep_final/data/json3_credit.json')
 				.then((res) => {
 					renderCredit.createDiv();
 					renderCredit.fillDiv(res);
@@ -643,7 +655,7 @@ const Methods = {
 	},
 	makeMultilingual: (el)=>{
 		el.multilingual([
-			'en', 'num'
+			'en'
 		]);
 		console.log('multilingualed');
 	},
