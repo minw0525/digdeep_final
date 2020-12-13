@@ -171,6 +171,7 @@ video {
     flex-direction: column;
     overflow-x: hidden;
     height: calc(var(--vh, vh) * 100 - 80px);
+    -webkit-overflow-scrolling: auto;
 }
 .indiv {
     display: flex;
@@ -358,6 +359,7 @@ video {
     top: 0;
     height: 120px;
     z-index: 99;
+    overflow: hidden;
 }
 .touchMe {
     margin: auto;
@@ -390,6 +392,8 @@ video {
 .videoWrap video {
     height: 100%;
     position: relative;
+    z-index: 0;
+    -webkit-transform-style: preserve-3d;
     top: -20px;
 }
 .info span {
