@@ -122,7 +122,7 @@ const renderMain = {
 			}).prop({ 
 				autoplay: true, muted: true, loop: true
 			}).appendTo(item);
-			const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'https://minw0525.github.io/digdeep_final/image/thumbnail_${target['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item);
+			const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'http://hongiksidi.com/2020/digdeep/image/thumbnail_${target['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item);
 			const workLink = $('<a>').attr('class','spa personalLink').appendTo(wrappingBlock);
 			workLink.css('display','none');
 			this.clickEvent(item, wrappingBlock, workLink);
@@ -132,7 +132,7 @@ const renderMain = {
 	fillDiv : function(data){
 		for(const target of data){
 			const i = data.indexOf(target);
-			$('video')[i].setAttribute('src', `https://minw0525.github.io/digdeep_final/video/${target[currLang].query}_300px.mp4`);
+			$('video')[i].setAttribute('src', `http://hongiksidi.com/2020/digdeep/video/${target[currLang].query}_300px.mp4`);
 			const workLink = $('a.personalLink')[i];
 			if(currLang === 'en'){
 				workLink.setAttribute('href',`./project?student=${target[currLang].query}&lang=en`);
@@ -288,14 +288,14 @@ const renderProject = {
 		this.urlAttr.title = `https://${targetData[currLang].url}`;
 		this.urlBox.attr(this.urlAttr);
 		Methods.styleClickable(this.urlLink[0]);
-		this.diggingVid.attr('src', `https://minw0525.github.io/digdeep_final/video/${targetData[currLang].query}_300px.mp4`);
+		this.diggingVid.attr('src', `http://hongiksidi.com/2020/digdeep/video/${targetData[currLang].query}_300px.mp4`);
 		let changeList = Array.prototype.slice.call($('[data-detect]'))
 		changeList.map(v=>{
 			v.innerHTML = targetData[currLang][v.dataset.detect]
 		});
 		this.stickyImg(data);
 		$('.stick-img').each(function(i, e){
-			e.style.backgroundImage=`url(https://minw0525.github.io/digdeep_final/image/sticky_${targetData[currLang].query}_${i+1}.png)`
+			e.style.backgroundImage=`url(http://hongiksidi.com/2020/digdeep/image/sticky_${targetData[currLang].query}_${i+1}.png)`
 		})
 		this.indexHighlight();
 		document.querySelector('video').play();
@@ -425,7 +425,7 @@ const renderCredit = {
 			if(!el.hasClass('clicked')){
 				Methods.styleClicked(el[0]);
 				renderCredit.videoWrap.css('display', 'flex');
-				renderCredit.video.attr('src', `https://minw0525.github.io/digdeep_final/video/${target.query}_300px.mp4`)//샘플
+				renderCredit.video.attr('src', `http://hongiksidi.com/2020/digdeep/video/${target.query}_300px.mp4`)//샘플
 
 
 				//선택자 하이라이트, 인포창 띄우기

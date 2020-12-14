@@ -166,12 +166,12 @@ video {
     grid-column: 3/4;
 }
 .altLangOn {
-    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_hover.png'),
+    cursor: url('http://hongiksidi.com/2020/digdeep/image/cur_hover.png'),
         pointer;
     opacity: 0.2;
 }
 .altLangOn:active {
-    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_pointer.png'),
+    cursor: url('http://hongiksidi.com/2020/digdeep/image/cur_pointer.png'),
         pointer;
 }
 .altLangOn:hover {
@@ -288,7 +288,7 @@ video {
 }
 .spacer {
     height: calc(var(--vh, 1vh) * 50 - 40px);
-    background: url('https://minw0525.github.io/digdeep_final/image/scrollshovel.jpeg')
+    background: url('http://hongiksidi.com/2020/digdeep/image/scrollshovel.jpeg')
         center / 150% no-repeat;
 }
 .stick {
@@ -424,7 +424,7 @@ video {
     position: relative;
     top: 0.2rem;
     margin-right: 7px;
-    background: url('https://minw0525.github.io/digdeep_final/image/credit_icon.svg')
+    background: url('http://hongiksidi.com/2020/digdeep/image/credit_icon.svg')
         0 0 / cover no-repeat;
 }
 .info span:nth-child(2) .icon {

@@ -114,12 +114,12 @@ div {
     hyphens: auto;
 }
 a {
-    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_hover.png'),
+    cursor: url('http://hongiksidi.com/2020/digdeep/image/cur_hover.png'),
         pointer;
     text-decoration: none;
 }
 a:active {
-    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_pointer.png'),
+    cursor: url('http://hongiksidi.com/2020/digdeep/image/cur_pointer.png'),
         pointer;
 }
 a:link,
@@ -138,7 +138,7 @@ a:visited {
         170px 170px;
     overflow: hidden;
     min-width: 768px;
-    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_default.png'),
+    cursor: url('http://hongiksidi.com/2020/digdeep/image/cur_default.png'),
         auto;
 }
 .header {
@@ -201,12 +201,12 @@ a:visited {
     font-size: calc(var(--font_big) * 0.9);
 }
 .altLangOn {
-    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_hover.png'),
+    cursor: url('http://hongiksidi.com/2020/digdeep/image/image/cur_hover.png'),
         pointer;
     opacity: 0.2;
 }
 .altLangOn:active {
-    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_pointer.png'),
+    cursor: url('http://hongiksidi.com/2020/digdeep/image/cur_pointer.png'),
         pointer;
 }
 .altLangOn:hover {
@@ -308,7 +308,7 @@ video {
     grid-column: 8/10;
     grid-row: 1/5;
     min-width: 320px;
-    background: url('https://minw0525.github.io/digdeep_final/image/shovels.jpeg')
+    background: url('http://hongiksidi.com/2020/digdeep/image/shovels.jpeg')
         center center / contain no-repeat white;
 }
 .info {
@@ -413,7 +413,7 @@ video {
 }
 .spacer {
     height: calc(100vh - 60px);
-    background: url('https://minw0525.github.io/digdeep_final/image/scrollshovel.jpeg')
+    background: url('http://hongiksidi.com/2020/digdeep/image/scrollshovel.jpeg')
         center 0 / cover no-repeat;
 }
 .index {
@@ -524,7 +524,7 @@ video {
     overflow: hidden;
 }
 .shovel {
-    background: url('https://minw0525.github.io/digdeep_final/image/singleshovel.png')
+    background: url('http://hongiksidi.com/2020/digdeep/image/singleshovel.png')
         center center / contain no-repeat;
     transform: rotate(50deg);
     position: absolute;
@@ -606,6 +606,6 @@ a.indexSpa:hover,
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.4rem;
-    cursor: url('https://minw0525.github.io/digdeep_final/image/cur_hover.png'),
+    cursor: url('http://hongiksidi.com/2020/digdeep/image/cur_hover.png'),
         pointer;
 }
