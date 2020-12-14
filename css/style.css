@@ -3,9 +3,9 @@
     font-style: normal;
     font-weight: 500;
     src: local('아리따-돋움(OTF)'),
-        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumMedium.woff2')
+        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumMedium.woff2')
             format('woff2'),
-        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumMedium.eot')
+        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumMedium.eot')
             format('embedded-opentype');
 }
 
@@ -14,9 +14,9 @@
     font-style: normal;
     font-weight: 600;
     src: local('아리따-돋움(OTF)'),
-        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumSemiBold.woff2')
+        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumSemiBold.woff2')
             format('woff2'),
-        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumSemiBold.eot')
+        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumSemiBold.eot')
             format('embedded-opentype');
 }
 
@@ -25,9 +25,9 @@
     font-style: normal;
     font-weight: 700;
     src: local('아리따-돋움(OTF)'),
-        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumBold.woff2')
+        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumBold.woff2')
             format('woff2'),
-        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumBold.eot')
+        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumBold.eot')
             format('embedded-opentype');
 }
 
@@ -35,28 +35,28 @@
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 500;
-    src: url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/CovikSansMono-Medium.woff2')
+    src: url('https://hongiksidi.com/2020/digdeep/webfont/CovikSansMono-Medium.woff2')
         format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: italic;
     font-weight: 500;
-    src: url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/CovikSansMono-MediumItalic.woff2')
+    src: url('https://hongiksidi.com/2020/digdeep/webfont/CovikSansMono-MediumItalic.woff2')
         format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 600;
-    src: url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/CovikSansMono-Semibold.woff2')
+    src: url('https://hongiksidi.com/2020/digdeep/webfont/CovikSansMono-Semibold.woff2')
         format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 700;
-    src: url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/CovikSansMono-Bold.woff2')
+    src: url('https://hongiksidi.com/2020/digdeep/webfont/CovikSansMono-Bold.woff2')
         format('woff2');
 }
 
@@ -94,13 +94,13 @@ body {
     outline: 1px solid black;
     border: 1px solid black;
     overflow: auto;
-    -ms-overflow-style: none; /* IE and Edge*/
-    scrollbar-width: none; /* Firefox*/
+    /* -ms-overflow-style: none;
+    scrollbar-width: none;  Firefox*/
 }
 /*Hide scrollbar for Chrome, Safari and Opera*/
-.item::-webkit-scrollbar {
+/*.item::-webkit-scrollbar {
     display: none;
-}
+}*/
 
 /*initial typography setting */
 p,
@@ -151,6 +151,7 @@ a:visited {
         );
     align-items: center;
     overflow-x: hidden;
+    z-index: 5;
 }
 .header > div {
     height: 100%;
@@ -232,7 +233,28 @@ a:visited {
         170px 170px;
     grid-template-rows: 1fr;
 }
+.jail::-webkit-scrollbar,
+.creditAbout::-webkit-scrollbar,
+.div2::-webkit-scrollbar,
+.teamList::-webkit-scrollbar {
+    width: 0;
+    height: 10px;
+}
 
+.jail::-webkit-scrollbar-track,
+.creditAbout::-webkit-scrollbar-track,
+.teamList::-webkit-scrollbar-track {
+    background: white;
+    border-top: 2px solid black; /* color of the tracking area */
+}
+
+.jail::-webkit-scrollbar-thumb,
+.creditAbout::-webkit-scrollbar-thumb,
+.teamList::-webkit-scrollbar-thumb {
+    background-color: white; /* color of the scroll thumb */
+    border: 2px solid black; /* creates padding around scroll thumb */
+    border-bottom: none;
+}
 /* main page style*/
 .jail {
     display: grid;
@@ -310,6 +332,7 @@ video {
     min-width: 320px;
     background: url('http://hongiksidi.com/2020/digdeep/image/shovels.jpeg')
         center center / contain no-repeat white;
+    z-index: 5;
 }
 .info {
     padding: 4rem 2rem 0 2.5rem;
@@ -321,7 +344,7 @@ video {
 .about > .info p {
     font-size: var(--font_small);
     font-weight: 600;
-    line-height: 1.85;
+    line-height: 1.7;
 }
 .about > .info .title span {
     font-size: calc(var(--font_small) * 1.15);
@@ -331,10 +354,16 @@ video {
     position: relative;
     font-size: calc(var(--font_small) * 1.1);
     font-weight: 500;
-    line-height: 1.5;
+    line-height: 0;
 }
 .about > .info .ml-num {
     top: 0.01em;
+}
+.about > .info p:last-of-type {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 40px;
+    padding-top: 50px;
 }
 /* project page style*/
 .leftPannel {
@@ -435,14 +464,32 @@ video {
 .index a .ml-en {
     font-weight: 500;
 }
-
+.description::-webkit-scrollbar,
+.index::-webkit-scrollbar,
+.stickyWrapper::-webkit-scrollbar {
+    width: 10px;
+    height: 0;
+}
+.description::-webkit-scrollbar-track,
+.index::-webkit-scrollbar-track,
+.stickyWrapper::-webkit-scrollbar-track {
+    background: white;
+    border-left: 2px solid black; /* color of the tracking area */
+}
+.description::-webkit-scrollbar-thumb,
+.index::-webkit-scrollbar-thumb,
+.stickyWrapper::-webkit-scrollbar-thumb {
+    background: white; /* color of the scroll thumb */
+    border: 2px solid black; /* color of the tracking area */
+    border-right: none; /* color of the tracking area */
+}
 /*creidt page style*/
 
 .teamList {
     grid-column: 1/9;
     grid-row: 1/2;
     display: grid;
-    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, minmax(166px, 1fr));
     overflow-x: auto;
 }
 .team {
@@ -485,6 +532,7 @@ video {
     display: flex;
     flex-direction: column;
     padding: 30px 35px;
+    z-index: 5;
 }
 .touchMe {
     margin: auto;
@@ -522,6 +570,7 @@ video {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    z-index: 2;
 }
 .shovel {
     background: url('http://hongiksidi.com/2020/digdeep/image/singleshovel.png')
@@ -540,13 +589,18 @@ video {
     grid-column: 1/9;
     grid-row: 2/3;
     display: flex;
+    z-index: 1;
+}
+.creditAbout .inCharge {
+    padding: 0;
 }
 .div1 {
     flex: 1 0 25%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 30px 0 30px 35px;
+    min-width: 150px;
+    margin: 30px 10px 30px 30px;
 }
 .div1 span {
     width: unset;
@@ -556,16 +610,15 @@ video {
     flex-direction: column;
 }
 .div2 {
-    flex: 1 1 75%;
-    margin-left: -35px;
-    padding: 30px 0;
+    flex: 1 1 50%;
     overflow: auto;
+    min-width: 350px;
 }
 .div2 p {
-    width: 66%;
     font-size: var(--font_small);
     font-weight: 600;
-    line-height: 1.85;
+    line-height: 1.7;
+    margin-top: 30px;
 }
 .div2 .title span {
     font-size: calc(var(--font_small) * 1.15);
@@ -575,10 +628,31 @@ video {
     position: relative;
     font-size: calc(var(--font_small) * 1.1);
     font-weight: 500;
-    line-height: 1.5;
+    line-height: 0;
 }
 .div2 .ml-num {
     top: 0.01em;
+}
+.div3 {
+    flex: 1 1 25%;
+    position: relative;
+    z-index: -0;
+    display: flex;
+    min-width: 200px;
+}
+.div3 span {
+    display: inline;
+}
+.div3 > a {
+    width: 100%;
+    z-index: 5;
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    padding: 35px 30px 35px 0;
+}
+.div3 a > .inCharge {
+    width: 100%;
 }
 .highlightOn {
     text-decoration: underline;

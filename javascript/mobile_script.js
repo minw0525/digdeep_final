@@ -62,13 +62,16 @@ function checkUrl(url){
 		console.log(path);
 		switch (path) {
 			case "/mobile":
+			case "/mobile/":
 			case "/digdeep/mobile":
 			case "/digdeep/mobile/":
 			case "/digdeep/mobile/index.html" :
 				pageIdx = 1;
 				console.log(pageIdx)
 				return pageIdx;
-		
+
+			case "/mobile/project":
+			case "/mobile/project":
 			case "/digdeep/mobile/project":
 			case "/digdeep/mobile/project/":
 			case "/digdeep/mobile/project.html ":
@@ -106,12 +109,13 @@ const renderMain = {
 		display: 'none'
 	},
 	dropdown : $('.dropdown'),
-	placeholder : $('<div>').attr('class', 'item booth diggingDiv placeholder'),
 	jail : $('<div>').attr('class', 'jail'),
 
 	createDiv : function(data){
 		console.log(this);
-		this.dropdown.css(this.dropdownStyle);
+		$('.dropdown').stop().slideUp(300, ()=>{
+			this.dropdown.css(this.dropdownStyle);
+		})
 		gC.css(renderMain.gCstyle);
 		this.jail.css(this.jailStyle).appendTo(gC);
 		for(const target of data){
@@ -127,6 +131,7 @@ const renderMain = {
 			workLink.css('display','none');
 			this.clickEvent(item, wrappingBlock, workLink);
 		}
+		$('<div>').attr('class', 'item booth diggingDiv placeholder').appendTo(this.jail);
 	},
 
 	fillDiv : function(data){
@@ -223,7 +228,7 @@ const renderProject = {
     
     
 	createDiv : function(data){
-		$('.dropdown').stop().slideUp(500)
+		$('.dropdown').stop().slideUp(300)
 		//this.dropdown.css(this.dropdownStyle);
 		gC.css(this.gCstyle).append(this.stickyWrapper, this.titleName, this.personal, this.description);
         this.stickyWrapper.append(this.stickyBox);
@@ -299,6 +304,7 @@ const renderProject = {
 		})
 		this.indexHighlight();
 		document.querySelector('video').play();
+		Methods.makeMultilingual(gC);
 	},
 	onlyProjectFill : function(href, data){
 		href.replace(
@@ -320,7 +326,7 @@ const renderProject = {
 		}
 		Methods.makeMultilingual(gC);
 
-		$('.dropdown').stop().slideUp(500)
+		$('.dropdown').stop().slideUp(300)
 		gnbRemove($('.dropdown'))
 	}
 }
@@ -359,7 +365,7 @@ const renderCredit = {
 	pageLink : $('<a>').attr('data-detect','url'),
 	createDiv: function(){
 		//gC.css(this.gCstyle);
-		this.dropdown.empty();
+		this.dropdown.empty().css('display','block');;
 		this.sponsor.empty();
 		console.log('emptied')
 		this.dropdown.append(this.personalInfo, this.sponsor);
@@ -465,21 +471,38 @@ const renderAbout = {
 	sponsor: $('<div>').attr('class','aboutSponsor'),
 	sponsorInfo: $('<p>'),
 
+	footer: $('<div>').attr('class','aboutFooter'),
+	guestbook: $('<div>').attr('class','item'),
+	hivcdGw: $('<div>').attr('class','item'),
+	wrapWithA : function($el){
+		const aTag = $('<a>').append($el);
+		return aTag
+	},
 	render: function(){
 		//gC.css(this.gCstyle);
-		this.dropdown.empty();
+		this.dropdown.empty().css('display','flex');
+		this.footer.empty();
 		if (currLang==='ko'){
 			this.keynote.text('2020년, 준비를 마친 인부들이 이동을 시작했다. 오프라인에서 온라인으로, 전신의 움직임에서 손가락의 작은 움직임으로, 땅 위에서 픽셀 위로…. 수많은 변화 속에서 그들은 존재를 지속할 수 있는 무언가를 찾아 나섰다. 각자가 속한 그리드와 픽셀 위에서, 28명의 인부들은 삽을 들고 더 깊은 아래를 향해 웹 속을 파고든다. 그 끝에 발굴해낸 새로운 가능성과 존재의 조각이 궁금하다면, dig deep.')
 			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 홍익대학교 시각디자인과 졸업주간</a> C반<br>지도교수 석재원').appendTo(this.sponsor)
+			this.hivcdGw.html('시각디자인과&nbsp;졸업주간&nbsp;사이트');
+			this.guestbook.text('방명록');
 		}else{	
 			this.keynote.text('In 2020, after extensive preparation, workers began to move. From offline to online, from full-body movement to small finger movements, from the ground to pixels above... Amidst a multitude of changes, they longed to find that “something” (or quality) that will rest immortally. On top of the grid and pixels to which they correspond, twenty-eight members hold a shovel to dig deeper into the web. If you are curious about the new possibilities and pieces unearthed, dig deep.');
 			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 Hongik University<br>Visual Communication Design <br>Graduation Week</a> Class C<br>Advisor : Jaewon Seok').appendTo(this.sponsor)		
+			this.hivcdGw.html('HIVCD&nbsp;GW&nbsp;Website');
+			this.guestbook.text('Guestbook');
 		}
-		this.dropdown.append(this.keynote, this.sponsor);
-		$('.aboutSponsor a').attr({
+		this.dropdown.append(this.keynote, this.sponsor, this.footer);
+		this.wrapWithA(this.hivcdGw).appendTo(this.footer).attr({
 			target: "blank",
 			href: "http://www.hivcdgw2020.com/",
-			class: "clickable"
+			class: "hivcdGW"
+		})
+		this.wrapWithA(this.guestbook).appendTo(this.footer).attr({
+			target: "blank",
+			href: "https://padlet.com/digdeep/works",
+			class: "guestbook"
 		})
 	}
 }
@@ -492,7 +515,7 @@ const renderWorks = {
 
 	render: function(data){
 		//gC.css(this.gCstyle);
-		this.dropdown.empty();
+		this.dropdown.empty().css('display','block');
 
 		this.dropdown.append(this.keynote, this.sponsor);
 		for(el of data){
@@ -519,7 +542,7 @@ function getData(url){
 
 const route = {
 	'1': async () => {
-        await getData('https://minw0525.github.io/digdeep_final/data/json2_project.json')
+        await getData('https://hongiksidi.com/2020/digdeep/data/json2_project.json')
 			.then((res) => {
 				tempdata = Methods.sortData(res);
 				renderMain.createDiv(res);
@@ -527,7 +550,7 @@ const route = {
 			})
 	},
 	'2': async () => {
-		await getData('https://minw0525.github.io/digdeep_final/data/json2_project.json')
+		await getData('https://hongiksidi.com/2020/digdeep/data/json2_project.json')
 			.then((res) => {
 				tempdata = Methods.sortData(res);
 				renderProject.createDiv(res);
@@ -551,7 +574,7 @@ $('.gnb').each((i,el)=>{
 		if(!this.classList.contains('clickedGnb')){
 			gnbRoute(this)
 		}else{
-			$('.dropdown').stop().slideUp(500)
+			$('.dropdown').stop().slideUp(300)
 			gnbRemove(this)
 		}
 	})
@@ -565,23 +588,27 @@ async function gnbRoute(e){
 	switch (id) {
 		case "about":
 			$('.dropdown').css('padding','20px 10px')
-			$('.dropdown').stop().slideDown(500)
+			$('.dropdown').stop().slideDown(300,()=>{
+				$('.grid-container').css('display','none')
+			})
 			console.log('rendering about');
 			renderAbout.render();
 			break;
 		case "works":
 			$('.dropdown').css('padding','20px 10px')
-			$('.dropdown').stop().slideDown(500)
+			$('.dropdown').stop().slideDown(300,()=>{
+				$('.grid-container').css('display','none')
+			})
 			console.log('rendering works')
-			//$('.dropdown').css('padding','20px 10px')
 			renderWorks.render(tempdata);
 			break;
 		case "credit":
 			$('.dropdown').css('padding','0')
-				//padding-left':'0'})
-			$('.dropdown').stop().slideDown(500)
+			$('.dropdown').stop().slideDown(300,()=>{
+				$('.grid-container').css('display','none')
+			})
 			console.log('getting data');
-			await getData('https://minw0525.github.io/digdeep_final/data/json3_credit.json')
+			await getData('https://hongiksidi.com/2020/digdeep/data/json3_credit.json')
 				.then((res) => {
 					//$('.dropdown').css('padding','0')
 					renderCredit.createDiv();
@@ -701,7 +728,7 @@ $(document).on('click', 'a.indexSpa', async function(e) {
 	let href = $(this).attr('href');
 	console.log(href);
 	history.pushState(href,'', href);
-	await getData('https://minw0525.github.io/digdeep_final/data/json2_project.json')
+	await getData('https://hongiksidi.com/2020/digdeep/data/json2_project.json')
 		.then((res)=>{renderProject.onlyProjectFill(href, res)})
 	$(this).removeAttr('disabled')
 	return false;

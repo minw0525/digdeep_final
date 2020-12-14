@@ -3,9 +3,9 @@
     font-style: normal;
     font-weight: 500;
     src: local('아리따-돋움(OTF)'),
-        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumMedium.woff2')
+        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumMedium.woff2')
             format('woff2'),
-        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumMedium.eot')
+        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumMedium.eot')
             format('embedded-opentype');
 }
 
@@ -14,9 +14,9 @@
     font-style: normal;
     font-weight: 600;
     src: local('아리따-돋움(OTF)'),
-        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumSemiBold.woff2')
+        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumSemiBold.woff2')
             format('woff2'),
-        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumSemiBold.eot')
+        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumSemiBold.eot')
             format('embedded-opentype');
 }
 
@@ -25,9 +25,9 @@
     font-style: normal;
     font-weight: 700;
     src: local('아리따-돋움(OTF)'),
-        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumBold.woff2')
+        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumBold.woff2')
             format('woff2'),
-        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumBold.eot')
+        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumBold.eot')
             format('embedded-opentype');
 }
 
@@ -35,28 +35,28 @@
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 500;
-    src: url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/CovikSansMono-Medium.woff2')
+    src: url('https://hongiksidi.com/2020/digdeep/webfont/CovikSansMono-Medium.woff2')
         format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: italic;
     font-weight: 500;
-    src: url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/CovikSansMono-MediumItalic.woff2')
+    src: url('https://hongiksidi.com/2020/digdeep/webfont/CovikSansMono-MediumItalic.woff2')
         format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 600;
-    src: url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/CovikSansMono-Semibold.woff2')
+    src: url('https://hongiksidi.com/2020/digdeep/webfont/CovikSansMono-Semibold.woff2')
         format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 700;
-    src: url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/CovikSansMono-Bold.woff2')
+    src: url('https://hongiksidi.com/2020/digdeep/webfont/CovikSansMono-Bold.woff2')
         format('woff2');
 }
 
@@ -141,6 +141,7 @@ video {
     grid-template-rows: 1fr 1fr;
     text-align: center;
     font-size: var(--font_mid);
+    z-index: 5;
 }
 .header div {
     display: flex;
@@ -166,13 +167,7 @@ video {
     grid-column: 3/4;
 }
 .altLangOn {
-    cursor: url('http://hongiksidi.com/2020/digdeep/image/cur_hover.png'),
-        pointer;
     opacity: 0.2;
-}
-.altLangOn:active {
-    cursor: url('http://hongiksidi.com/2020/digdeep/image/cur_pointer.png'),
-        pointer;
 }
 .altLangOn:hover {
     color: var(--blue);
@@ -184,6 +179,7 @@ video {
     flex-direction: column;
     overflow-x: hidden;
     height: calc(var(--vh, vh) * 100 - 80px);
+    justify-content: space-between;
 }
 .indiv {
     display: flex;
@@ -219,7 +215,19 @@ video {
     grid-template-columns: repeat(3, 1fr);*/
     overflow: auto;
 }
-
+.placeholder {
+    grid-column: 2/4;
+    background-color: transparent;
+}
+.placeholder::before {
+    content: '';
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url('http://hongiksidi.com/2020/digdeep/image/singleshovel.png')
+        center / 22% no-repeat;
+    transform: rotate(50deg);
+}
 /*###################################*/
 /*###################################*/
 /*###################################*/
@@ -513,9 +521,41 @@ video {
     font-weight: 500;
 }
 .keynote ~ div {
-    padding-top: 30px;
+    margin-top: 30px;
 }
-.aboutSponsor {
+.aboutFooter {
+    display: grid;
+    width: 100vw;
+    height: 40px;
+    position: relative;
+    left: -11px;
+    bottom: -21px;
+    grid-template-columns: repeat(3, 1fr);
+    justify-self: flex-end;
+}
+.aboutFooter > div {
+    position: relative;
+    height: 100%;
+}
+.guestbook div,
+.hivcdGW div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-weight: 600;
+}
+.hivcdGW {
+    grid-column: 1/3;
+}
+.guestbook {
+    grid-column: 3/4;
+}
+.hivcdGW .ml-en,
+.guestbook .ml-en {
+    font-size: var(--font_mid);
+    font-weight: 500;
 }
 /*###################################*/
 /*###################################*/

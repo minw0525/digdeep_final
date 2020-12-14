@@ -55,10 +55,12 @@ function checkUrl(url){
 	//check pathname
 	filePath = window.location.pathname;
 	function getFilePath(path){
+		console.log(path);
 		switch (path) {
 			case "/":
 			case "/digdeep":
 			case "/digdeep/":
+			case "/digdeep/index.html":
 					pageIdx = 1;
 					console.log(pageIdx)
 					return pageIdx;
@@ -102,6 +104,7 @@ const renderMain = {
 	title : $('<p>').attr('class','title').text('Dig deep'),
 	keynote : $('<p>'),
 	jail : $('<div>').attr('class', 'jail'),
+	sponsorInfo: $('<p>'),
 
 	createDiv : function(data){
 		console.log(this);
@@ -111,7 +114,7 @@ const renderMain = {
 					$('.titleName').css(this.tNstyle);
 				})
 		about.append(this.info);
-		this.info.append(this.title, this.keynote);
+		this.info.append(this.title, this.keynote, this.sponsorInfo);
 		Methods.attachHover(about, this.info);
 		for(const target of data){
 			const item = $('<div>').attr('class', `item booth diggingDiv ${target[currLang].query}` ).appendTo(this.jail);
@@ -129,10 +132,18 @@ const renderMain = {
 
 	fillDiv : function(data){
 		if (currLang==='ko'){
-			this.keynote.text('2020년, 준비를 마친 인부들이 이동을 시작했다. 오프라인에서 온라인으로, 전신의 움직임에서 손가락의 작은 움직임으로, 땅 위에서 픽셀 위로…. 수많은 변화 속에서 그들은 존재를 지속할 수 있는 무언가를 찾아 나섰다. 각자가 속한 그리드와 픽셀 위에서, 28명의 인부들은 삽을 들고 더 깊은 아래를 향해 웹 속을 파고든다. 그 끝에 발굴해낸 새로운 가능성과 존재의 조각이 궁금하다면, dig deep.')
+			this.keynote.html('2020년, 준비를 마친 인부들이 이동을 시작했다. 오프라인에서 온라인으로, 전신의 움직임에서 손가락의 작은 움직임으로, 땅 위에서 픽셀 위로…. 수많은 변화 속에서 그들은 존재를 지속할 수 있는 무언가를 찾아 나섰다. 각자가 속한 그리드와 픽셀 위에서, 28명의 인부들은 삽을 들고 더 깊은 아래를 향해 웹 속을 파고든다. 그 끝에 발굴해낸 새로운 가능성과 존재의 조각이 궁금하다면,<br>dig deep.')
+			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 홍익대학교 시각디자인과 졸업주간</a> C반<br>지도교수 석재원').appendTo(this.sponsor)
 		}else{	
-			this.keynote.text('In 2020, after extensive preparation, workers began to move. From offline to online, from full-body movement to small finger movements, from the ground to pixels above... Amidst a multitude of changes, they longed to find that “something” (or quality) that will rest immortally. On top of the grid and pixels to which they correspond, twenty-eight members hold a shovel to dig deeper into the web. If you are curious about the new possibilities and pieces unearthed, dig deep.');
+			this.keynote.html('In 2020, after extensive preparation, workers began to move. From offline to online, from full-body movement to small finger movements, from the ground to pixels above... Amidst a multitude of changes, they longed to find that “something” (or quality) that will rest immortally. On top of the grid and pixels to which they correspond, twenty-eight members hold a shovel to dig deeper into the web. If you are curious about the new possibilities and pieces unearthed,<br>dig deep.');
+			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 Hongik University<br>Visual Communication Design <br>Graduation Week</a> Class C<br>Advisor : Jaewon Seok').appendTo(this.sponsor)		
 		}
+		$('.info a').attr({
+			href: 'http://www.hivcdgw2020.com/',
+			class: 'clickable',
+			target: 'blank',
+			title: 'HIVCD GW 2020'
+		});
 		for(const target of data){
 			const i = data.indexOf(target);
 			$('video')[i].setAttribute('src', `http://hongiksidi.com/2020/digdeep/video/${target[currLang].query}_300px.mp4`);
@@ -150,6 +161,7 @@ const renderMain = {
 			const tagName = $(`<span>`).attr('class','name').text(target[currLang].name).appendTo(nameBlock)
 			const arrow = $(`<span>→<span>`).appendTo(nameBlock);
 		}
+		Methods.makeMultilingual(gC);
 		document.querySelector('video').play();
 	}
 }
@@ -262,6 +274,7 @@ const renderProject = {
 		})
 		this.indexHighlight();
 		document.querySelector('video').play();
+		Methods.makeMultilingual(gC);
 	},
 	onlyProjectFill : function(href, data){
 		href.replace(
@@ -292,7 +305,7 @@ const renderCredit = {
 	},
 	infoSidebar : $('<div>').attr('class', 'infoSidebar'),
 	personalInfo : $('<div>').attr('class', 'personalInfo item'),
-	touchMe : $('<span>').attr('class','touchMe').text('Click a name!'),
+	touchMe : $('<span>').attr('class','touchMe'),
 	personalImg : $('<div>').attr('class', 'personalImg item'),
 	shovel : $('<div>').attr('class','shovel'),
 	diggingman : $('<video>').attr({
@@ -317,8 +330,8 @@ const renderCredit = {
 	sponsorDiv : $('<div>'),
 	sponsor : $('<span>').attr('class','duty'),
 	hivcd : $('<span>').attr('class','inCharge'),
-	title : $('<p>').attr('class','title').text('Dig deep'),
 	keynote : $('<p>'),
+	guestbook : $('<div>'),	
 	initiate : function(parent, ...args){
 		console.log(parent[0]);
 		for(const el of args){
@@ -336,6 +349,7 @@ const renderCredit = {
 			$('.titleName').css(this.tNstyle);
 		});
 		this.infoSidebar.append(this.personalInfo, this.personalImg);
+		this.touchMe.text('Click a name!')
 		this.personalInfo.append(this.touchMe, this.infoWrapper);
 		this.initiate(this.infoWrapper,this.whichTeam, this.whichUrl, this.insta, this.contact);
 		//this.infoWrapper.append(this.whichTeam, this.whichUrl, this.insta, this.contact);
@@ -349,8 +363,9 @@ const renderCredit = {
 		this.creditAbout.append(this.div1, this.div2, this.div3);
 		this.div1.append(this.advisorDiv, this.sponsorDiv);
 		this.advisorDiv.append(this.advisor, this.seok)
-		this.div2.append(this.title, this.keynote);
+		this.div2.append(this.keynote);
 		this.sponsorDiv.append(this.sponsor, this.hivcd);
+		this.guestbook.attr('class','inCharge clickable').appendTo(this.div3);
 
 		$('.insta span:first-child').text('instagram');
 		$('.contact span:first-child').text('e-mail');
@@ -401,13 +416,21 @@ const renderCredit = {
 			this.sponsor.text('주최');
 			this.hivcd.text('홍익대학교 시각디자인과')
 			this.keynote.text('2020년, 준비를 마친 인부들이 이동을 시작했다. 오프라인에서 온라인으로, 전신의 움직임에서 손가락의 작은 움직임으로, 땅 위에서 픽셀 위로…. 수많은 변화 속에서 그들은 존재를 지속할 수 있는 무언가를 찾아 나섰다. 각자가 속한 그리드와 픽셀 위에서, 28명의 인부들은 삽을 들고 더 깊은 아래를 향해 웹 속을 파고든다. 그 끝에 발굴해낸 새로운 가능성과 존재의 조각이 궁금하다면, dig deep.')
+			this.guestbook.html('방명록&nbsp;쓰기&nbsp;→');
 		}else{	
 			this.advisor.text('Professor');
 			this.seok.text('Jaewon Seok');
 			this.sponsor.text('Auspice');
 			this.hivcd.text('HIVCD')
 			this.keynote.text('In 2020, after extensive preparation, workers began to move. From offline to online, from full-body movement to small finger movements, from the ground to pixels above... Amidst a multitude of changes, they longed to find that “something” (or quality) that will rest immortally. On top of the grid and pixels to which they correspond, twenty-eight members hold a shovel to dig deeper into the web. If you are curious about the new possibilities and pieces unearthed, dig deep.');
+			this.guestbook.html('Leave&nbspa&nbspcomment&nbsp→');
 		}
+		$('<a>').attr({
+			target: 'blank',
+			title:'Leave a comment',
+			href: 'https://padlet.com/digdeep/works'
+		}).append(this.guestbook).appendTo(this.div3);
+		Methods.makeMultilingual(gC);
 	},
 	clickEvent : (el, target)=>{
 		el.click(function(e){
@@ -449,21 +472,21 @@ function getData(url){
 
 const route = {
 	'1': async () => {
-		await getData('https://minw0525.github.io/digdeep_final/data/json1_main.json')
+		await getData('https://hongiksidi.com/2020/digdeep/data/json1_main.json')
 			.then((res) => {
 				renderMain.createDiv(res);
 				renderMain.fillDiv(res);
 			})
 	},
 	'2': async () => {
-		await getData('https://minw0525.github.io/digdeep_final/data/json2_project.json')
+		await getData('https://hongiksidi.com/2020/digdeep/data/json2_project.json')
 			.then((res) => {
 				renderProject.createDiv(res);
 				renderProject.fillDiv(res);
 			})	
 	},
 	'3': async () => {
-		await getData('https://minw0525.github.io/digdeep_final/data/json3_credit.json')
+		await getData('https://hongiksidi.com/2020/digdeep/data/json3_credit.json')
 			.then((res) => {
 				renderCredit.createDiv();
 				renderCredit.fillDiv(res);
@@ -557,7 +580,7 @@ $(document).on('click', 'a.indexSpa', async function(e) {
 	let href = $(this).attr('href');
 	console.log(href);
 	history.pushState(href,'', href);
-	await getData('https://minw0525.github.io/digdeep_final/data/json2_project.json')
+	await getData('https://hongiksidi.com/2020/digdeep/data/json2_project.json')
 		.then((res)=>{renderProject.onlyProjectFill(href, res)})
 	$(this).removeAttr('disabled')
 	return false;
@@ -567,7 +590,7 @@ $(document).on('click', 'a.indexSpa', async function(e) {
 $(window).bind('popstate', function() {
     let returnLocation = history.location || document.location;
     console.log(returnLocation)
-    let href = returnLocation.search;
+	let href = returnLocation.search;
 	load(href);
 });
 
@@ -587,7 +610,6 @@ function load(url){
 			}
 		})
 	})()
-	Methods.makeMultilingual(gC);
 }
 load(url);
 
