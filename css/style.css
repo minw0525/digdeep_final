@@ -3,9 +3,9 @@
     font-style: normal;
     font-weight: 500;
     src: local('아리따-돋움(OTF)'),
-        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumMedium.woff2')
+        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumMedium.woff2')
             format('woff2'),
-        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumMedium.eot')
+        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumMedium.eot')
             format('embedded-opentype');
 }
 
@@ -14,9 +14,9 @@
     font-style: normal;
     font-weight: 600;
     src: local('아리따-돋움(OTF)'),
-        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumSemiBold.woff2')
+        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumSemiBold.woff2')
             format('woff2'),
-        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumSemiBold.eot')
+        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumSemiBold.eot')
             format('embedded-opentype');
 }
 
@@ -25,9 +25,9 @@
     font-style: normal;
     font-weight: 700;
     src: local('아리따-돋움(OTF)'),
-        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumBold.woff2')
+        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumBold.woff2')
             format('woff2'),
-        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumBold.eot')
+        url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/AritaDotumBold.eot')
             format('embedded-opentype');
 }
 
@@ -35,28 +35,28 @@
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 500;
-    src: url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-Medium.woff2')
+    src: url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/CovikSansMono-Medium.woff2')
         format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: italic;
     font-weight: 500;
-    src: url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-MediumItalic.woff2')
+    src: url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/CovikSansMono-MediumItalic.woff2')
         format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 600;
-    src: url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-Semibold.woff2')
+    src: url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/CovikSansMono-Semibold.woff2')
         format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 700;
-    src: url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-Bold.woff2')
+    src: url('https://cdn.jsdelivr.net/gh/minw0525/digdeep_final/webfont/CovikSansMono-Bold.woff2')
         format('woff2');
 }
 
@@ -172,6 +172,10 @@ a:visited {
     align-items: center;
     font-size: var(--font_big);
     padding: 0 40px;
+    outline: 1px solid black;
+    border-left: 1px solid black;
+    position: relative;
+    margin-left: 100%;
 }
 .titleName .title {
     display: -ms-flexbox;

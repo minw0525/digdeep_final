@@ -93,8 +93,7 @@ const renderMain = {
 		gridTemplateRows : '1fr'
 	},
 	tNstyle : { 
-		outline : 'none', 
-		borderLeft: 'none'
+		display : 'none'
 	},
 	info : $('<div>').attr('class', 'info hidden'),
 	title : $('<p>').attr('class','title').text('Dig deep'),
@@ -105,7 +104,9 @@ const renderMain = {
 		console.log(this);
 		const about = $('<div>').attr('class', 'item about');
 		gC.css(renderMain.gCstyle).append(about, this.jail);
-		$('.titleName').css(this.tNstyle);
+		$('.titleName').animate({marginLeft: '100%'}, 300,()=>{
+					$('.titleName').css(this.tNstyle);
+				})
 		about.append(this.info);
 		this.info.append(this.title, this.keynote);
 		Methods.attachHover(about, this.info);
@@ -156,8 +157,7 @@ const renderProject = {
 		gridTemplateRows : '1fr'
 	},
 	tNstyle : { 
-		outline : '1px solid black', 
-		borderLeft: '1px solid black'
+		display: 'flex'
 	},
 	findTargetData : (data)=>{
 		const isTarget = function(el){
@@ -213,6 +213,7 @@ const renderProject = {
 	createDiv : function(data){
 		gC.css(this.gCstyle).append(this.leftPannel, this.stickyWrapper, this.index);
 		$('.titleName').css(this.tNstyle);
+		$('.titleName').animate({marginLeft: 0}, 500)
 		this.personal.appendTo(this.leftPannel).append(this.vidWrapper, this.urlBox);
 		this.diggingVid.appendTo(this.vidWrapper);
 		this.urlLink.appendTo(this.urlBox);
@@ -284,8 +285,7 @@ const renderCredit = {
 		gridTemplateRows: '3fr 1fr'
 	},
 	tNstyle : { 
-		outline : 'none', 
-		borderLeft: 'none'
+		display : 'none'
 	},
 	infoSidebar : $('<div>').attr('class', 'infoSidebar'),
 	personalInfo : $('<div>').attr('class', 'personalInfo item'),
@@ -329,7 +329,9 @@ const renderCredit = {
 	},
 	createDiv : function(){
 		gC.css(this.gCstyle).append(this.infoSidebar, this.teamList, this.creditAbout);
-		$('.titleName').css(this.tNstyle);
+		$('.titleName').animate({marginLeft: '100%'}, 300, ()=>{
+			$('.titleName').css(this.tNstyle);
+		});
 		this.infoSidebar.append(this.personalInfo, this.personalImg);
 		this.personalInfo.append(this.touchMe, this.infoWrapper);
 		this.initiate(this.infoWrapper,this.whichTeam, this.whichUrl, this.insta, this.contact);
