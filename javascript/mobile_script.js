@@ -221,7 +221,7 @@ const renderProject = {
 	vidWrapper : $('<div>'),
 	diggingVid : $('<video autoplay muted playsinline loop>').attr('type','video/mp4'),
 	urlBox : $('<a>'),
-	urlLink : $('<span>Visit website →</span>').attr('class', 'url'),
+	urlLink : $('<span>').attr('class', 'url'),
 	description : $('<div>').attr('class','description item'),
 	descrBox : $('<div>').attr('class','descrBox'),
     descrText : $('<p>').attr('data-detect','description'),
@@ -236,6 +236,7 @@ const renderProject = {
         this.personal.append(this.urlBox, this.vidWrapper);
 		this.diggingVid.appendTo(this.vidWrapper);
 		this.urlBox.append(this.urlLink);
+		this.urlLink.text(`Visit website →`);
 		this.descrBox.appendTo(this.description).append(this.descrText)
 	},
 	stickyImg : function(data){
@@ -542,7 +543,7 @@ function getData(url){
 
 const route = {
 	'1': async () => {
-        await getData('https://hongiksidi.com/2020/digdeep/data/json2_project.json')
+        await getData('https://kr.object.ncloudstorage.com/digdeep/data/json2_project.json')
 			.then((res) => {
 				tempdata = Methods.sortData(res);
 				renderMain.createDiv(res);
@@ -550,7 +551,7 @@ const route = {
 			})
 	},
 	'2': async () => {
-		await getData('https://hongiksidi.com/2020/digdeep/data/json2_project.json')
+		await getData('https://kr.object.ncloudstorage.com/digdeep/data/json2_project.json')
 			.then((res) => {
 				tempdata = Methods.sortData(res);
 				renderProject.createDiv(res);
@@ -608,7 +609,7 @@ async function gnbRoute(e){
 				$('.grid-container').css('display','none')
 			})
 			console.log('getting data');
-			await getData('https://hongiksidi.com/2020/digdeep/data/json3_credit.json')
+			await getData('https://kr.object.ncloudstorage.com/digdeep/data/json3_credit.json')
 				.then((res) => {
 					//$('.dropdown').css('padding','0')
 					renderCredit.createDiv();
@@ -728,7 +729,7 @@ $(document).on('click', 'a.indexSpa', async function(e) {
 	let href = $(this).attr('href');
 	console.log(href);
 	history.pushState(href,'', href);
-	await getData('https://hongiksidi.com/2020/digdeep/data/json2_project.json')
+	await getData('https://kr.object.ncloudstorage.com/digdeep/data/json2_project.json')
 		.then((res)=>{renderProject.onlyProjectFill(href, res)})
 	$(this).removeAttr('disabled')
 	return false;

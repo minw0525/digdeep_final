@@ -3,9 +3,9 @@
     font-style: normal;
     font-weight: 500;
     src: local('아리따-돋움(OTF)'),
-        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumMedium.woff2')
+        url('https://kr.object.ncloudstorage.com/digdeep/webfont/AritaDotumMedium.woff2')
             format('woff2'),
-        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumMedium.eot')
+        url('https://kr.object.ncloudstorage.com/digdeep/webfont/AritaDotumMedium.eot')
             format('embedded-opentype');
 }
 
@@ -14,9 +14,9 @@
     font-style: normal;
     font-weight: 600;
     src: local('아리따-돋움(OTF)'),
-        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumSemiBold.woff2')
+        url('https://kr.object.ncloudstorage.com/digdeep/webfont/AritaDotumSemiBold.woff2')
             format('woff2'),
-        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumSemiBold.eot')
+        url('https://kr.object.ncloudstorage.com/digdeep/webfont/AritaDotumSemiBold.eot')
             format('embedded-opentype');
 }
 
@@ -25,9 +25,9 @@
     font-style: normal;
     font-weight: 700;
     src: local('아리따-돋움(OTF)'),
-        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumBold.woff2')
+        url('https://kr.object.ncloudstorage.com/digdeep/webfont/AritaDotumBold.woff2')
             format('woff2'),
-        url('https://hongiksidi.com/2020/digdeep/webfont/AritaDotumBold.eot')
+        url('https://kr.object.ncloudstorage.com/digdeep/webfont/AritaDotumBold.eot')
             format('embedded-opentype');
 }
 
@@ -35,28 +35,28 @@
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 500;
-    src: url('https://hongiksidi.com/2020/digdeep/webfont/CovikSansMono-Medium.woff2')
+    src: url('https://kr.object.ncloudstorage.com/digdeep/webfont/CovikSansMono-Medium.woff2')
         format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: italic;
     font-weight: 500;
-    src: url('https://hongiksidi.com/2020/digdeep/webfont/CovikSansMono-MediumItalic.woff2')
+    src: url('https://kr.object.ncloudstorage.com/digdeep/webfont/CovikSansMono-MediumItalic.woff2')
         format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 600;
-    src: url('https://hongiksidi.com/2020/digdeep/webfont/CovikSansMono-Semibold.woff2')
+    src: url('https://kr.object.ncloudstorage.com/digdeep/webfont/CovikSansMono-Semibold.woff2')
         format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 700;
-    src: url('https://hongiksidi.com/2020/digdeep/webfont/CovikSansMono-Bold.woff2')
+    src: url('https://kr.object.ncloudstorage.com/digdeep/webfont/CovikSansMono-Bold.woff2')
         format('woff2');
 }
 
