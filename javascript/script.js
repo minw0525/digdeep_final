@@ -57,19 +57,22 @@ function checkUrl(url){
 	function getFilePath(path){
 		switch (path) {
 			case "/":
-			case "/digdeep_final/":
+			case "/digdeep":
+			case "/digdeep/":
 					pageIdx = 1;
 					console.log(pageIdx)
 					return pageIdx;
 		
 			case "/project":
-			case "/digdeep_final/project":
+			case "/digdeep/project":
+			case "/digdeep/project.html":
 				pageIdx = 2;
 				console.log(pageIdx);
 				return pageIdx;
 
 			case '/credit':
-			case "/digdeep_final/credit":
+			case "/digdeep/credit":
+			case "/digdeep/credit.html":
 				pageIdx = 3;
 				console.log(pageIdx)
 				return pageIdx;

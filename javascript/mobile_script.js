@@ -59,18 +59,19 @@ function checkUrl(url){
 	//check pathname
 	filePath = window.location.pathname;
 	function getFilePath(path){
+		console.log(path);
 		switch (path) {
 			case "/mobile":
-			case "/mobile/":
-			case "/digdeep_final/mobile":
-			case "/digdeep_final/mobile/":
+			case "/digdeep/mobile":
+			case "/digdeep/mobile/":
+			case "/digdeep/mobile/index.html" :
 				pageIdx = 1;
 				console.log(pageIdx)
 				return pageIdx;
 		
-			case "/mobile/project":
-			case "/digdeep_final/mobile/project":
-			case "/digdeep_final/mobile/project/":
+			case "/digdeep/mobile/project":
+			case "/digdeep/mobile/project/":
+			case "/digdeep/mobile/project.html ":
 				pageIdx = 2;
 				console.log(pageIdx);
 				return pageIdx;
