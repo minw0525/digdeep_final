@@ -5,6 +5,8 @@
     src: local('아리따-돋움(OTF)'),
         url('https://kr.object.ncloudstorage.com/digdeep/webfont/AritaDotumMedium.woff2')
             format('woff2'),
+        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumMedium.woff2')
+            format('woff2'),
         url('https://kr.object.ncloudstorage.com/digdeep/webfont/AritaDotumMedium.eot')
             format('embedded-opentype');
 }
@@ -15,6 +17,8 @@
     font-weight: 600;
     src: local('아리따-돋움(OTF)'),
         url('https://kr.object.ncloudstorage.com/digdeep/webfont/AritaDotumSemiBold.woff2')
+            format('woff2'),
+        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumSemiBold.woff2')
             format('woff2'),
         url('https://kr.object.ncloudstorage.com/digdeep/webfont/AritaDotumSemiBold.eot')
             format('embedded-opentype');
@@ -27,6 +31,8 @@
     src: local('아리따-돋움(OTF)'),
         url('https://kr.object.ncloudstorage.com/digdeep/webfont/AritaDotumBold.woff2')
             format('woff2'),
+        url('https://minw0525.github.io/digdeep_final/webfont/AritaDotumBold.woff2')
+            format('woff2'),
         url('https://kr.object.ncloudstorage.com/digdeep/webfont/AritaDotumBold.eot')
             format('embedded-opentype');
 }
@@ -36,28 +42,36 @@
     font-style: normal;
     font-weight: 500;
     src: url('https://kr.object.ncloudstorage.com/digdeep/webfont/CovikSansMono-Medium.woff2')
-        format('woff2');
+            format('woff2'),
+        url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-Medium.woff2')
+            format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: italic;
     font-weight: 500;
     src: url('https://kr.object.ncloudstorage.com/digdeep/webfont/CovikSansMono-MediumItalic.woff2')
-        format('woff2');
+            format('woff2'),
+        url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-MediumItalic.woff2')
+            format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 600;
     src: url('https://kr.object.ncloudstorage.com/digdeep/webfont/CovikSansMono-Semibold.woff2')
-        format('woff2');
+            format('woff2'),
+        url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-Semibold.woff2')
+            format('woff2');
 }
 @font-face {
     font-family: 'covik-sans-mono';
     font-style: normal;
     font-weight: 700;
     src: url('https://kr.object.ncloudstorage.com/digdeep/webfont/CovikSansMono-Bold.woff2')
-        format('woff2');
+            format('woff2'),
+        url('https://minw0525.github.io/digdeep_final/webfont/CovikSansMono-Bold.woff2')
+            format('woff2');
 }
 
 :root {
@@ -184,6 +198,7 @@ video {
 .indiv {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
 }
 .indiv > span {
     display: block;
@@ -192,20 +207,19 @@ video {
     font-size: var(--font_mid);
     font-weight: 600;
     white-space: nowrap;
-    display: flex;
+    display: block;
+    align-self: flex-start;
 }
 .indiv span .ml-en {
     font-size: var(--font_big);
     font-weight: 500;
     position: relative;
     white-space: normal;
-    top: -0.2rem;
+    line-height: 0;
 }
 .indiv > span:last-child {
     flex: 1 1 100%;
-}
-.indiv > span:last-child .ml-en {
-    white-space: normal;
+    display: block;
 }
 .grid-container {
     height: calc(var(--vh, 1vh) * 100 - 80px);

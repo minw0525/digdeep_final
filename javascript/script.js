@@ -101,7 +101,6 @@ const renderMain = {
 		display : 'none'
 	},
 	info : $('<div>').attr('class', 'info hidden'),
-	title : $('<p>').attr('class','title').text('Dig deep'),
 	keynote : $('<p>'),
 	jail : $('<div>').attr('class', 'jail'),
 	sponsorInfo: $('<p>'),
@@ -114,7 +113,7 @@ const renderMain = {
 					$('.titleName').css(this.tNstyle);
 				})
 		about.append(this.info);
-		this.info.append(this.title, this.keynote, this.sponsorInfo);
+		this.info.append(this.keynote, this.sponsorInfo);
 		Methods.attachHover(about, this.info);
 		for(const target of data){
 			const item = $('<div>').attr('class', `item booth diggingDiv ${target[currLang].query}` ).appendTo(this.jail);
@@ -132,10 +131,10 @@ const renderMain = {
 
 	fillDiv : function(data){
 		if (currLang==='ko'){
-			this.keynote.html('2020년, 준비를 마친 인부들이 이동을 시작했다. 오프라인에서 온라인으로, 전신의 움직임에서 손가락의 작은 움직임으로, 땅 위에서 픽셀 위로…. 수많은 변화 속에서 그들은 존재를 지속할 수 있는 무언가를 찾아 나섰다. 각자가 속한 그리드와 픽셀 위에서, 28명의 인부들은 삽을 들고 더 깊은 아래를 향해 웹 속을 파고든다. 그 끝에 발굴해낸 새로운 가능성과 존재의 조각이 궁금하다면,<br>dig deep.')
+			this.keynote.html('2020년, 준비를 마친 인부들이 이동을 시작했다. 오프라인에서 온라인으로, 전신의 움직임에서 손가락의 작은 움직임으로, 땅 위에서 픽셀 위로…. 수많은 변화 속에서 그들은 존재를 지속할 수 있는 무언가를 찾아 나섰다. 각자가 속한 그리드와 픽셀 위에서, 28명의 인부들은 삽을 들고 더 깊은 아래를 향해 웹 속을 파고든다. 그 끝에 발굴해낸 새로운 가능성과 존재의 조각이 궁금하다면, dig&nbsp;deep.')
 			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 홍익대학교 시각디자인과 졸업주간</a> C반<br>지도교수 석재원').appendTo(this.sponsor)
 		}else{	
-			this.keynote.html('In 2020, after extensive preparation, workers began to move. From offline to online, from full-body movement to small finger movements, from the ground to pixels above... Amidst a multitude of changes, they longed to find that “something” (or quality) that will rest immortally. On top of the grid and pixels to which they correspond, twenty-eight members hold a shovel to dig deeper into the web. If you are curious about the new possibilities and pieces unearthed,<br>dig deep.');
+			this.keynote.html('In 2020, after extensive preparation, workers began to move. From offline to online, from full-body movement to small finger movements, from the ground to pixels above... Amidst a multitude of changes, they longed to find that “something” (or quality) that will rest immortally. On top of the grid and pixels to which they correspond, twenty-eight members hold a shovel to dig deeper into the web. If you are curious about the new possibilities and pieces unearthed, dig&nbsp;deep.');
 			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 Hongik University<br>Visual Communication Design <br>Graduation Week</a> Class C<br>Advisor : Jaewon Seok').appendTo(this.sponsor)		
 		}
 		$('.info a').attr({
@@ -248,7 +247,11 @@ const renderProject = {
 			stickImg.attr('class', 'stick stick-img').appendTo(this.stickyBox);
 			if(j===5){
 				stickImg.addClass('clickable').click(function(){
-					window.open(`https://${targetData[currLang].url}`)	
+					const stickyLink = '';
+					if(targetData[currLang].query === 'sunho'){
+						stickyLink = `http://${targetData[currLang].url}`;
+					}else{stickyLink = `https://${targetData[currLang].url}`}
+					window.open(stickyLink)	
 				})
 			}
 		};
@@ -261,6 +264,11 @@ const renderProject = {
 		console.log(targetData)
 		this.urlAttr.href = `https://${targetData[currLang].url}`;
 		this.urlAttr.title = `https://${targetData[currLang].url}`;
+		//이선호씨 http 예외코드
+		if(targetData[currLang].query === 'sunho'){
+			this.urlAttr.href = `http://${targetData[currLang].url}`;
+			this.urlAttr.title = `http://${targetData[currLang].url}`;
+		}
 		this.urlBox.attr(this.urlAttr);
 		Methods.styleClickable(this.urlLink[0]);
 		this.diggingVid.attr('src', `http://hongiksidi.com/2020/digdeep/video/${targetData[currLang].query}_750px.mp4`);
@@ -554,6 +562,7 @@ const Methods = {
 		el.classList.add('hover')
 	},
 	makeMultilingual: (el)=>{
+		console.log('multilingualed');
 		el.multilingual([
 			'en'
 		]);

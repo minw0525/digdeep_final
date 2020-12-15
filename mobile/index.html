@@ -71,10 +71,13 @@
 		</div>
 		<script src="../javascript/jquery.multilingual.min.js"></script>
 		<script>
-			setTimeout(loading, 3000);
-			function loading(){	
-				document.querySelector('#loadingBox').style.visibility='hidden';
-			}
+			window.addEventListener('DOMContentLoaded', function(){
+				console.log('hidding')
+				document.querySelector('#loadingBox').style.visibility='visible';
+				setTimeout(function(){	
+					document.querySelector('#loadingBox').style.visibility='hidden';
+				},3000)
+			})
 		</script>
 	</body>
 </html>

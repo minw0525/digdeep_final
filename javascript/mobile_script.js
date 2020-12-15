@@ -122,7 +122,8 @@ const renderMain = {
 			const item = $('<div>').attr('class', `item booth diggingDiv ${target[currLang].query}` ).appendTo(this.jail);
 			const video = $('<video>').attr({
 				type: 'video/mp4',
-				playsinline:''
+				playsinline:'',
+				src: `http://hongiksidi.com/2020/digdeep/video/${target[currLang].query}_300px.mp4`
 			}).prop({ 
 				autoplay: true, muted: true, loop: true
 			}).appendTo(item);
@@ -137,7 +138,6 @@ const renderMain = {
 	fillDiv : function(data){
 		for(const target of data){
 			const i = data.indexOf(target);
-			$('video')[i].setAttribute('src', `http://hongiksidi.com/2020/digdeep/video/${target[currLang].query}_300px.mp4`);
 			const workLink = $('a.personalLink')[i];
 			if(currLang === 'en'){
 				workLink.setAttribute('href',`./project?student=${target[currLang].query}&lang=en`);
@@ -250,7 +250,11 @@ const renderProject = {
 			stickImg.attr('class', 'stick stick-img').appendTo(this.stickyBox);
 			if(j===5){
 				stickImg.addClass('clickable').click(function(){
-					window.open(`https://${targetData[currLang].url}`)	
+					const stickyLink = '';
+					if(targetData[currLang].query === 'sunho'){
+						stickyLink = `http://${targetData[currLang].url}`;
+					}else{stickyLink = `https://${targetData[currLang].url}`}
+					window.open(stickyLink)	
 				})
 			}
 		}
@@ -292,6 +296,11 @@ const renderProject = {
 		console.log(targetData)
 		this.urlAttr.href = `https://${targetData[currLang].url}`;
 		this.urlAttr.title = `https://${targetData[currLang].url}`;
+		//이선호씨 http 예외코드
+		if(targetData[currLang].query === 'sunho'){
+			this.urlAttr.href = `http://${targetData[currLang].url}`;
+			this.urlAttr.title = `http://${targetData[currLang].url}`;
+		}
 		this.urlBox.attr(this.urlAttr);
 		Methods.styleClickable(this.urlLink[0]);
 		this.diggingVid.attr('src', `http://hongiksidi.com/2020/digdeep/video/${targetData[currLang].query}_300px.mp4`);
@@ -398,7 +407,6 @@ const renderCredit = {
 			teamName.html(el[currLang].name);
 			const roleList = el[currLang].roleList;
 			for(let j in roleList){
-				console.log(roleList[j])
 				const roleBlock = $('<div>').attr('class','roleBlock').appendTo($('.team')[i])
 				$('<span>').attr('class','duty').text(j).appendTo(roleBlock);//duty
 				const nameList = $('<div>').attr('class','nameList').appendTo(roleBlock);
@@ -484,12 +492,12 @@ const renderAbout = {
 		this.dropdown.empty().css('display','flex');
 		this.footer.empty();
 		if (currLang==='ko'){
-			this.keynote.text('2020년, 준비를 마친 인부들이 이동을 시작했다. 오프라인에서 온라인으로, 전신의 움직임에서 손가락의 작은 움직임으로, 땅 위에서 픽셀 위로…. 수많은 변화 속에서 그들은 존재를 지속할 수 있는 무언가를 찾아 나섰다. 각자가 속한 그리드와 픽셀 위에서, 28명의 인부들은 삽을 들고 더 깊은 아래를 향해 웹 속을 파고든다. 그 끝에 발굴해낸 새로운 가능성과 존재의 조각이 궁금하다면, dig deep.')
+			this.keynote.html('2020년, 준비를 마친 인부들이 이동을 시작했다. 오프라인에서 온라인으로, 전신의 움직임에서 손가락의 작은 움직임으로, 땅 위에서 픽셀 위로…. 수많은 변화 속에서 그들은 존재를 지속할 수 있는 무언가를 찾아 나섰다. 각자가 속한 그리드와 픽셀 위에서, 28명의 인부들은 삽을 들고 더 깊은 아래를 향해 웹 속을 파고든다. 그 끝에 발굴해낸 새로운 가능성과 존재의 조각이 궁금하다면, dig&nbsp;deep.')
 			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 홍익대학교 시각디자인과 졸업주간</a> C반<br>지도교수 석재원').appendTo(this.sponsor)
 			this.hivcdGw.html('시각디자인과&nbsp;졸업주간&nbsp;사이트');
 			this.guestbook.text('방명록');
 		}else{	
-			this.keynote.text('In 2020, after extensive preparation, workers began to move. From offline to online, from full-body movement to small finger movements, from the ground to pixels above... Amidst a multitude of changes, they longed to find that “something” (or quality) that will rest immortally. On top of the grid and pixels to which they correspond, twenty-eight members hold a shovel to dig deeper into the web. If you are curious about the new possibilities and pieces unearthed, dig deep.');
+			this.keynote.html('In 2020, after extensive preparation, workers began to move. From offline to online, from full-body movement to small finger movements, from the ground to pixels above... Amidst a multitude of changes, they longed to find that “something” (or quality) that will rest immortally. On top of the grid and pixels to which they correspond, twenty-eight members hold a shovel to dig deeper into the web. If you are curious about the new possibilities and pieces unearthed, dig&nbsp;deep.');
 			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 Hongik University<br>Visual Communication Design <br>Graduation Week</a> Class C<br>Advisor : Jaewon Seok').appendTo(this.sponsor)		
 			this.hivcdGw.html('HIVCD&nbsp;GW&nbsp;Website');
 			this.guestbook.text('Guestbook');
@@ -531,6 +539,7 @@ const renderWorks = {
 				workLink.attr('href', `./project?student=${el[currLang].query}`);
 			}
 		}
+		Methods.makeMultilingual(this.dropdown)
 	}
 }
 
@@ -543,7 +552,7 @@ function getData(url){
 
 const route = {
 	'1': async () => {
-        await getData('https://kr.object.ncloudstorage.com/digdeep/data/json2_project.json')
+		await getData('https://kr.object.ncloudstorage.com/digdeep/data/json2_project.json')
 			.then((res) => {
 				tempdata = Methods.sortData(res);
 				renderMain.createDiv(res);
@@ -610,7 +619,7 @@ async function gnbRoute(e){
 			})
 			console.log('getting data');
 			await getData('https://kr.object.ncloudstorage.com/digdeep/data/json3_credit.json')
-				.then((res) => {
+			.then((res) => {
 					//$('.dropdown').css('padding','0')
 					renderCredit.createDiv();
 					renderCredit.fillDiv(res);
@@ -622,6 +631,7 @@ async function gnbRoute(e){
 	Methods.makeMultilingual($('.dropdown'));
 }
 function gnbRemove(){
+	console.log('gnbRemove')
 	$('.gnb').each((i,el)=>{
 		el.classList.remove('clickedGnb');
 		//$('.dropdown').css('display','none');
