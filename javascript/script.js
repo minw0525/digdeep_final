@@ -109,6 +109,10 @@ const renderMain = {
 		console.log(this);
 		const about = $('<div>').attr('class', 'item about');
 		gC.css(renderMain.gCstyle).append(about, this.jail);
+		this.jail[0].addEventListener('wheel', (ev) => {
+			ev.preventDefault();  // stop scrolling in another direction
+			document.querySelector('.jail').scrollLeft += (ev.deltaY + ev.deltaX);
+		});
 		$('.titleName').animate({marginLeft: '100%'}, 300,()=>{
 					$('.titleName').css(this.tNstyle);
 				})
@@ -247,7 +251,7 @@ const renderProject = {
 			stickImg.attr('class', 'stick stick-img').appendTo(this.stickyBox);
 			if(j===5){
 				stickImg.addClass('clickable').click(function(){
-					const stickyLink = '';
+					let stickyLink = '';
 					if(targetData[currLang].query === 'sunho'){
 						stickyLink = `http://${targetData[currLang].url}`;
 					}else{stickyLink = `https://${targetData[currLang].url}`}
@@ -356,6 +360,10 @@ const renderCredit = {
 		$('.titleName').animate({marginLeft: '100%'}, 300, ()=>{
 			$('.titleName').css(this.tNstyle);
 		});
+		this.teamList[0].addEventListener('wheel', (ev) => {
+			ev.preventDefault();  // stop scrolling in another direction
+			document.querySelector('.teamList').scrollLeft += (ev.deltaY + ev.deltaX);
+		});
 		this.infoSidebar.append(this.personalInfo, this.personalImg);
 		this.touchMe.text('Click a name!')
 		this.personalInfo.append(this.touchMe, this.infoWrapper);
@@ -372,6 +380,15 @@ const renderCredit = {
 		this.div1.append(this.advisorDiv, this.sponsorDiv);
 		this.advisorDiv.append(this.advisor, this.seok)
 		this.div2.append(this.keynote);
+		$('.creditAbout')[0].addEventListener('wheel', (ev) => {
+			ev.preventDefault();  // stop scrolling in another direction
+			document.querySelector('.creditAbout').scrollLeft += (ev.deltaY + ev.deltaX);
+		});
+		$('.creditAbout')[0].addEventListener('wheel', (ev) => {
+			ev.stopPropagation();
+			ev.preventDefault();  // stop scrolling in another direction
+			document.querySelector('.div2').scrollTop += (ev.deltaY + ev.deltaX);
+		});
 		this.sponsorDiv.append(this.sponsor, this.hivcd);
 		this.guestbook.attr('class','inCharge clickable').appendTo(this.div3);
 

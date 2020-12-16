@@ -15,7 +15,6 @@
 					background-position: -2050px 0;
 				}
 			}
-			#photoDiv,
 			#loadingBox{
 				position : fixed;
 				width : 100vw;
@@ -39,7 +38,6 @@
 				background: url('http://hongiksidi.com/2020/digdeep/image/loading.png') no-repeat 0 0 / cover;
 				animation: spaceship-ani 2s infinite steps(10);
 			}
-
 		</style>
 	</head>
 	<body>
@@ -71,13 +69,11 @@
 		</div>
 		<script src="../javascript/jquery.multilingual.min.js"></script>
 		<script>
-			window.addEventListener('DOMContentLoaded', function(){
-				console.log('hidding')
-				document.querySelector('#loadingBox').style.visibility='visible';
-				setTimeout(function(){	
-					document.querySelector('#loadingBox').style.visibility='hidden';
-				},3000)
-			})
+			console.log(document.getElementById('loadingBox'))
+			console.log('hiding')
+			document.getElementById('loadingBox').style.visibility='visible';
+			setTimeout(()=>{document.getElementById('loadingBox').style.visibility='hidden'},3000)
+			console.log(document.getElementById('loadingBox'))
 		</script>
 	</body>
 </html>

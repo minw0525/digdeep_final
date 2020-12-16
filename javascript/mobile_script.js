@@ -250,7 +250,7 @@ const renderProject = {
 			stickImg.attr('class', 'stick stick-img').appendTo(this.stickyBox);
 			if(j===5){
 				stickImg.addClass('clickable').click(function(){
-					const stickyLink = '';
+					let stickyLink = '';
 					if(targetData[currLang].query === 'sunho'){
 						stickyLink = `http://${targetData[currLang].url}`;
 					}else{stickyLink = `https://${targetData[currLang].url}`}
@@ -755,7 +755,4 @@ $(window).bind('popstate', function() {
 
 
 load(url);
-setTimeout(loading, 0)//3000);
- function loading(){
-	document.querySelector('#loadingBox').style.visibility='hidden';
-}
+

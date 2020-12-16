@@ -108,11 +108,11 @@ body {
     outline: 1px solid black;
     border: 1px solid black;
     overflow: auto;
-    /* -ms-overflow-style: none;
-    scrollbar-width: none;  Firefox*/
 }
 /*Hide scrollbar for Chrome, Safari and Opera*/
-/*.item::-webkit-scrollbar {
+div::-webkit-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     display: none;
 }
 
@@ -248,8 +248,9 @@ a:visited {
     grid-template-rows: 1fr;
 }
 .jail::-webkit-scrollbar {
-    width: 0;
-    height: 10px;
+    width: 0 !important;
+    height: 10px !important;
+    display: block;
 }
 
 .jail::-webkit-scrollbar-track {
@@ -268,7 +269,7 @@ a:visited {
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(4, minmax(120px, 25%));
     background-color: black;
-    overflow: auto;
+    overflow-y: hidden;
 }
 .booth {
     min-width: 120px;
