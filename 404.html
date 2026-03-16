@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dig Deep: 2020</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafrex/spa-github-pages
+      // This script takes the current url and converts the path and query
+      // string into just a query string, and then redirects the browser
+      // to the new url with only a query string and hash fragment,
+      // e.g. https://www.foo.tld/bar?a=b#c -> https://www.foo.tld/?p=/bar&q=a=b&h=c
+      var pathSegmentsToKeep = 1; // 1 for example.com/repo_name
+      
+      var l = window.location;
+      
+      // Determine base URL dynamically or assume subdirectory format
+      var repoMatches = l.pathname.split('/');
+      var redirectPath = "";
+      for (var i = 0; i <= pathSegmentsToKeep; i++) {
+        redirectPath += repoMatches[i] + "/";
+      }
+
+      var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?p=/' + l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') + (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash;
+
+      l.replace(redirectUrl);
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

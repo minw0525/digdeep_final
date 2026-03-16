@@ -13,17 +13,24 @@ let pageIdx = 1
 let tempdata;
 
 function checkUrl(url) {
-	const currParam = paramReg.exec(url) ? paramReg.exec(url)[0] : null;
-	paramsObj.student = null;
-	paramsObj.lang = null;
+	const parsedUrl = new URL(url, window.location.origin);
+	const searchParams = new URLSearchParams(parsedUrl.search);
+	
+	// GitHub Pages SPA Hash Redirect parsing Hack
+	if (searchParams.has('p')) {
+		const newPath = searchParams.get('p');
+		const newQuery = searchParams.has('q') ? searchParams.get('q').replace(/~and~/g, '&') : '';
+		const newUrl = window.location.origin + window.location.pathname.replace(/\/$/, '') + newPath + (newQuery ? '?' + newQuery : '') + parsedUrl.hash;
+		window.history.replaceState(null, null, newUrl);
+		// Update parsing objects for new URL
+		return checkUrl(newUrl);
+	}
+
+	paramsObj.student = searchParams.get('student');
+	paramsObj.lang = searchParams.get('lang');
 
 	//get querystring
 	function getParam() {
-		if (currParam) {
-			currParam.replace(
-				/[?&]+([^=&]+)=([^&]*)/gi, function (str, key, value) { paramsObj[key] = value; }
-			);
-		}
 		console.log(paramsObj);
 
 		$('[data-altLang] span').removeClass('altLangOn');
@@ -60,7 +67,7 @@ function checkUrl(url) {
 	filePath = window.location.pathname;
 	function getFilePath(path) {
 		console.log(path);
-		if (path.includes('project')) {
+		if (path.endsWith('project') || path.includes('/project/')) {
 			pageIdx = 2;
 		} else {
 			pageIdx = 1;
@@ -75,8 +82,7 @@ function checkUrl(url) {
 
 	console.log(currLang);
 	console.log(pageIdx);
-};
-
+}
 
 const renderMain = {
 	gCstyle: {
@@ -124,9 +130,9 @@ const renderMain = {
 			const i = data.indexOf(target);
 			const workLink = $('a.personalLink')[i];
 			if (currLang === 'en') {
-				workLink.setAttribute('href', `./project.html?student=${target[currLang].query}&lang=en`);
+				workLink.setAttribute('href', `./project?student=${target[currLang].query}&lang=en`);
 			} else {
-				workLink.setAttribute('href', `./project.html?student=${target[currLang].query}`);
+				workLink.setAttribute('href', `./project?student=${target[currLang].query}`);
 			}
 			//append block tag
 			const blockTitle = $('<span>').attr('class', 'title').text(target[currLang].title).appendTo(workLink);
@@ -260,9 +266,9 @@ const renderProject = {
 			const title = $('<title>').text(item[currLang].title)
 			const indexLink = $('<a>').attr('class', 'indexSpa').appendTo(indexName).append(name, title);
 			if (currLang === 'en') {
-				indexLink.attr('href', './project.html?student=' + item['en'].query + '&lang=en');
+				indexLink.attr('href', './project?student=' + item['en'].query + '&lang=en');
 			} else {
-				indexLink.attr('href', './project.html?student=' + item['en'].query);
+				indexLink.attr('href', './project?student=' + item['en'].query);
 			}
 		})
 	},
@@ -315,9 +321,9 @@ const renderProject = {
 		const ko = $('a[data-altLang=ko]');
 		const en = $('a[data-altLang=en]');
 		if (currLang === 'ko') {
-			en[0].href = `./project.html?student=${paramsObj.student}&lang=en`
+			en[0].href = `./project?student=${paramsObj.student}&lang=en`
 		} else if (currLang === 'en') {
-			ko[0].href = `./project.html?student=${paramsObj.student}`
+			ko[0].href = `./project?student=${paramsObj.student}`
 		}
 		Methods.makeMultilingual(gC);
 
@@ -518,10 +524,10 @@ const renderWorks = {
 			$('<span>').appendTo(indiv).text(el[currLang].name);
 			$('<span>').appendTo(indiv).text(el[currLang].title);
 			if (currLang === 'en') {
-				workLink.attr('href', `./project.html?student=${el[currLang].query}&lang=en`);
+				workLink.attr('href', `./project?student=${el[currLang].query}&lang=en`);
 				$('.indiv > span:first-child').css('flex', '1 1 80%')
 			} else {
-				workLink.attr('href', `./project.html?student=${el[currLang].query}`);
+				workLink.attr('href', `./project?student=${el[currLang].query}`);
 			}
 		}
 		Methods.makeMultilingual(this.dropdown)
@@ -636,7 +642,9 @@ function load(url) {
 		console.log(currLang);
 		$('.hrefConcatLang').each(function () {
 			if (currLang === 'en' && !langPart.exec(this.href)) {
-				this.href = this.href.concat('?lang=en');
+				let parsed = new URL(this.href);
+				parsed.searchParams.set('lang', 'en');
+				this.href = parsed.toString();
 			}
 		})
 	})()
@@ -710,6 +718,9 @@ $(document).on('click', 'a.spa', function (e) {
 	console.log('spa')
 	e.preventDefault();
 	let href = $(this).attr('href');
+	if (href.endsWith('.html')) {
+		href = href.slice(0, -5);
+	}
 	console.log(href);
 	history.pushState(href, '', href);
 	url = window.location.href;
@@ -722,6 +733,11 @@ $(document).on('click', 'a.indexSpa', async function (e) {
 	$(this).attr('disabled', true);
 	e.preventDefault();
 	let href = $(this).attr('href');
+	if (href.endsWith('.html')) {
+		href = href.slice(0, -5);
+	} else if (href.includes('.html?')) {
+		href = href.replace('.html?', '?');
+	}
 	console.log(href);
 	history.pushState(href, '', href);
 	await getData('../data/json2_project.json')
