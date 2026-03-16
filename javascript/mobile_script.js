@@ -12,32 +12,32 @@ let filePath;
 let pageIdx = 1
 let tempdata;
 
-function checkUrl(url){
+function checkUrl(url) {
 	const currParam = paramReg.exec(url) ? paramReg.exec(url)[0] : null;
 	paramsObj.student = null;
 	paramsObj.lang = null;
 
 	//get querystring
-	function getParam(){
-		if(currParam){
+	function getParam() {
+		if (currParam) {
 			currParam.replace(
-				/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) { paramsObj[key] = value; }
+				/[?&]+([^=&]+)=([^&]*)/gi, function (str, key, value) { paramsObj[key] = value; }
 			);
 		}
 		console.log(paramsObj);
 
 		$('[data-altLang] span').removeClass('altLangOn');
-		$('[data-altLang').each(function(){$(this).removeAttr('href')})
+		$('[data-altLang').each(function () { $(this).removeAttr('href') })
 		switch (paramsObj.lang) {
 			case null:
 				currLang = 'ko'
 				$('span[data-altLang-en]').addClass('altLangOn');
-				if(paramsObj.student){
+				if (paramsObj.student) {
 					let href = window.location.search;
 					href = href.concat('&lang=en');
 					href = paramReg.exec(href)[0]
 					$('a[data-altLang=en]').attr('href', href);
-				}else{
+				} else {
 					$('a[data-altLang=en]').attr('href', '?lang=en');
 				}
 				$('a[data-altLang=en] span').addClass('altLangOn');
@@ -45,7 +45,7 @@ function checkUrl(url){
 			case 'en':
 				currLang = 'en'
 				let href = window.location.href;
-				href = href.replace(langPart,'');
+				href = href.replace(langPart, '');
 				$('a[data-altLang=ko]').attr('href', href);
 				$('a[data-altLang=ko] span').addClass('altLangOn');
 				break;
@@ -58,14 +58,15 @@ function checkUrl(url){
 
 	//check pathname
 	filePath = window.location.pathname;
-	function getFilePath(path){
+	function getFilePath(path) {
 		console.log(path);
 		switch (path) {
 			case "/mobile":
 			case "/mobile/":
 			case "/digdeep/mobile":
 			case "/digdeep/mobile/":
-			case "/digdeep/mobile/index.html" :
+			case "/digdeep/mobile/index.html":
+			case "/mobile/index.html":
 				pageIdx = 1;
 				console.log(pageIdx)
 				return pageIdx;
@@ -75,12 +76,15 @@ function checkUrl(url){
 			case "/digdeep/mobile/project":
 			case "/digdeep/mobile/project/":
 			case "/digdeep/mobile/project.html ":
+			case "/digdeep/mobile/project.html":
+			case "/mobile/project.html":
+			case "/mobile/project/":
 				pageIdx = 2;
 				console.log(pageIdx);
 				return pageIdx;
-			default: 
-			//	window.location.href = "https://digdeep.works"
-			console.log(pageIdx);
+			default:
+				//	window.location.href = "https://digdeep.works"
+				console.log(pageIdx);
 
 		}
 	}
@@ -95,54 +99,54 @@ function checkUrl(url){
 
 
 const renderMain = {
-	gCstyle : {
+	gCstyle: {
 		display: 'block',
-		gridTemplateRows : 'unset',
-		gridTemplateColumns : 'unset',
+		gridTemplateRows: 'unset',
+		gridTemplateColumns: 'unset',
 	},
-	jailStyle : {
+	jailStyle: {
 		display: 'grid',
-		gridTemplateRows : 'repeat(auto-fill, minmax(100px, auto))',
-		gridTemplateColumns : 'repeat(3, 1fr)',
+		gridTemplateRows: 'repeat(auto-fill, minmax(100px, auto))',
+		gridTemplateColumns: 'repeat(3, 1fr)',
 	},
-	dropdownStyle : {
+	dropdownStyle: {
 		display: 'none'
 	},
-	dropdown : $('.dropdown'),
-	jail : $('<div>').attr('class', 'jail'),
+	dropdown: $('.dropdown'),
+	jail: $('<div>').attr('class', 'jail'),
 
-	createDiv : function(data){
+	createDiv: function (data) {
 		console.log(this);
-		$('.dropdown').stop().slideUp(300, ()=>{
+		$('.dropdown').stop().slideUp(300, () => {
 			this.dropdown.css(this.dropdownStyle);
 		})
 		gC.css(renderMain.gCstyle);
 		this.jail.css(this.jailStyle).appendTo(gC);
-		for(const target of data){
-			const item = $('<div>').attr('class', `item booth diggingDiv ${target[currLang].query}` ).appendTo(this.jail);
+		for (const target of data) {
+			const item = $('<div>').attr('class', `item booth diggingDiv ${target[currLang].query}`).appendTo(this.jail);
 			const video = $('<video>').attr({
 				type: 'video/mp4',
-				playsinline:'',
+				playsinline: '',
 				src: `http://hongiksidi.com/2020/digdeep/video/${target[currLang].query}_300px.mp4`
-			}).prop({ 
+			}).prop({
 				autoplay: true, muted: true, loop: true
 			}).appendTo(item);
-			const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background',`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'http://hongiksidi.com/2020/digdeep/image/thumbnail_${target['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item);
-			const workLink = $('<a>').attr('class','spa personalLink').appendTo(wrappingBlock);
-			workLink.css('display','none');
+			const wrappingBlock = $('<div>').attr('class', 'wrappingBlock hidden').css('background', `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'http://hongiksidi.com/2020/digdeep/image/thumbnail_${target['ko'].query}.jpg\') center center / cover no-repeat`).appendTo(item);
+			const workLink = $('<a>').attr('class', 'spa personalLink').appendTo(wrappingBlock);
+			workLink.css('display', 'none');
 			this.clickEvent(item, wrappingBlock, workLink);
 		}
 		$('<div>').attr('class', 'item booth diggingDiv placeholder').appendTo(this.jail);
 	},
 
-	fillDiv : function(data){
-		for(const target of data){
+	fillDiv: function (data) {
+		for (const target of data) {
 			const i = data.indexOf(target);
 			const workLink = $('a.personalLink')[i];
-			if(currLang === 'en'){
-				workLink.setAttribute('href',`./project?student=${target[currLang].query}&lang=en`);
-			}else{
-				workLink.setAttribute('href', `./project?student=${target[currLang].query}`);
+			if (currLang === 'en') {
+				workLink.setAttribute('href', `./project.html?student=${target[currLang].query}&lang=en`);
+			} else {
+				workLink.setAttribute('href', `./project.html?student=${target[currLang].query}`);
 			}
 			//append block tag
 			const blockTitle = $('<span>').attr('class', 'title').text(target[currLang].title).appendTo(workLink);
@@ -150,154 +154,155 @@ const renderMain = {
 
 			//append span to nameBlock
 			const arrow = $(`<span>→</span>`).appendTo(nameBlock);
-			const tagName = $(`<span>`).attr('class','name').text(target[currLang].name).appendTo(nameBlock)
+			const tagName = $(`<span>`).attr('class', 'name').text(target[currLang].name).appendTo(nameBlock)
 		}
 		Methods.makeMultilingual(gC);
 
-		$('video').each(function(i,el){
+		$('video').each(function (i, el) {
 			el.play()
 		})
 	},
 
-	clickEvent : (el, target1, target2)=>{
-		el.click(function(e){
+	clickEvent: (el, target1, target2) => {
+		el.click(function (e) {
 			//e.stopPropagation();
 			console.log(this)
-			if(!target1.hasClass('showed')){
-				$('.wrappingBlock').each(function(i,e){
+			if (!target1.hasClass('showed')) {
+				$('.wrappingBlock').each(function (i, e) {
 					e.classList.remove('showed');
 					e.classList.add('hidden');
-					e.children[0].style.display='none';
+					e.children[0].style.display = 'none';
 				})
-				target2.css('display','flex');
+				target2.css('display', 'flex');
 				target1.toggleClass('hidden')
 				target1.toggleClass('showed')
 				target2.toggleClass('cilcked');
 			}
 		})
 	}
-	
+
 }
 
 
 
 const renderProject = {
-	gCstyle : {
+	gCstyle: {
 		display: 'grid',
-		gridTemplateColumns : 'repeat(3, 1fr)',
-		gridTemplateRows : 'repeat(6, 1fr)'
+		gridTemplateColumns: 'repeat(3, 1fr)',
+		gridTemplateRows: 'repeat(6, 1fr)'
 	},
 
-	dropdownStyle : {
+	dropdownStyle: {
 		display: 'none'
 	},
-	dropdown : $('.dropdown'),
+	dropdown: $('.dropdown'),
 
-	findTargetData : (data)=>{
-		const isTarget = function(el){
-			if(el[currLang].query === paramsObj.student) return true;
+	findTargetData: (data) => {
+		const isTarget = function (el) {
+			if (el[currLang].query === paramsObj.student) return true;
 		};
 		const targetData = data.find(isTarget);
 		return targetData;
 	},
-	urlAttr : {
+	urlAttr: {
 		'href': ``,
 		'title': ``,
 		'target': 'blank',
 		'style': 'font-style: italic'
-    },
-    stickyWrapper : $('<div>').attr('class','stickyWrapper item'),
-    stickyBox : $('<div>'),
-    titleName : $('<div>').attr('class','titleName item'),
-    title: $('<span>').attr({
-        'class': 'title',
-        'data-detect': 'title'
-    }),
-    name: $('<span>').attr({
-        'class': 'name',
-        'data-detect': 'name'
-    }),
-	personal : $('<div>').attr('class', 'personal item'),
-	vidWrapper : $('<div>'),
-	diggingVid : $('<video autoplay muted playsinline loop>').attr('type','video/mp4'),
-	urlBox : $('<a>'),
-	urlLink : $('<span>').attr('class', 'url'),
-	description : $('<div>').attr('class','description item'),
-	descrBox : $('<div>').attr('class','descrBox'),
-    descrText : $('<p>').attr('data-detect','description'),
-    
-    
-	createDiv : function(data){
+	},
+	stickyWrapper: $('<div>').attr('class', 'stickyWrapper item'),
+	stickyBox: $('<div>'),
+	titleName: $('<div>').attr('class', 'titleName item'),
+	title: $('<span>').attr({
+		'class': 'title',
+		'data-detect': 'title'
+	}),
+	name: $('<span>').attr({
+		'class': 'name',
+		'data-detect': 'name'
+	}),
+	personal: $('<div>').attr('class', 'personal item'),
+	vidWrapper: $('<div>'),
+	diggingVid: $('<video autoplay muted playsinline loop>').attr('type', 'video/mp4'),
+	urlBox: $('<a>'),
+	urlLink: $('<span>').attr('class', 'url'),
+	description: $('<div>').attr('class', 'description item'),
+	descrBox: $('<div>').attr('class', 'descrBox'),
+	descrText: $('<p>').attr('data-detect', 'description'),
+
+
+	createDiv: function (data) {
 		$('.dropdown').stop().slideUp(300)
 		//this.dropdown.css(this.dropdownStyle);
 		gC.css(this.gCstyle).append(this.stickyWrapper, this.titleName, this.personal, this.description);
-        this.stickyWrapper.append(this.stickyBox);
-        this.titleName.append(this.title, this.name);
-        this.personal.append(this.urlBox, this.vidWrapper);
+		this.stickyWrapper.append(this.stickyBox);
+		this.titleName.append(this.title, this.name);
+		this.personal.append(this.urlBox, this.vidWrapper);
 		this.diggingVid.appendTo(this.vidWrapper);
 		this.urlBox.append(this.urlLink);
 		this.urlLink.text(`Visit website →`);
 		this.descrBox.appendTo(this.description).append(this.descrText)
 	},
-	stickyImg : function(data){
+	stickyImg: function (data) {
 		console.log(currLang);
 		const targetData = this.findTargetData(data);
 		this.stickyBox.empty();
 		const spacer = $('<div>');
-		spacer.attr('class','spacer').appendTo(this.stickyBox);
-		for(let j = 0; j<6; j++){
+		spacer.attr('class', 'spacer').appendTo(this.stickyBox);
+		for (let j = 0; j < 6; j++) {
 			const stickImg = $('<div>');
 			stickImg.attr('class', 'stick stick-img').appendTo(this.stickyBox);
-			if(j===5){
-				stickImg.addClass('clickable').click(function(){
+			if (j === 5) {
+				stickImg.addClass('clickable').click(function () {
 					let stickyLink = '';
-					if(targetData[currLang].query === 'sunho'){
+					if (targetData[currLang].query === 'sunho') {
 						stickyLink = `http://${targetData[currLang].url}`;
-					}else{stickyLink = `https://${targetData[currLang].url}`}
-					window.open(stickyLink)	
+					} else { stickyLink = `https://${targetData[currLang].url}` }
+					window.open(stickyLink)
 				})
 			}
 		}
-		
-    },
-    index: $('.index'),
-	indexCreate : function(data){
-        //renderProject에 bind하기
+
+	},
+	index: $('.index'),
+	indexCreate: function (data) {
+		//renderProject에 bind하기
 		const sortedData = Methods.sortData(data);
 		$(this.index).empty();
 		//const sortedData = Methods.sortData(data);
-		$.each(sortedData,(i, item)=>{
+		$.each(sortedData, (i, item) => {
 			const indexName = $('<p>').attr({
-				class : 'indexName',
+				class: 'indexName',
 				id: item['en'].query
-            }).appendTo($(this.index));
-            
-            const name = $('<span>').text(item[currLang].name)
-            const title= $('<title>').text(item[currLang].title)
-            const indexLink = $('<a>').attr('class','indexSpa').appendTo(indexName).append(name, title);
-			if(currLang === 'en'){
-				indexLink.attr('href','?student='+item['en'].query+'&lang=en');
-			}else{
-				indexLink.attr('href','?student='+item['en'].query);
+			}).appendTo($(this.index));
+
+			const name = $('<span>').text(item[currLang].name)
+			const title = $('<title>').text(item[currLang].title)
+			const indexLink = $('<a>').attr('class', 'indexSpa').appendTo(indexName).append(name, title);
+			if (currLang === 'en') {
+				indexLink.attr('href', './project.html?student=' + item['en'].query + '&lang=en');
+			} else {
+				indexLink.attr('href', './project.html?student=' + item['en'].query);
 			}
 		})
 	},
 	//z
-	indexHighlight : function(){
-		$('.indexName').each((i, item)=>{
+	indexHighlight: function () {
+		$('.indexName').each((i, item) => {
 			item.classList.remove('clicked');
-			if(item.getAttribute('id') === paramsObj.student){
+			if (item.getAttribute('id') === paramsObj.student) {
 				Methods.styleClicked(item);
-			}})
+			}
+		})
 	},
-	fillDiv : function(data){
+	fillDiv: function (data) {
 		$('.stickyWrapper').scrollTop(0);
 		const targetData = this.findTargetData(data);
 		console.log(targetData)
 		this.urlAttr.href = `https://${targetData[currLang].url}`;
 		this.urlAttr.title = `https://${targetData[currLang].url}`;
 		//이선호씨 http 예외코드
-		if(targetData[currLang].query === 'sunho'){
+		if (targetData[currLang].query === 'sunho') {
 			this.urlAttr.href = `http://${targetData[currLang].url}`;
 			this.urlAttr.title = `http://${targetData[currLang].url}`;
 		}
@@ -305,23 +310,23 @@ const renderProject = {
 		Methods.styleClickable(this.urlLink[0]);
 		this.diggingVid.attr('src', `http://hongiksidi.com/2020/digdeep/video/${targetData[currLang].query}_300px.mp4`);
 		let changeList = Array.prototype.slice.call($('[data-detect]'))
-		changeList.map(v=>{
+		changeList.map(v => {
 			v.innerHTML = targetData[currLang][v.dataset.detect]
 		});
 		this.stickyImg(data);
-		$('.stick-img').each(function(i, e){
-			e.style.backgroundImage=`url(http://hongiksidi.com/2020/digdeep/image/sticky_${targetData[currLang].query}_${i+1}.png)`
+		$('.stick-img').each(function (i, e) {
+			e.style.backgroundImage = `url(http://hongiksidi.com/2020/digdeep/image/sticky_${targetData[currLang].query}_${i + 1}.png)`
 		})
 		this.indexHighlight();
 		document.querySelector('video').play();
 		Methods.makeMultilingual(gC);
 	},
-	onlyProjectFill : function(href, data){
+	onlyProjectFill: function (href, data) {
 		href.replace(
-			/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) { paramsObj[key] = value; }
+			/[?&]+([^=&]+)=([^&]*)/gi, function (str, key, value) { paramsObj[key] = value; }
 		);
 		console.log(paramsObj);
-		$('.grid-container *').each((i,e)=>{
+		$('.grid-container *').each((i, e) => {
 			e.remove();
 		});
 		this.createDiv(data);
@@ -329,10 +334,10 @@ const renderProject = {
 
 		const ko = $('a[data-altLang=ko]');
 		const en = $('a[data-altLang=en]');
-		if(currLang === 'ko'){
-			en[0].href = `?student=${paramsObj.student}&lang=en`
-		}else if(currLang === 'en'){
-			ko[0].href = `?student=${paramsObj.student}`
+		if (currLang === 'ko') {
+			en[0].href = `./project.html?student=${paramsObj.student}&lang=en`
+		} else if (currLang === 'en') {
+			ko[0].href = `./project.html?student=${paramsObj.student}`
 		}
 		Methods.makeMultilingual(gC);
 
@@ -343,20 +348,20 @@ const renderProject = {
 
 
 const renderCredit = {
-	gCstyle : {
+	gCstyle: {
 		display: 'none'
 	},
-	dropdown : $('.dropdown'),
+	dropdown: $('.dropdown'),
 	spacer: $('<div>'),
-	personalInfo: $('<div>').attr('class','personalInfo item'),
-	touchMe: $('<span>').attr('class','touchMe').text('Touch a name!'),
-	info: $('<div>').attr('class','info'),
-	email: $('<span>').attr('class','email'),
-	insta: $('<span>').attr('class','insta'),
+	personalInfo: $('<div>').attr('class', 'personalInfo item'),
+	touchMe: $('<span>').attr('class', 'touchMe').text('Touch a name!'),
+	info: $('<div>').attr('class', 'info'),
+	email: $('<span>').attr('class', 'email'),
+	insta: $('<span>').attr('class', 'insta'),
 	workUrl: $('<span>').attr({
-		'class':'workUrl',
+		'class': 'workUrl',
 	}),
-	videoWrap: $('<div>').attr('class','videoWrap'),
+	videoWrap: $('<div>').attr('class', 'videoWrap'),
 	video: $('<video>').prop({
 		autoplay: true,
 		muted: true,
@@ -365,17 +370,17 @@ const renderCredit = {
 		type: 'video/mp4',
 		playsinline: ''
 	}),
-	sponsor: $('<div>').attr('class','sponsor item'),
+	sponsor: $('<div>').attr('class', 'sponsor item'),
 
-	icon1 : $('<div>').attr('class','icon'),
-	icon2 : $('<div>').attr('class','icon'),
-	icon3 : $('<div>').attr('class','icon'),
-	emaildata: $('<span>').attr('data-detect','email'),
-	instadata: $('<span>').attr('data-detect','personalUrl'),
-	pageLink : $('<a>').attr('data-detect','url'),
-	createDiv: function(){
+	icon1: $('<div>').attr('class', 'icon'),
+	icon2: $('<div>').attr('class', 'icon'),
+	icon3: $('<div>').attr('class', 'icon'),
+	emaildata: $('<span>').attr('data-detect', 'email'),
+	instadata: $('<span>').attr('data-detect', 'personalUrl'),
+	pageLink: $('<a>').attr('data-detect', 'url'),
+	createDiv: function () {
 		//gC.css(this.gCstyle);
-		this.dropdown.empty().css('display','block');;
+		this.dropdown.empty().css('display', 'block');;
 		this.sponsor.empty();
 		console.log('emptied')
 		this.dropdown.append(this.personalInfo, this.sponsor);
@@ -387,73 +392,73 @@ const renderCredit = {
 		this.insta.append(this.icon2, this.instadata);
 		this.workUrl.append(this.icon3, this.pageLink);
 		this.videoWrap.append(this.video);
-		for(let i = 0; i<2; i++){
-			const teamName = $('<div>').attr('class','teamName').appendTo(this.sponsor);
-			for(let j = 0; j<2; j++){
-				$('<span>').attr('class','school').appendTo(teamName);
+		for (let i = 0; i < 2; i++) {
+			const teamName = $('<div>').attr('class', 'teamName').appendTo(this.sponsor);
+			for (let j = 0; j < 2; j++) {
+				$('<span>').attr('class', 'school').appendTo(teamName);
 			}
 		};
-		for(let i = 0; i<4; i++){
-			$('<div>').attr('class',`team team${i} item`).appendTo(this.dropdown);
+		for (let i = 0; i < 4; i++) {
+			$('<div>').attr('class', `team team${i} item`).appendTo(this.dropdown);
 		}
 	},
-	fillDiv: function(data){
+	fillDiv: function (data) {
 		this.touchMe.css('display', 'block');
 		//this.touchMe.css('display', 'none');
-		$('.touchMe ~ div').css('display','none');
+		$('.touchMe ~ div').css('display', 'none');
 
-		for(const [i,el] of data.entries()){
-			const teamName = $('<span>').attr('class','teamName').appendTo($('.team')[i])
+		for (const [i, el] of data.entries()) {
+			const teamName = $('<span>').attr('class', 'teamName').appendTo($('.team')[i])
 			teamName.html(el[currLang].name);
 			const roleList = el[currLang].roleList;
-			for(let j in roleList){
-				const roleBlock = $('<div>').attr('class','roleBlock').appendTo($('.team')[i])
-				$('<span>').attr('class','duty').text(j).appendTo(roleBlock);//duty
-				const nameList = $('<div>').attr('class','nameList').appendTo(roleBlock);
+			for (let j in roleList) {
+				const roleBlock = $('<div>').attr('class', 'roleBlock').appendTo($('.team')[i])
+				$('<span>').attr('class', 'duty').text(j).appendTo(roleBlock);//duty
+				const nameList = $('<div>').attr('class', 'nameList').appendTo(roleBlock);
 				const target = roleList[j]
-				if(currLang === 'en')nameList.css('flex','1 1 40%')
-				for(let k in target){
-					const roleName = $('<span>').attr('class','inCharge').text(target[k].name).appendTo(nameList);
+				if (currLang === 'en') nameList.css('flex', '1 1 40%')
+				for (let k in target) {
+					const roleName = $('<span>').attr('class', 'inCharge').text(target[k].name).appendTo(nameList);
 					this.clickEvent(roleName, target[k])
-					if(currLang === 'en'){
-						roleName.css('flex','1 1 100%');	
+					if (currLang === 'en') {
+						roleName.css('flex', '1 1 100%');
 					}
 				}
 			}
 		}
-		if (currLang==='ko'){
+		if (currLang === 'ko') {
 			$('.school')[0].textContent = '지도 교수';
 			$('.school')[1].textContent = '석재원';
 			$('.school')[2].textContent = '주최';
 			$('.school')[3].textContent = '홍익대학교 시각디자인과'
-		}else{
+		} else {
 			$('.school')[0].textContent = 'Professor';
 			$('.school')[1].textContent = 'Jaewon Seok';
 			$('.school')[2].textContent = 'Auspice';
 			$('.school')[3].innerHTML = 'Hongik University <br>Visual Communication Design'
 		}
 	},
-	clickEvent : (el, target)=>{
-		el.click(function(e){
+	clickEvent: (el, target) => {
+		el.click(function (e) {
 			e.stopPropagation();
 			console.log(this)
-			if(!el.hasClass('clicked')){
+			if (!el.hasClass('clicked')) {
 				Methods.styleClicked(el[0]);
 				renderCredit.videoWrap.css('display', 'flex');
 				renderCredit.video.attr('src', `http://hongiksidi.com/2020/digdeep/video/${target.query}_300px.mp4`)//샘플
 
 
 				//선택자 하이라이트, 인포창 띄우기
-				$('.info').css('display','block');
+				$('.info').css('display', 'block');
 				$('span').not(this).removeClass('clicked');
 				$('.touchMe').css('display', 'none');
 				$('[data-detect=url]').attr({
-					'href': `https://${target.url}`, 
+					'href': `https://${target.url}`,
 					'target': 'blank'
 				});
 				let changeList = Array.prototype.slice.call($('[data-detect]'))
 				const textpart = /[>][a-zA-Z0-0]{0,}[<]/
-				changeList.map(v=>{
+				changeList.map(v => {
 					console.log(v.innerHTML)
 					$(v).text(target[v.dataset.detect]);
 				});
@@ -464,41 +469,41 @@ const renderCredit = {
 			document.querySelector('video').play()
 		})
 	},
-	removeCredit: function(){
-		this.dropdown.css('display','none')
+	removeCredit: function () {
+		this.dropdown.css('display', 'none')
 	}
 }
 
 
 const renderAbout = {
-	gCstyle : {
+	gCstyle: {
 		display: 'none',
 	},
-	dropdown : $('.dropdown'),
-	keynote : $('<p>').attr('class', 'keynote'),
+	dropdown: $('.dropdown'),
+	keynote: $('<p>').attr('class', 'keynote'),
 
-	sponsor: $('<div>').attr('class','aboutSponsor'),
+	sponsor: $('<div>').attr('class', 'aboutSponsor'),
 	sponsorInfo: $('<p>'),
 
-	footer: $('<div>').attr('class','aboutFooter'),
-	guestbook: $('<div>').attr('class','item'),
-	hivcdGw: $('<div>').attr('class','item'),
-	wrapWithA : function($el){
+	footer: $('<div>').attr('class', 'aboutFooter'),
+	guestbook: $('<div>').attr('class', 'item'),
+	hivcdGw: $('<div>').attr('class', 'item'),
+	wrapWithA: function ($el) {
 		const aTag = $('<a>').append($el);
 		return aTag
 	},
-	render: function(){
+	render: function () {
 		//gC.css(this.gCstyle);
-		this.dropdown.empty().css('display','flex');
+		this.dropdown.empty().css('display', 'flex');
 		this.footer.empty();
-		if (currLang==='ko'){
+		if (currLang === 'ko') {
 			this.keynote.html('2020년, 준비를 마친 인부들이 이동을 시작했다. 오프라인에서 온라인으로, 전신의 움직임에서 손가락의 작은 움직임으로, 땅 위에서 픽셀 위로…. 수많은 변화 속에서 그들은 존재를 지속할 수 있는 무언가를 찾아 나섰다. 각자가 속한 그리드와 픽셀 위에서, 28명의 인부들은 삽을 들고 더 깊은 아래를 향해 웹 속을 파고든다. 그 끝에 발굴해낸 새로운 가능성과 존재의 조각이 궁금하다면, dig&nbsp;deep.')
 			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 홍익대학교 시각디자인과 졸업주간</a> C반<br>지도교수 석재원').appendTo(this.sponsor)
 			this.hivcdGw.html('시각디자인과&nbsp;졸업주간&nbsp;사이트');
 			this.guestbook.text('방명록');
-		}else{	
+		} else {
 			this.keynote.html('In 2020, after extensive preparation, workers began to move. From offline to online, from full-body movement to small finger movements, from the ground to pixels above... Amidst a multitude of changes, they longed to find that “something” (or quality) that will rest immortally. On top of the grid and pixels to which they correspond, twenty-eight members hold a shovel to dig deeper into the web. If you are curious about the new possibilities and pieces unearthed, dig&nbsp;deep.');
-			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 Hongik University<br>Visual Communication Design <br>Graduation Week</a> Class C<br>Advisor : Jaewon Seok').appendTo(this.sponsor)		
+			this.sponsorInfo.html('12.15 - 12.31 <br><a>2020 Hongik University<br>Visual Communication Design <br>Graduation Week</a> Class C<br>Advisor : Jaewon Seok').appendTo(this.sponsor)
 			this.hivcdGw.html('HIVCD&nbsp;GW&nbsp;Website');
 			this.guestbook.text('Guestbook');
 		}
@@ -517,42 +522,42 @@ const renderAbout = {
 }
 
 const renderWorks = {
-	gCstyle : {
+	gCstyle: {
 		display: 'none',
 	},
-	dropdown : $('.dropdown'),
+	dropdown: $('.dropdown'),
 
-	render: function(data){
+	render: function (data) {
 		//gC.css(this.gCstyle);
-		this.dropdown.empty().css('display','block');
+		this.dropdown.empty().css('display', 'block');
 
 		this.dropdown.append(this.keynote, this.sponsor);
-		for(el of data){
+		for (el of data) {
 			const workLink = $('<a>').attr('class', 'indexSpa').appendTo(this.dropdown);
-			const indiv = $('<p>').attr('class','indiv').appendTo(workLink)
+			const indiv = $('<p>').attr('class', 'indiv').appendTo(workLink)
 			$('<span>').appendTo(indiv).text(el[currLang].name);
 			$('<span>').appendTo(indiv).text(el[currLang].title);
-			if(currLang === 'en'){
-				workLink.attr('href',`./project?student=${el[currLang].query}&lang=en`);
-				$('.indiv > span:first-child').css('flex','1 1 80%')
-			}else{
-				workLink.attr('href', `./project?student=${el[currLang].query}`);
+			if (currLang === 'en') {
+				workLink.attr('href', `./project.html?student=${el[currLang].query}&lang=en`);
+				$('.indiv > span:first-child').css('flex', '1 1 80%')
+			} else {
+				workLink.attr('href', `./project.html?student=${el[currLang].query}`);
 			}
 		}
 		Methods.makeMultilingual(this.dropdown)
 	}
 }
 
-function getData(url){
-	return new Promise((res, rej)=>{
-		const data = $.get(url, (d)=>{console.log(d)});
+function getData(url) {
+	return new Promise((res, rej) => {
+		const data = $.get(url, (d) => { console.log(d) });
 		res(data);
 	})
 };
 
 const route = {
 	'1': async () => {
-		await getData('https://kr.object.ncloudstorage.com/digdeep/data/json2_project.json')
+		await getData('../data/json2_project.json')
 			.then((res) => {
 				tempdata = Methods.sortData(res);
 				renderMain.createDiv(res);
@@ -560,14 +565,14 @@ const route = {
 			})
 	},
 	'2': async () => {
-		await getData('https://kr.object.ncloudstorage.com/digdeep/data/json2_project.json')
+		await getData('../data/json2_project.json')
 			.then((res) => {
 				tempdata = Methods.sortData(res);
 				renderProject.createDiv(res);
 				renderProject.fillDiv(res);
-			})	
+			})
 	},
-	otherwise(path){
+	otherwise(path) {
 		$('body').innerHTML = `${path} Not Found`;
 	}
 };
@@ -577,101 +582,101 @@ function router(path) {
 	(route[path] || route.otherwise)(path);
 }
 
-$('.gnb').each((i,el)=>{
-	el.addEventListener('click',function(){
+$('.gnb').each((i, el) => {
+	el.addEventListener('click', function () {
 		console.log(this);
 		const id = this.id;
-		if(!this.classList.contains('clickedGnb')){
+		if (!this.classList.contains('clickedGnb')) {
 			gnbRoute(this)
-		}else{
+		} else {
 			$('.dropdown').stop().slideUp(300)
 			gnbRemove(this)
 		}
 	})
 })
 
-async function gnbRoute(e){
+async function gnbRoute(e) {
 	$('.gnb').not(e).removeClass('clickedGnb')
 	const id = e.id;
 	console.log(e);
 	e.classList.add('clickedGnb')
 	switch (id) {
 		case "about":
-			$('.dropdown').css('padding','20px 10px')
-			$('.dropdown').stop().slideDown(300,()=>{
-				$('.grid-container').css('display','none')
+			$('.dropdown').css('padding', '20px 10px')
+			$('.dropdown').stop().slideDown(300, () => {
+				$('.grid-container').css('display', 'none')
 			})
 			console.log('rendering about');
 			renderAbout.render();
 			break;
 		case "works":
-			$('.dropdown').css('padding','20px 10px')
-			$('.dropdown').stop().slideDown(300,()=>{
-				$('.grid-container').css('display','none')
+			$('.dropdown').css('padding', '20px 10px')
+			$('.dropdown').stop().slideDown(300, () => {
+				$('.grid-container').css('display', 'none')
 			})
 			console.log('rendering works')
 			renderWorks.render(tempdata);
 			break;
 		case "credit":
-			$('.dropdown').css('padding','0')
-			$('.dropdown').stop().slideDown(300,()=>{
-				$('.grid-container').css('display','none')
+			$('.dropdown').css('padding', '0')
+			$('.dropdown').stop().slideDown(300, () => {
+				$('.grid-container').css('display', 'none')
 			})
 			console.log('getting data');
-			await getData('https://kr.object.ncloudstorage.com/digdeep/data/json3_credit.json')
-			.then((res) => {
+			await getData('../data/json3_credit.json')
+				.then((res) => {
 					//$('.dropdown').css('padding','0')
 					renderCredit.createDiv();
 					renderCredit.fillDiv(res);
 				})
 			break;
-		default: 
+		default:
 			break;
 	};
 	Methods.makeMultilingual($('.dropdown'));
 }
-function gnbRemove(){
+function gnbRemove() {
 	console.log('gnbRemove')
-	$('.gnb').each((i,el)=>{
+	$('.gnb').each((i, el) => {
 		el.classList.remove('clickedGnb');
 		//$('.dropdown').css('display','none');
-		gC.css('display','grid')
+		gC.css('display', 'grid')
 	})
 }
 
-function load(url){
-	$('.grid-container *').each((i,e)=>{
+function load(url) {
+	$('.grid-container *').each((i, e) => {
 		e.remove();
 	});
 	$('span[data-detect]').empty();
 	gnbRemove();
 	checkUrl(url);
 	router(pageIdx);
-	(()=>{
+	(() => {
 		console.log(currLang);
-		$('.hrefConcatLang').each(function(){
-			if(currLang === 'en'&&!langPart.exec(this.href)){
+		$('.hrefConcatLang').each(function () {
+			if (currLang === 'en' && !langPart.exec(this.href)) {
 				this.href = this.href.concat('?lang=en');
 			}
 		})
 	})()
-    Methods.makeMultilingual(gC);
+	Methods.makeMultilingual(gC);
 }
 
 
 const Methods = {
-	attachHover : function(target, el){
-		target.hover(()=>{
+	attachHover: function (target, el) {
+		target.hover(() => {
 			el.toggleClass('hidden');
 			el.toggleClass('showed');
-		},()=>{
+		}, () => {
 			el.toggleClass('hidden');
 			el.toggleClass('showed');
 		});
 	},
-	sortData : (data)=>{
+	sortData: (data) => {
 		let sortedData = Array.from(data);
-		sortedData.sort(function(a, b) {
+		sortedData.sort(function (a, b) {
 			const nameA = a[currLang].name;
 			const nameB = b[currLang].name;
 			if (nameA < nameB) {
@@ -679,30 +684,30 @@ const Methods = {
 			}
 			if (nameA > nameB) {
 				return 1;
-			}		  
+			}
 			// 이름이 같을 경우
 			return 0;
 		});
 		return sortedData;
 	},
-	styleClickable : (el)=>{
+	styleClickable: (el) => {
 		el.classList.add('clickable')
 	},
-	styleClicked : (el)=>{
+	styleClicked: (el) => {
 		el.classList.add('clicked')
 	},
-	styleHover : (el)=>{
+	styleHover: (el) => {
 		el.classList.add('hover')
 	},
-	makeMultilingual: (el)=>{
+	makeMultilingual: (el) => {
 		el.multilingual([
 			'en'
 		]);
 		console.log('multilingualed');
 	},
-	sortData : (data)=>{
+	sortData: (data) => {
 		let sortedData = Array.from(data);
-		sortedData.sort(function(a, b) {
+		sortedData.sort(function (a, b) {
 			const nameA = a[currLang].name;
 			const nameB = b[currLang].name;
 			if (nameA < nameB) {
@@ -710,7 +715,7 @@ const Methods = {
 			}
 			if (nameA > nameB) {
 				return 1;
-			}		  
+			}
 			// 이름이 같을 경우
 			return 0;
 		});
@@ -720,36 +725,36 @@ const Methods = {
 
 
 // a tag onclick pushstate event
-$(document).on('click', 'a.spa', function(e) {
-	$(this).attr('disabled',true);
+$(document).on('click', 'a.spa', function (e) {
+	$(this).attr('disabled', true);
 	console.log('spa')
 	e.preventDefault();
 	let href = $(this).attr('href');
 	console.log(href);
-	history.pushState(href,'', href);
+	history.pushState(href, '', href);
 	url = window.location.href;
 	load(url);
 	$(this).removeAttr('disabled');
 	return false;
 });
 // a tag onclick pushstate event
-$(document).on('click', 'a.indexSpa', async function(e) {
-	$(this).attr('disabled',true);
+$(document).on('click', 'a.indexSpa', async function (e) {
+	$(this).attr('disabled', true);
 	e.preventDefault();
 	let href = $(this).attr('href');
 	console.log(href);
-	history.pushState(href,'', href);
-	await getData('https://kr.object.ncloudstorage.com/digdeep/data/json2_project.json')
-		.then((res)=>{renderProject.onlyProjectFill(href, res)})
+	history.pushState(href, '', href);
+	await getData('../data/json2_project.json')
+		.then((res) => { renderProject.onlyProjectFill(href, res) })
 	$(this).removeAttr('disabled')
 	return false;
 });
 
 //bind popstate event
-$(window).bind('popstate', function() {
-    let returnLocation = history.location || document.location;
-    console.log(returnLocation)
-    let href = returnLocation.search;
+$(window).bind('popstate', function () {
+	let returnLocation = history.location || document.location;
+	console.log(returnLocation)
+	let href = returnLocation.search;
 	load(href);
 });
 

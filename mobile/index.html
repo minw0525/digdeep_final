@@ -1,79 +1,85 @@
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-		<title>Dig Deep: 2020</title>
-		<!--<link rel="stylesheet" href="https://use.typekit.net/ehy7syo.css">-->
-		<link rel="icon" type="image/png" sizes="32x32" href="../image/favicon_32.png">
-		<link rel="stylesheet" type="text/css" href="../css/mobile_style.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script defer src="../javascript/mobile_script.js"></script>
-		<style>
-			@keyframes spaceship-ani {
-				to {
-					background-position: -2050px 0;
-				}
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>Dig Deep: 2020</title>
+	<link rel="stylesheet" href="https://use.typekit.net/ehy7syo.css">
+	<link rel="icon" type="image/png" sizes="32x32" href="../image/favicon_32.png">
+	<link rel="stylesheet" type="text/css" href="../css/mobile_style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script defer src="../javascript/mobile_script.js"></script>
+	<style>
+		@keyframes spaceship-ani {
+			to {
+				background-position: -2050px 0;
 			}
-			#loadingBox{
-				position : fixed;
-				width : 100vw;
-				height : 100vh;
-				background: white;
-				z-index: 100;
-				transition: opacity 0.5s;
-			}
-			.loading {
-				position: absolute;
-				left:0;
-				right:0;
-				margin-left:auto;
-				margin-right:auto;
-				top: 0;
-				bottom:0;
-				margin-top:auto;
-				margin-bottom:auto;
-				width: 205px;
-				height: 208px;
-				background: url('http://hongiksidi.com/2020/digdeep/image/loading.png') no-repeat 0 0 / cover;
-				animation: spaceship-ani 2s infinite steps(10);
-			}
-		</style>
-	</head>
-	<body>
-		<div id="loadingBox">
-			<div class="loading"></div>
-		</div>
-		<div class="all-wrapper">	
-			<header class="header">
-				<div class="logo item"><a href="../mobile/" class="spa hrefConcatLang">Dig Deep</a></div>
-				<div class="altLang item">
-					<a data-altLang="ko" class="spa"><span>KR&nbsp</span></a>
-					<span>/</span>
-					<a data-altLang="en" class="spa"><span>&nbspEN</span></a>
-				</div>
-				<div id="about" class="gnb item">
-					<span class="spa">ABOUT</span>
-				</div>
-				<div id="works" class="gnb item">
-					<span class="spa">WORKS</span>
-				</div>
-				<div id="credit" class="gnb item">
-					<span class="spa">CREDIT</span>
-				</div>
-			</header>
-			 <div class="dropdown item">
+		}
+
+		#loadingBox {
+			position: fixed;
+			width: 100vw;
+			height: 100vh;
+			background: white;
+			z-index: 100;
+			transition: opacity 0.5s;
+		}
+
+		.loading {
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin-left: auto;
+			margin-right: auto;
+			top: 0;
+			bottom: 0;
+			margin-top: auto;
+			margin-bottom: auto;
+			width: 205px;
+			height: 208px;
+			background: url('http://hongiksidi.com/2020/digdeep/image/loading.png') no-repeat 0 0 / cover;
+			animation: spaceship-ani 2s infinite steps(10);
+		}
+	</style>
+</head>
+
+<body>
+	<div id="loadingBox">
+		<div class="loading"></div>
+	</div>
+	<div class="all-wrapper">
+		<header class="header">
+			<div class="logo item"><a href="../mobile/" class="spa hrefConcatLang">Dig Deep</a></div>
+			<div class="altLang item">
+				<a data-altLang="ko" class="spa"><span>KR&nbsp</span></a>
+				<span>/</span>
+				<a data-altLang="en" class="spa"><span>&nbspEN</span></a>
 			</div>
-			<div class="grid-container">
+			<div id="about" class="gnb item">
+				<span class="spa">ABOUT</span>
 			</div>
+			<div id="works" class="gnb item">
+				<span class="spa">WORKS</span>
+			</div>
+			<div id="credit" class="gnb item">
+				<span class="spa">CREDIT</span>
+			</div>
+		</header>
+		<div class="dropdown item">
 		</div>
-		<script src="../javascript/jquery.multilingual.min.js"></script>
-		<script>
-			console.log(document.getElementById('loadingBox'))
-			console.log('hiding')
-			document.getElementById('loadingBox').style.visibility='visible';
-			setTimeout(()=>{document.getElementById('loadingBox').style.visibility='hidden'},3000)
-			console.log(document.getElementById('loadingBox'))
-		</script>
-	</body>
+		<div class="grid-container">
+		</div>
+	</div>
+	<script src="../javascript/jquery.multilingual.min.js"></script>
+	<script>
+		console.log(document.getElementById('loadingBox'))
+		console.log('hiding')
+		document.getElementById('loadingBox').style.visibility = 'visible';
+		setTimeout(() => { document.getElementById('loadingBox').style.visibility = 'hidden' }, 3000)
+		console.log(document.getElementById('loadingBox'))
+	</script>
+</body>
+
 </html>
