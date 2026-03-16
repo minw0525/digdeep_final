@@ -15,7 +15,7 @@ let tempdata;
 function checkUrl(url) {
 	const parsedUrl = new URL(url, window.location.origin);
 	const searchParams = new URLSearchParams(parsedUrl.search);
-	
+
 	// GitHub Pages SPA Hash Redirect parsing Hack
 	if (searchParams.has('p')) {
 		const newPath = searchParams.get('p');
@@ -40,20 +40,17 @@ function checkUrl(url) {
 				currLang = 'ko'
 				$('span[data-altLang-en]').addClass('altLangOn');
 				if (paramsObj.student) {
-					let href = window.location.search;
-					href = href.concat('&lang=en');
-					href = paramReg.exec(href)[0]
-					$('a[data-altLang=en]').attr('href', href);
+					parsedUrl.searchParams.set('lang', 'en');
+					$('a[data-altLang=en]').attr('href', parsedUrl.pathname + parsedUrl.search + parsedUrl.hash);
 				} else {
-					$('a[data-altLang=en]').attr('href', '?lang=en');
+					$('a[data-altLang=en]').attr('href', parsedUrl.pathname + '?lang=en' + parsedUrl.hash);
 				}
 				$('a[data-altLang=en] span').addClass('altLangOn');
 				break;
 			case 'en':
 				currLang = 'en'
-				let href = window.location.href;
-				href = href.replace(langPart, '');
-				$('a[data-altLang=ko]').attr('href', href);
+				parsedUrl.searchParams.delete('lang');
+				$('a[data-altLang=ko]').attr('href', parsedUrl.pathname + parsedUrl.search + parsedUrl.hash);
 				$('a[data-altLang=ko] span').addClass('altLangOn');
 				break;
 			default:
@@ -545,6 +542,7 @@ const route = {
 	'1': async () => {
 		await getData('../data/json2_project.json')
 			.then((res) => {
+				$('.grid-container *').each((i, e) => { e.remove(); });
 				tempdata = Methods.sortData(res);
 				renderMain.createDiv(res);
 				renderMain.fillDiv(res);
@@ -553,6 +551,7 @@ const route = {
 	'2': async () => {
 		await getData('../data/json2_project.json')
 			.then((res) => {
+				$('.grid-container *').each((i, e) => { e.remove(); });
 				tempdata = Methods.sortData(res);
 				renderProject.createDiv(res);
 				renderProject.fillDiv(res);
@@ -631,21 +630,19 @@ function gnbRemove() {
 }
 
 function load(url) {
-	$('.grid-container *').each((i, e) => {
-		e.remove();
-	});
-	$('span[data-detect]').empty();
 	gnbRemove();
 	checkUrl(url);
 	router(pageIdx);
 	(() => {
 		console.log(currLang);
 		$('.hrefConcatLang').each(function () {
-			if (currLang === 'en' && !langPart.exec(this.href)) {
-				let parsed = new URL(this.href);
+			let parsed = new URL(this.href);
+			if (currLang === 'en') {
 				parsed.searchParams.set('lang', 'en');
-				this.href = parsed.toString();
+			} else {
+				parsed.searchParams.delete('lang');
 			}
+			this.href = parsed.pathname + parsed.search + parsed.hash;
 		})
 	})()
 	Methods.makeMultilingual(gC);
@@ -723,8 +720,7 @@ $(document).on('click', 'a.spa', function (e) {
 	}
 	console.log(href);
 	history.pushState(href, '', href);
-	url = window.location.href;
-	load(url);
+	load(href);
 	$(this).removeAttr('disabled');
 	return false;
 });
@@ -741,7 +737,9 @@ $(document).on('click', 'a.indexSpa', async function (e) {
 	console.log(href);
 	history.pushState(href, '', href);
 	await getData('../data/json2_project.json')
-		.then((res) => { renderProject.onlyProjectFill(href, res) })
+		.then((res) => {
+			renderProject.onlyProjectFill(href, res)
+		})
 	$(this).removeAttr('disabled')
 	return false;
 });
