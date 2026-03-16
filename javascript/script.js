@@ -9,6 +9,8 @@ let filePath;
 let pageIdx = 1
 
 function checkUrl(url) {
+	const baseDataPath = window.location.pathname.includes('/digdeep_final') ? '/digdeep_final/data/' : '/data/';
+	
 	const parsedUrl = new URL(url, window.location.origin);
 	const searchParams = new URLSearchParams(parsedUrl.search);
 
@@ -487,7 +489,8 @@ function getData(url) {
 
 const route = {
 	'1': async () => {
-		await getData('./data/json1_main.json')
+		const baseDataPath = window.location.pathname.includes('/digdeep_final') ? '/digdeep_final/data/' : '/data/';
+		await getData(baseDataPath + 'json1_main.json')
 			.then((res) => {
 				$('.grid-container *').each((i, e) => { e.remove(); });
 				renderMain.createDiv(res);
@@ -495,7 +498,8 @@ const route = {
 			})
 	},
 	'2': async () => {
-		await getData('./data/json2_project.json')
+		const baseDataPath = window.location.pathname.includes('/digdeep_final') ? '/digdeep_final/data/' : '/data/';
+		await getData(baseDataPath + 'json2_project.json')
 			.then((res) => {
 				$('.grid-container *').each((i, e) => { e.remove(); });
 				renderProject.createDiv(res);
@@ -503,7 +507,8 @@ const route = {
 			})
 	},
 	'3': async () => {
-		await getData('./data/json3_credit.json')
+		const baseDataPath = window.location.pathname.includes('/digdeep_final') ? '/digdeep_final/data/' : '/data/';
+		await getData(baseDataPath + 'json3_credit.json')
 			.then((res) => {
 				$('.grid-container *').each((i, e) => { e.remove(); });
 				renderCredit.createDiv();
@@ -606,7 +611,8 @@ $(document).on('click', 'a.indexSpa', async function (e) {
 	}
 	console.log(href);
 	history.pushState(href, '', href);
-	await getData('./data/json2_project.json')
+	const baseDataPath = window.location.pathname.includes('/digdeep_final') ? '/digdeep_final/data/' : '/data/';
+	await getData(baseDataPath + 'json2_project.json')
 		.then((res) => {
 			renderProject.onlyProjectFill(href, res)
 		})
