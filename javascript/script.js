@@ -56,39 +56,15 @@ function checkUrl(url) {
 	filePath = window.location.pathname;
 	function getFilePath(path) {
 		console.log(path);
-		switch (path) {
-			case "/":
-			case "/digdeep":
-			case "/digdeep/":
-			case "/digdeep/index.html":
-			case "/index.html":
-				pageIdx = 1;
-				console.log(pageIdx)
-				return pageIdx;
-
-			case "/project":
-			case "/digdeep/project":
-			case "/digdeep/project.html":
-			case "/project.html":
-			case "/project":
-			case "/project/":
-				pageIdx = 2;
-				console.log(pageIdx);
-				return pageIdx;
-
-			case '/credit':
-			case "/digdeep/credit":
-			case "/digdeep/credit.html":
-			case "/credit.html":
-			case "/credit":
-			case "/credit/":
-				pageIdx = 3;
-				console.log(pageIdx)
-				return pageIdx;
-			default: //window.location.href = "https://digdeep.works"
-				console.log(pageIdx);
-
+		if (path.includes('project')) {
+			pageIdx = 2;
+		} else if (path.includes('credit')) {
+			pageIdx = 3;
+		} else {
+			pageIdx = 1;
 		}
+		console.log(pageIdx);
+		return pageIdx;
 	}
 
 	getParam();
