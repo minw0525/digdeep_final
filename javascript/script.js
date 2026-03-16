@@ -11,7 +11,7 @@ let pageIdx = 1
 function checkUrl(url) {
 	const baseDataPath = window.location.pathname.includes('/digdeep_final') ? '/digdeep_final/data/' : '/data/';
 	
-	const parsedUrl = new URL(url, window.location.origin);
+	const parsedUrl = new URL(url, window.location.href);
 	const searchParams = new URLSearchParams(parsedUrl.search);
 
 	// GitHub Pages SPA Hash Redirect parsing Hack
